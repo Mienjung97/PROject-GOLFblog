@@ -6,7 +6,7 @@ from .models import Post, Comment
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
     """
-    Creates an admin panel for heroku to create, modify and approve
+    Creates an admin panel for heroku to create, modify and delete
     comments on posts.
     """
 
