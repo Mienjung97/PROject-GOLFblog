@@ -42,14 +42,14 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100 light-bg">
 
     <!-- Navigation (Copied from the "I think therfore I blog" project, will be changed in future to match PROject GOLFacademy) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light light-bg navbar-shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="black-pro big-text">PRO</span><span
-                    class="normal-text black-pro">ject <span class="red-golf big-text">GOLF</span><span
-                        class="red-golf normal-text">blog</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span
+                    class="black-pro big-text navbar-margin">PRO</span><span class="normal-text black-pro">ject <span
+                        class="red-golf big-text">GOLF</span><span class="red-golf normal-text">blog</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,31 +57,31 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page {% endif %}"
-                            href="{% url 'home' %}">Home</a>
+                        <a class="black nav-link {% if request.path == home_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link
-                          {% if request.path == about_url %}active{%endif%}" aria-current="page"
+                        <a class="black nav-link
+                          {% if request.path == about_url %}active" aria-current="page {%endif%}"
                             href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active" aria-current="page {% endif %}"
-                            href="{% url 'account_logout' %}">Logout</a>
+                        <a class="black nav-link {% if request.path == logout_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active" aria-current="page {% endif %}"
-                            href="{% url 'account_signup' %}">Register</a>
+                        <a class="black nav-link {% if request.path == signup_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page {% endif %}"
-                            href="{% url 'account_login' %}">Login</a>
+                        <a class="black nav-link {% if request.path == login_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
+                <span class="black navbar-text text-muted">
                     This is a blog from PROject GOLFacademy
                 </span>
             </div>
@@ -102,13 +102,14 @@
         </div>
     </div>
 
-    <main class="flex-shrink-0 main-bg">
-
-        {% if user.is_authenticated %}
-        <p class="text-end m3">You are logged in as {{ user }}.</p>
-        {% else %}
-        <p class="text-end m3">You are not logged in.</p>
-        {% endif %}
+    <main class="flex-shrink-0 light-bg">
+        <div class="mg-login">
+            {% if user.is_authenticated %}
+            <p class="text-end m3">You are logged in as {{ user }}.</p>
+            {% else %}
+            <p class="text-end m3">You are not logged in.</p>
+            {% endif %}
+        </div>
 
         {% block content %}
         <!-- Content Goes here -->

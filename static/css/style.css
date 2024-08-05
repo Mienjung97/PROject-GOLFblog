@@ -1,7 +1,28 @@
+/* General styles */
 body {
     background-color: #F9FAFC;
 }
 
+/* Navbar */
+.navbar-shadow {
+    box-shadow: 0px 2px 18px 4px rgba(0, 0, 0, 0.44);
+    padding: 25px 0px !important;
+}
+
+.navbar-margin {
+    margin-left: 5vw;
+}
+
+.mg-login {
+    margin-top: 2vh;
+    margin-right: 2vw;
+}
+/* does not work yet */
+.navbar-nav > .active {
+    color: rgba(0, 0, 0, 0.44);
+}
+
+/* Text styles */
 .big-text {
     font-weight: 900;
 }
@@ -20,6 +41,11 @@ body {
     font-style: italic;
 }
 
+.black {
+    color: #000000 !important;
+}
+
+/* Background colors */
 .light-bg {
     background-color: #fff;
 }
@@ -28,6 +54,7 @@ body {
     background-color: #07090a;
 }
 
+/* blog classes */
 .card {
     border: none;
     background-color: transparent;
@@ -83,4 +110,10 @@ body {
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
+}
+
+/* about classes */
+.about-image {
+    margin-bottom: 5vh;
+    max-height: 25vh;
 }
