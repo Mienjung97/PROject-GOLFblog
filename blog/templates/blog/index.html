@@ -8,7 +8,7 @@
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
@@ -32,12 +32,9 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
             </div>
             <div class="row">
-                {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
