@@ -11,6 +11,45 @@ class PostList(generic.ListView):
     template_name = "blog/index.html"
     paginate_by = 20
 
+def create_post(request, slug):
+    """
+    Display an individual post to create.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/create_post.html`
+    """
+
+    post_count = post.posts.count()
+    post_form = PostForm()
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST)
+        if comment_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.post = post
+            post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your post has been submitted.'
+            )
+    
+    return render(
+        request,
+        "blog/create_post.html",
+    {
+        "post": post,
+        "posts" : posts,
+        "post_count": post_count,
+        "post_form": post_form,
+    },
+    )
+
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
