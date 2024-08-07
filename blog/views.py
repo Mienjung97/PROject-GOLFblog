@@ -1,9 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.utils.text import slugify
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -11,7 +14,8 @@ class PostList(generic.ListView):
     template_name = "blog/index.html"
     paginate_by = 20
 
-def create_post(request, slug):
+@login_required
+def create_post(request):
     """
     Display an individual post to create.
 
@@ -25,27 +29,36 @@ def create_post(request, slug):
     :template:`blog/create_post.html`
     """
 
-    post_count = post.posts.count()
-    post_form = PostForm()
     if request.method == "POST":
-        post_form = PostForm(data=request.POST)
-        if comment_form.is_valid():
+        post_form = PostForm(request.POST, request.FILES)
+        print("Files:", request.FILES) 
+        if post_form.is_valid():
+            print("Form is valid. Data:", post_form.cleaned_data)
             post = post_form.save(commit=False)
             post.author = request.user
-            post.post = post
+            print("Assigned author:", post.author)
+            if not post.slug:
+                post.slug = slugify(post.title)
+                print("Generated slug:", post.slug)
             post.save()
+            print('POST: ', post)
+            print("post has been saved")
             messages.add_message(
                 request, messages.SUCCESS,
-                'Your post has been submitted.'
-            )
+                'Your post has been submitted.')
+            return redirect("home")
+            
+
+        else:
+            print("Form errors:", post_form.errors)
+
+    else:
+        post_form = PostForm()
     
     return render(
         request,
         "blog/create_post.html",
     {
-        "post": post,
-        "posts" : posts,
-        "post_count": post_count,
         "post_form": post_form,
     },
     )

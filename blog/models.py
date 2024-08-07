@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -26,6 +28,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'The title of this post is "{self.title}" | written by "{self.author}"'
+    
 
 class Comment(models.Model):
     """

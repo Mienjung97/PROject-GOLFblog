@@ -3,10 +3,17 @@ body {
     background-color: #F9FAFC;
 }
 
+.mg-top {
+    margin-top: 130px;
+}
+
 /* Navbar */
 .navbar-shadow {
     box-shadow: 0px 2px 18px 4px rgba(0, 0, 0, 0.44);
     padding: 45px 0px !important;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
 
 .navbar-mg-l {

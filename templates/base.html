@@ -47,9 +47,9 @@
     <!-- Navigation (Copied from the "I think therfore I blog" project, will be changed in future to match PROject GOLFacademy) -->
     <nav class="navbar navbar-expand-lg navbar-light light-bg navbar-shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span
-                    class="black-pro big-text navbar-mg-l">PRO</span><span class="normal-text black-pro">ject <span
-                        class="red-golf big-text">GOLF</span><span class="red-golf normal-text">blog</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="black-pro big-text navbar-mg-l">PRO</span><span
+                    class="normal-text black-pro">ject <span class="red-golf big-text">GOLF</span><span
+                        class="red-golf normal-text">blog</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -67,13 +67,15 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="black nav-link {% if request.path == logout_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="black nav-link {% if request.path == create_post_url %}active"
-                        aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
+                            aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
                     </li>
+                    <ul class="black navbar-nav text-muted navbar-mg-l">
+                        <li class="nav-item">
+                            <a class="black nav-link {% if request.path == logout_url %}active"
+                                aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                    </ul>
                     {% else %}
                     <li class="nav-item">
                         <a class="black nav-link {% if request.path == signup_url %}active"
@@ -86,13 +88,14 @@
                     {% endif %}
                 </ul>
                 <span class="black navbar-text text-muted navbar-mg-r">
-                    This is a blog from PROject GOLFacademy
+                    This is a blog from <a href="https://projectgolfacademy.com/" target="_blank">PROject
+                        GOLFacademy</a>
                 </span>
             </div>
         </div>
     </nav>
     <!-- displaying Django messages -->
-    <div class="container">
+    <div class="container mg-top">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
