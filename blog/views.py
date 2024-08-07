@@ -40,6 +40,10 @@ def create_post(request):
             if not post.slug:
                 post.slug = slugify(post.title)
                 print("Generated slug:", post.slug)
+            if 'featured_image' in post_form.cleaned_data and post_form.cleaned_data['featured_image']:
+                post.featured_image = post.featured_image = post_form.cleaned_data['featured_image']
+            else:
+                post.featured_image = None
             post.save()
             print('POST: ', post)
             print("post has been saved")

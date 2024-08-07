@@ -6,7 +6,7 @@
     <div class="card-body">
         <h1>Create a Post:</h1>
         <p>Posting as: {{ user.username }}</p>
-        <form id="postForm" method="post" style="margin-top: 1.3em;">
+        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
             {{ post_form | crispy }}
             {% csrf_token %}
             <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}" class="btn btn-lg">Submit post</button>
