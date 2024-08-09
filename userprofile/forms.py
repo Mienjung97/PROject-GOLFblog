@@ -8,12 +8,12 @@ class Handicap(forms.CharField):
     def clean(self, value):
         value = super().clean(value)
         float_value = float(value)
-        if -4.4 >= float_value and float_value <= 54.0:
+        if -4.4 <= float_value and float_value <= 54.0:
             return str(float_value)
         elif value.lower() in ("pro", "profi", "professional"):
             return str("Pro")
         else:
-            return
+            return ValueError
 
 class ProfileForm(forms.ModelForm):
     """

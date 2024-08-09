@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-12 col-4 text-center">
+            <img class="img-fluid" src=" {{ userprofile.profile_picture.url }}" alt="{{ userprofile.title }}" />
+        </div> -->
+        <h1 class="text-center">User Profile from {{ user }}</h1>
+    </div>
+    <div class="text-center">
+        <div>
+            <!-- If there is a profile picture, it will be displayed here -->
+             {% if user.profile.profile_picture %}
+             <img src="{{ user.profile.profile_picture.url }}"
+             alt="{{ user.username}}"/>
+             {%endif%}
+             <p>
+                {{ user.profile.first_name | default:"No name provided" }}
+                {{ user.profile.last_name | default:"No name provided" }}
+             </p>
+             <p>
+                {{ user.profile.handicap | default:"No handicap provided" }}
+             </p>
+             <p>
+                {{ user.profile.golfcourse | default:"No golf course provided" }}
+             </p>
+             <p>
+                {{ user.profile.user_bio | default:"No bio provided" }}
+             </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <button class="btn">
+                <a href="{% url 'profile_edit' %}">Edit Profile</a>
+            </button>
+            <button>
+                <a href="{% url 'username_edit' %}">Edit user information</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
