@@ -55,14 +55,3 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ("profile_picture", "first_name", "last_name", "handicap", "golfcourse", "user_bio")# 
-
-class UserDetailForm(forms.ModelForm):
-    """
-    A form for the user to edit username and email.
-    """
-    username = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username"}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder": "Email"}))
-
-    class Meta:
-        model = User
-        fields = ("username", "email")

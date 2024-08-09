@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
-from .forms import ProfileForm, UserDetailForm
+from .forms import ProfileForm
 
 # Create your views here.
 
@@ -71,42 +71,5 @@ def user_profile_edit(request):
         "userprofile/userprofile_edit.html",
     {
         "profile_form": profile_form
-    },
-    )
-
-@login_required
-def user_detail_edit(request):
-    """
-    Displays the edit page for a logged in user to change email or username.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`userprofile.Profile`.
-
-    **Template:**
-
-    :template:`userprofile/userdetails.html`
-    """
-
-    if request.method == "POST":
-        user_detail_form = UserDetailForm(request.POST, instance=request.user)
-        if user_detail_form.is_valid():
-            user_detail_form = user_detail_form.save(commit=False)
-        user_detail_form.save()
-        messages.add_message(
-                    request, messages.SUCCESS,
-                    'Your profile has been updated.')
-        return redirect("profile", username=request.user.username)
-        
-
-    else:
-        user_detail_form = UserDetailForm(instance=request.user)
-    
-    return render(
-        request,
-        "userprofile/userdetails.html",
-    {
-        "user_detail_form": user_detail_form
     },
     )

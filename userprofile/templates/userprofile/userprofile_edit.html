@@ -6,6 +6,12 @@
 <div class="container">
     <div class="row">
         <h1>User Profile from {{ user }}</h1>
+        <div class="text-center">
+            <a class="black nav-link {% if request.path == email_url %}active" aria-current="page {% endif %}"
+                href="{% url 'account_email' %}">Change Email</a>
+            <a class="black nav-link {% if request.path == change_password_url %}active" aria-current="page {% endif %}"
+                href="{% url 'account_change_password' %}">Change Password</a>
+        </div>
         <form id="profileEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
             {% csrf_token %}
             {{ profile_form | crispy }}
