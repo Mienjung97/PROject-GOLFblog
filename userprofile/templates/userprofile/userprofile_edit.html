@@ -6,11 +6,14 @@
 <div class="container">
     <div class="row">
         <h1>User Profile from {{ user }}</h1>
-        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+        <form id="profileEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
             {% csrf_token %}
             {{ profile_form | crispy }}
             <button type="submit">Save</button>
         </form>
+        <div>
+            <a href="{% url 'profile' request.user.username %}">Back to Profile</a>
+        </div>
     </div>
 </div>
 

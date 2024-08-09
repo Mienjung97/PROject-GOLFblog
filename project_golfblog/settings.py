@@ -141,6 +141,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_UNIQUE_EMAIL = True
+# Need later for PW reset: ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 
 # Internationalization

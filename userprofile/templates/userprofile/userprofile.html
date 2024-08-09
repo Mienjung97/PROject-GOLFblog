@@ -10,26 +10,45 @@
         </div> -->
         <h1 class="text-center">User Profile from {{ user }}</h1>
     </div>
-    <div class="text-center">
-        <div>
-            <!-- If there is a profile picture, it will be displayed here -->
-             {% if user.profile.profile_picture %}
-             <img src="{{ user.profile.profile_picture.url }}"
-             alt="{{ user.username}}"/>
-             {%endif%}
-             <p>
-                {{ user.profile.first_name | default:"No name provided" }}
-                {{ user.profile.last_name | default:"No name provided" }}
-             </p>
-             <p>
-                {{ user.profile.handicap | default:"No handicap provided" }}
-             </p>
-             <p>
-                {{ user.profile.golfcourse | default:"No golf course provided" }}
-             </p>
-             <p>
-                {{ user.profile.user_bio | default:"No bio provided" }}
-             </p>
+
+    <div class="row">
+        <div class="text-center">
+            <div>
+                <!-- If there is a profile picture, it will be displayed here -->
+                {% if user.profile.profile_picture %}
+                <img class="image-fluid" src="{{ user.profile.profile_picture.url }}" alt="{{ user.username}}" />
+                {%endif%}
+            </div>
+            <div class="text-center">
+                <p>
+                    First name:
+                    {{ user.profile.first_name | default:"No name provided" }}
+                </p>
+                <p>
+                    Last name:
+                    {{ user.profile.last_name | default:"No name provided" }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Handicap:
+                    {{ user.profile.handicap | default:"No handicap provided" }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Local golf course:
+                    {{ user.profile.golfcourse | default:"No golf course provided" }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    {{ user }}'s bio:
+                </p>
+                <p>
+                    {{ user.profile.user_bio | default:"No bio provided" }}
+                </p>
+            </div>
         </div>
     </div>
 
@@ -38,14 +57,11 @@
             <button class="btn">
                 <a href="{% url 'profile_edit' %}">Edit Profile</a>
             </button>
-            <button>
+            <button class="btn">
                 <a href="{% url 'username_edit' %}">Edit user information</a>
             </button>
         </div>
     </div>
 </div>
-
-
-
 
 {% endblock %}

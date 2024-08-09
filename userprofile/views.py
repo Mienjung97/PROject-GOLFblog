@@ -57,8 +57,6 @@ def user_profile_edit(request):
         instance=profile)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
-            
-        
         profile.save()
         messages.add_message(
                     request, messages.SUCCESS,
@@ -88,23 +86,26 @@ def user_detail_edit(request):
 
     **Template:**
 
-    :template:`userprofile/userdetails_edit.html`
+    :template:`userprofile/userdetails.html`
     """
-    profile, created = Profile.objects.get_or_create(user=request.user)
 
     if request.method == "POST":
-        user_detail_form = UserDetailForm(request.POST, request.FILES)
+        user_detail_form = UserDetailForm(request.POST, instance=request.user)
         if user_detail_form.is_valid():
-            profile.save()
-        else:
-                print("Form errors:", user_detail_form.errors)
+            user_detail_form = user_detail_form.save(commit=False)
+        user_detail_form.save()
+        messages.add_message(
+                    request, messages.SUCCESS,
+                    'Your profile has been updated.')
+        return redirect("profile", username=request.user.username)
+        
 
     else:
-        user_detail_form = UserDetailForm()
+        user_detail_form = UserDetailForm(instance=request.user)
     
     return render(
         request,
-        "userprofile/userdetails_edit.html",
+        "userprofile/userdetails.html",
     {
         "user_detail_form": user_detail_form
     },

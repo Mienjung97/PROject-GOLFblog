@@ -61,7 +61,7 @@ class UserDetailForm(forms.ModelForm):
     A form for the user to edit username and email.
     """
     username = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username"}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={"placeholder": "Email"}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder": "Email"}))
 
     class Meta:
         model = User
