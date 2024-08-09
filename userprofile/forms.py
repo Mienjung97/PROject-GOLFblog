@@ -7,13 +7,19 @@ from .models import Profile
 class Handicap(forms.CharField):
     def clean(self, value):
         value = super().clean(value)
-        float_value = float(value)
-        if -4.4 <= float_value and float_value <= 54.0:
-            return str(float_value)
-        elif value.lower() in ("pro", "profi", "professional"):
-            return str("Pro")
-        else:
-            return ValueError
+
+        if value == "":
+            return value
+
+        try:
+            float_value = float(value)
+            if -4.4 <= float_value and float_value <= 54.0:
+                return str(float_value)
+        except ValueError:
+            if value.lower() in ("pro", "profi", "professional"):
+                return str("Pro")
+        raise forms.ValidationError("Invalid handicap value")
+
 
 class ProfileForm(forms.ModelForm):
     """
@@ -54,4 +60,4 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ("profile_picture", "first_name", "last_name", "handicap", "golfcourse", "user_bio")# 
+        fields = ("profile_picture", "first_name", "last_name", "handicap", "golfcourse", "user_bio")
