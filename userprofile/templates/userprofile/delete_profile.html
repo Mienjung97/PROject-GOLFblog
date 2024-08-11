@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="text-center">
+        <div>
+            <h1>Are you sure you want to delete your Account forever?</h1>
+        </div>
+        <div>
+            <h3> {{ request.user.username }}</h3>
+        </div>
+        <div>
+            <form action="{% url 'account_delete' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    Delete my account
+                </button>
+                <a href="{% url 'profile' request.user.username %}" class="btn btn-secondary">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

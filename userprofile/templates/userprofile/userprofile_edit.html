@@ -17,6 +17,12 @@
             {{ profile_form | crispy }}
             <button type="submit">Save</button>
         </form>
+        <form action="{% url 'account_delete' %}" method="get">
+            {% csrf_token %}
+            <button type="submit">
+                Delete my account
+            </button>
+        </form>
         <div>
             <a href="{% url 'profile' request.user.username %}">Back to Profile</a>
         </div>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
+from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -73,3 +74,28 @@ def user_profile_edit(request):
         "profile_form": profile_form
     },
     )
+
+@login_required
+def account_delete(request):
+    """
+    A view that allows the user to delete their profile permanently.
+    """
+    user = request.user
+
+    if request.method == "POST":
+        if user == request.user:
+            user.delete()
+            messages.success(
+                request, "Your account has been deleted successfully."
+            )
+            return redirect("home")
+        elif user != request.user:
+                messages.add_message(
+                    request, messages.ERROR,
+                    'You cannot delete other peoples profiles!'
+                )
+                return redirect(reverse("home"))
+    return render(request, "userprofile/delete_profile.html")
+
+        
+        
