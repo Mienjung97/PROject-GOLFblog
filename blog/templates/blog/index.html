@@ -19,7 +19,8 @@
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="author-plate">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Post from: <a class="author-link {% if request.path == profile_url %}"
+                                        aria-current="page {% endif %}" href="{% url 'profile' post.author.username %}"> {{ post.author }}</a></p>
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">

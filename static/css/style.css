@@ -10,7 +10,7 @@ body {
 /* Navbar */
 .navbar-shadow {
     box-shadow: 0px 2px 18px 4px rgba(0, 0, 0, 0.44);
-    padding: 45px 0px !important;
+    padding: 35px 0px !important;
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -21,13 +21,18 @@ body {
 }
 
 .navbar-mg-r {
-    margin-right: 3vw;
+    margin-right: 5vw;
 }
 
-.mg-login {
+.mg-web {
     margin-top: 2vh;
     margin-right: 2vw;
 }
+
+.mg-r-auto {
+    margin-right: auto !important;
+}
+
 /* does not work yet */
 .navbar-nav > .active {
     color: rgba(0, 0, 0, 0.44);
@@ -75,6 +80,12 @@ body {
     color: #fff;
     margin: 5px;
     text-transform: uppercase;
+}
+
+.author-link {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
 .image-container {
@@ -127,4 +138,14 @@ body {
 .about-image {
     margin-bottom: 5vh;
     max-height: 25vh;
+}
+
+/* Media query: large devices (992px and more) */
+@media screen and (min-width: 992px) {
+    /* header */
+    
+.navbar-between {
+    margin-left: 2vw;
+}
+
 }

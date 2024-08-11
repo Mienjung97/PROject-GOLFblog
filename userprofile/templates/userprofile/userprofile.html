@@ -5,9 +5,6 @@
 
 <div class="container">
     <div class="row">
-        <!-- <div class="col-12 col-4 text-center">
-            <img class="img-fluid" src=" {{ userprofile.profile_picture.url }}" alt="{{ userprofile.title }}" />
-        </div> -->
         <h1 class="text-center">User Profile from {{ user }}</h1>
     </div>
 
@@ -52,6 +49,7 @@
         </div>
     </div>
 
+    {% if user.is_authenticated and request.user == user %}
     <div class="row">
         <div>
             <button class="btn">
@@ -59,6 +57,7 @@
             </button>
         </div>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}

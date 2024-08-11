@@ -57,9 +57,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mg-r-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="black nav-link {% if request.path == home_url %}active"
+                        <a class="black navbar-between nav-link {% if request.path == home_url %}active"
                             aria-current="page {% endif %}" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
@@ -67,21 +67,30 @@
                           {% if request.path == about_url %}active" aria-current="page {%endif%}"
                             href="{% url 'about' %}">About</a>
                     </li>
+
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="black nav-link {% if request.path == create_post_url %}active"
                             aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
                     </li>
-                    <li class="nav-item">
+                </ul>
+                <!-- <li class="nav-item">
                         <a class="black nav-link {% if request.path == profile_url %}active"
                             aria-current="page {% endif %}" href="{% url 'profile' user.username %}">View Profile</a>
+                    </li> -->
+                <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        {% if user.is_authenticated and request.user == user %}
+                        <!-- if I leave "and request.user == user" in the code, it will not show the profile/logout link in the navbar. If I take it out, as soon as I enter someone elses profile, it changes the name in the navbar to the username of the page i am visiting. -->
+                        <a class="black nav-link {% if request.path == profile_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'profile' user.username %}">{{ user }}</a>
                     </li>
-                    <ul class="black navbar-nav text-muted navbar-mg-l">
-                        <li class="nav-item">
-                            <a class="black nav-link {% if request.path == logout_url %}active"
-                                aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                    </ul>
+                    <li class="nav-item navbar-between">
+                        <a class="black nav-link {% if request.path == logout_url %}active"
+                            aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
+
                     {% else %}
                     <li class="nav-item">
                         <a class="black nav-link {% if request.path == signup_url %}active"
@@ -93,10 +102,14 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="black navbar-text text-muted navbar-mg-r">
-                    This is a blog from <a href="https://projectgolfacademy.com/" target="_blank">PROject
-                        GOLFacademy</a>
-                </span>
+                <!-- <span class="black navbar-text text-muted navbar-mg-r">
+                    {% if user.is_authenticated and request.user == user %}
+                    <a class="black nav-link {% if request.path == profile_url %}active" aria-current="page {% endif %}"
+                        href="{% url 'profile' user.username %}">{{ user }}</a>
+                    {% else %}
+                    <p class="text-end m3">You are not logged in.</p>
+                    {% endif %}
+                </span> -->
             </div>
         </div>
     </nav>
@@ -116,13 +129,15 @@
     </div>
 
     <main class="flex-shrink-0 light-bg">
-        <div class="mg-login">
-            {% if user.is_authenticated %}
+        <div class="mg-web">
+            <p class="text-end m3">This is a blog from <a href="https://projectgolfacademy.com/" target="_blank">PROject
+                    GOLFacademy</a></p>
+        </div>
+        <!-- {% if user.is_authenticated and request.user == user %}
             <p class="text-end m3">You are logged in as {{ user }}.</p>
             {% else %}
             <p class="text-end m3">You are not logged in.</p>
-            {% endif %}
-        </div>
+            {% endif %} -->
 
         {% block content %}
         <!-- Content Goes here -->
