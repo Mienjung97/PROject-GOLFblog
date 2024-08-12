@@ -140,6 +140,11 @@ body {
     max-height: 25vh;
 }
 
+/* profile page */
+.mg-btm {
+    margin-bottom: 5vh;
+}
+
 /* Media query: large devices (992px and more) */
 @media screen and (min-width: 992px) {
     /* header */

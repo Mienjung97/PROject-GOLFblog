@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from blog.models import Post, Comment
 from .models import Profile
 from .forms import ProfileForm
 
@@ -97,5 +98,11 @@ def account_delete(request):
                 return redirect(reverse("home"))
     return render(request, "userprofile/delete_profile.html")
 
-        
-        
+# class UserPostList(generic.ListView):
+#     queryset = Post.objects.filter(author = Post.author)
+#     template_name = "userprofile/user_posts.html"
+#     paginate_by = 5
+
+# @login_required
+# def view_user_postlist(request):
+
