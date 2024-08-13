@@ -7,6 +7,14 @@ body {
     margin-top: 130px;
 }
 
+.mg-btm {
+    margin-bottom: 5vh;
+}
+
+.mg-r {
+    margin-right: 3vw;
+}
+
 
 /* Navbar */
 .navbar-shadow {
@@ -36,7 +44,7 @@ body {
 
 /* does not work yet */
 .navbar-nav > .active {
-    color: rgba(0, 0, 0, 0.44);
+    color: white(0, 0, 0, 0.44);
 }
 
 /* Text styles */
@@ -100,6 +108,7 @@ body {
     left: -2px;
     background-color: #6d180f;
 }
+/* Links */
 
 .post-link {
     text-decoration: none;
@@ -109,6 +118,11 @@ body {
 .media-link {
     text-decoration: none;
     color: #6d180f;
+}
+
+.pro-link {
+    text-decoration: underline;
+    color: #07090a;
 }
 
 .scale {
@@ -142,9 +156,7 @@ body {
 }
 
 /* profile page */
-.mg-btm {
-    margin-bottom: 5vh;
-}
+
 
 /* Media query: large devices (992px and more) */
 @media screen and (min-width: 992px) {

@@ -7,28 +7,38 @@
     <div class="row">
         <h1 class="text-center mg-btm">User Profile from {{ user }}</h1>
     </div>
-
-    <div class="row text-center">
+    {% if user.is_authenticated and request.user == user %}
+    <div class="row text-center mg-btm">
         <div class="col">
-            <div class="mg-btm">
+            <button>
+                <a href="{% url 'profile_posts' %}" class="post-link">View Posts</a>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col mg-btm">
+            <div class="mg-btm text-center">
                 <!-- If there is a profile picture, it will be displayed here -->
                 {% if user.profile.profile_picture %}
                 <img class="image-fluid" src="{{ user.profile.profile_picture.url }}" alt="{{ user.username}}" />
                 {%endif%}
             </div>
-            <div class="text-center mg-btm">
+        </div>
+        <div class="col mg-btm">
+            <div>
                 <p>
                     First name:
                     {{ user.profile.first_name | default:"No name provided" }}
                 </p>
+            </div>
+                <div>
                 <p>
                     Last name:
                     {{ user.profile.last_name | default:"No name provided" }}
                 </p>
             </div>
-        </div>
-        <div class="col">
-            <div class="text-center">
+            <div>
                 <p>
                     Handicap:
                     {{ user.profile.handicap | default:"No handicap provided" }}
@@ -49,16 +59,12 @@
                 </p>
             </div>
         </div>
-        <div class="col">
-            <button class="btn">
-                <a href="{% url 'profile_posts' %}">View Posts</a>
-            </button>
-        </div>
         {% if user.is_authenticated and request.user == user %}
-        <div class="row">
-            <div>
-                <button class="btn">
-                    <a href="{% url 'profile_edit' %}">Edit Profile</a>
+        <div class="row text-center">
+            
+            <div class="col">
+                <button>
+                    <a href="{% url 'profile_edit' %}" class="post-link">Edit Profile</a>
                 </button>
             </div>
         </div>
