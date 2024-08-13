@@ -49,6 +49,11 @@
                 </p>
             </div>
         </div>
+        <div class="col">
+            <button class="btn">
+                <a href="{% url 'profile_posts' %}">View Posts</a>
+            </button>
+        </div>
         {% if user.is_authenticated and request.user == user %}
         <div class="row">
             <div>

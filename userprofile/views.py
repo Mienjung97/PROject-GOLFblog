@@ -96,13 +96,17 @@ def account_delete(request):
                     'You cannot delete other peoples profiles!'
                 )
                 return redirect(reverse("home"))
-    return render(request, "userprofile/delete_profile.html")
+    return render(
+        request, 
+        "userprofile/delete_profile.html")
 
 # class UserPostList(generic.ListView):
-#     queryset = Post.objects.filter(author = Post.author)
+#     queryset = Post.objects.filter()
 #     template_name = "userprofile/user_posts.html"
 #     paginate_by = 5
 
-# @login_required
-# def view_user_postlist(request):
+@login_required
+def view_user_postlist(request):
+        posts = Post.objects.filter(author=request.user)
+        return render(request, "userprofile/user_posts.html", {"posts": posts})
 
