@@ -35,6 +35,14 @@
             </div>
         </div>
     </div>
+    {% if user.is_authenticated and request.user == post.author  %}
+    <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
+        {% csrf_token %}
+        <button type="submit">
+            Delete this post
+        </button>
+    </form>
+    {% endif %}
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">

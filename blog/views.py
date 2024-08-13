@@ -109,6 +109,34 @@ def post_detail(request, slug):
     },
     )
 
+@login_required
+def delete_post(request, slug):
+    """
+    A view that allows the user to delete a post permanently.
+    """
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == "POST":
+        if request.user == post.author:
+            post.delete()
+            messages.success(
+                request, "Your account has been deleted successfully."
+            )
+            return redirect("home")
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'You cannot delete other peoples posts!'
+            )
+            return redirect(reverse("home"))
+
+    return render(
+        request, 
+        "blog/delete_post.html",
+        {
+            'post':post
+        })
+
 def comment_edit(request, slug, comment_id):
     """
     Display an individual comment for edit.
