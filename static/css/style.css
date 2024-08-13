@@ -7,6 +7,7 @@ body {
     margin-top: 130px;
 }
 
+
 /* Navbar */
 .navbar-shadow {
     box-shadow: 0px 2px 18px 4px rgba(0, 0, 0, 0.44);
@@ -127,10 +128,10 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    /* background: #445261;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    transform: skew(15deg); */
     z-index: 100;
 }
 

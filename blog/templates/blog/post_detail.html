@@ -12,7 +12,8 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle"><a class="black {% if request.path == profile_url %}"
-                    aria-current="page {% endif %}" href="{% url 'profile' post.author.username %}"> {{ post.author }}</a> | {{ post.created_on }}</p>
+                        aria-current="page {% endif %}" href="{% url 'profile' post.author.username %}">
+                        {{ post.author }}</a> | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if not "placeholder" in post.featured_image.url %}
@@ -36,12 +37,21 @@
         </div>
     </div>
     {% if user.is_authenticated and request.user == post.author  %}
-    <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
-        {% csrf_token %}
-        <button type="submit">
-            Delete this post
-        </button>
-    </form>
+    <div class="row mg-btm">
+        <div class="col">
+            <button>
+                <a href="{% url 'edit_post' post.slug %}" class="post-link">Edit post</a>
+            </button>
+        </div>
+        <div class="col">
+            <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
+                {% csrf_token %}
+                <button type="submit">
+                    Delete this post
+                </button>
+            </form>
+        </div>
+    </div>
     {% endif %}
     <!-- Displaying count of comments -->
     <div class="row">
@@ -64,8 +74,8 @@
                 {% for comment in comments %}
                 <div class="p-2 comments">
                     <p class="font-weight-bold">
-                        <a class="black {% if request.path == profile_url %}"
-                    aria-current="page {% endif %}" href="{% url 'profile' comment.author.username %}"> {{ comment.author }}</a>
+                        <a class="black {% if request.path == profile_url %}" aria-current="page {% endif %}"
+                            href="{% url 'profile' comment.author.username %}"> {{ comment.author }}</a>
                         <span class="font-weight-normal">
                             {{ comment.created_on }}
                         </span> wrote:
@@ -102,28 +112,24 @@
 </div>
 
 <!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your comment?
-        This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn
           btn-danger">Delete</a>
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h1>Edit the post "{{ post.title }}"</h1>
+        <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+            {% csrf_token %}
+            {{ post_form | crispy }}
+            <button type="submit">Save</button>
+        </form>
+        <div>
+            <button>
+                <a href="{% url 'post_detail' post.slug %}" class="post-link">Back to post</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

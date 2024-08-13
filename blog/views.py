@@ -137,6 +137,49 @@ def delete_post(request, slug):
             'post':post
         })
 
+@login_required
+def edit_post(request, slug):
+    """
+    Display an individual post to edit.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``post_form``
+        An instance of :form:`blog.PostForm`.
+
+    **Template:**
+
+    :template:`blog/edit_post.html`
+    """
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES, instance=post)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            if not post.slug:
+                post.slug = slugify(post.title)
+            post.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your post has been updated.'
+            )
+            return redirect('post_detail', slug=post.slug)
+    else:
+        post_form = PostForm(instance=post)
+    
+    return render(
+        request,
+        "blog/edit_post.html",
+        {
+            'post_form': post_form,
+            'post': post
+        }
+    )
+
+
 def comment_edit(request, slug, comment_id):
     """
     Display an individual comment for edit.

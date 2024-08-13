@@ -17,14 +17,20 @@
             {{ profile_form | crispy }}
             <button type="submit">Save</button>
         </form>
-        <form action="{% url 'account_delete' %}" method="get" class="text-end">
-            {% csrf_token %}
-            <button type="submit">
-                Delete my account
+    </div>
+    <div class="row mg-btm">
+        <div class="col">
+            <form action="{% url 'account_delete' %}" method="get" class="text-end">
+                {% csrf_token %}
+                <button type="submit">
+                    Delete my account
+                </button>
+            </form>
+        </div>
+        <div class="col">
+            <button>
+                <a href="{% url 'profile' request.user.username %}" class="post-link">Back to Profile</a>
             </button>
-        </form>
-        <div>
-            <a href="{% url 'profile' request.user.username %}">Back to Profile</a>
         </div>
     </div>
 </div>

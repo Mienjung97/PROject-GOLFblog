@@ -10,15 +10,17 @@
         <div>
             <h3> {{ post.title }}</h3>
         </div>
-        <div>
+        <div class="row">
             <form action="{% url 'delete_post' post.slug %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">
                     Delete this post
                 </button>
-                <a href="{% url 'home' %}" class="btn btn-secondary">
-                    Cancel
-                </a>
+                <button>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-secondary post-link">
+                        Cancel
+                    </a>
+                </button>
             </form>
         </div>
     </div>
