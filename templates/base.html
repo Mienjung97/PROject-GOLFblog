@@ -72,7 +72,6 @@
                         <a class="black nav-link {% if request.path == create_post_url %}active"
                             aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
                     </li>
-                    
                     {% endif %}
                 </ul>               
                 {% if user.is_authenticated %}

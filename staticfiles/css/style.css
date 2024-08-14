@@ -3,23 +3,48 @@ body {
     background-color: #F9FAFC;
 }
 
+.mg-top {
+    margin-top: 130px;
+}
+
+.mg-btm {
+    margin-bottom: 5vh;
+}
+
+.mg-r {
+    margin-right: 3vw;
+}
+
+
 /* Navbar */
 .navbar-shadow {
     box-shadow: 0px 2px 18px 4px rgba(0, 0, 0, 0.44);
-    padding: 25px 0px !important;
+    padding: 35px 0px !important;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
 
-.navbar-margin {
+.navbar-mg-l {
     margin-left: 5vw;
 }
 
-.mg-login {
+.navbar-mg-r {
+    margin-right: 5vw;
+}
+
+.mg-web {
     margin-top: 2vh;
     margin-right: 2vw;
 }
+
+.mg-r-auto {
+    margin-right: auto !important;
+}
+
 /* does not work yet */
 .navbar-nav > .active {
-    color: rgba(0, 0, 0, 0.44);
+    color: white(0, 0, 0, 0.44);
 }
 
 /* Text styles */
@@ -66,6 +91,12 @@ body {
     text-transform: uppercase;
 }
 
+.author-link {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 .image-container {
     position: relative;
 }
@@ -77,6 +108,7 @@ body {
     left: -2px;
     background-color: #6d180f;
 }
+/* Links */
 
 .post-link {
     text-decoration: none;
@@ -86,6 +118,11 @@ body {
 .media-link {
     text-decoration: none;
     color: #6d180f;
+}
+
+.pro-link {
+    text-decoration: underline;
+    color: #07090a;
 }
 
 .scale {
@@ -105,10 +142,10 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    /* background: #445261;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    transform: skew(15deg); */
     z-index: 100;
 }
 
@@ -116,4 +153,17 @@ body {
 .about-image {
     margin-bottom: 5vh;
     max-height: 25vh;
+}
+
+/* profile page */
+
+
+/* Media query: large devices (992px and more) */
+@media screen and (min-width: 992px) {
+    /* header */
+    
+.navbar-between {
+    margin-left: 2vw;
+}
+
 }
