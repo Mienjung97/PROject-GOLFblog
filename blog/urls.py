@@ -1,8 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.PostList.as_view(), name='home'),
+    path('', views.startup_page, name='start'),
+    path('home/', views.PostList.as_view(), name='home'),
+    path('about/', include('about.urls'), name='about'),
     path('create/', views.create_post, name='create_post'),
     path('post/<slug:slug>/', views.post_detail, name='post_detail'),
     path('post/<slug:slug>/delete', views.delete_post, name='delete_post'),

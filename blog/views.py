@@ -9,6 +9,12 @@ from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
 # Create your views here.
+def startup_page(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return redirect('about')
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
