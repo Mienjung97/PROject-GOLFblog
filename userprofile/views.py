@@ -107,6 +107,10 @@ def account_delete(request):
 
 @login_required
 def view_user_postlist(request):
-        posts = Post.objects.filter(author=request.user)
-        return render(request, "userprofile/user_posts.html", {"posts": posts})
+    posts = Post.objects.filter(author=request.user, status=1)
+    return render(request, "userprofile/user_posts.html", {"posts": posts})
 
+@login_required
+def show_drafts(request):
+    posts = posts = Post.objects.filter(status=0)
+    return render(request, "userprofile/user_posts.html", {"posts": posts})
