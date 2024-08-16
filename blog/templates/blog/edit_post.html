@@ -12,9 +12,15 @@
             <button type="submit">Save</button>
         </form>
         <div>
+            {% if post.status == 1 %}
             <button>
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">Back to post</a>
             </button>
+            {% else %}
+            <button>
+                <a href="{% url 'posts_drafts' %}" class="post-link">Back to draft list</a>
+            </button>
+            {% endif %}
         </div>
     </div>
 </div>

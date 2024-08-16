@@ -5,13 +5,16 @@
 
 <!-- index.html content starts here -->
 <div class="container mg-btm">
-    <!-- Blog Entries Column -->
     <div class="row text-center mg-btm">
         <h1 class="mg-btm">
-            This are your published posts:
+            This are your posts that you have saved as a draft.
         </h1>
+        <h3 class="mg-btm">
+            You can modify and publish them here.
+        </h3>
         <hr>
     </div>
+    <!-- Blog Entries Column -->
     <div class="row">
         <div class="col">
         </div>
@@ -22,7 +25,7 @@
                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                 {% endif %}
             </div>
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+            <a href="{% url 'edit_post' post.slug %}" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
             </a>
             <p class="card-text">{{ post.excerpt }}</p>

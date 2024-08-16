@@ -113,4 +113,4 @@ def view_user_postlist(request):
 @login_required
 def show_drafts(request):
     posts = posts = Post.objects.filter(status=0)
-    return render(request, "userprofile/user_posts.html", {"posts": posts})
+    return render(request, "userprofile/user_post_drafts.html", {"posts": posts})
