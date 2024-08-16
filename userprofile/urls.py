@@ -7,5 +7,3 @@ urlpatterns = [
     path('edit/', views.user_profile_edit, name='profile_edit'),
     path('account_delete/', views.account_delete, name='account_delete'),
 ]
-
-#
