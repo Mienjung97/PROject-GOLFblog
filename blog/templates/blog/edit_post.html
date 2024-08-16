@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <h1>Edit the post "{{ post.title }}"</h1>
-        <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+        <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;" class="mg-btm">
             {% csrf_token %}
             {{ post_form | crispy }}
             <button type="submit">Save</button>
@@ -17,9 +17,21 @@
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">Back to post</a>
             </button>
             {% else %}
-            <button>
-                <a href="{% url 'posts_drafts' %}" class="post-link">Back to draft list</a>
-            </button>
+            <div class="row mg-btm">
+                <div class="col">
+                    <button>
+                        <a href="{% url 'posts_drafts' %}" class="post-link">Back to draft list</a>
+                    </button>
+                </div>
+                <div class="col">
+                    <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
+                        {% csrf_token %}
+                        <button type="submit">
+                            Delete this post
+                        </button>
+                    </form>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>

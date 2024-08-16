@@ -184,7 +184,10 @@ def edit_post(request, slug):
                 request, messages.SUCCESS,
                 'Your post has been updated.'
             )
-            return redirect('post_detail', slug=post.slug)
+            if post.status == 1:
+                return redirect('post_detail', slug=post.slug)
+            else:
+                return redirect('posts_drafts')
     else:
         post_form = PostForm(instance=post)
     
