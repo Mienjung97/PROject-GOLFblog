@@ -268,7 +268,8 @@ def search_result(request):
             Q(title__icontains=searched) |
             Q(author__username__icontains=searched) |
             Q(content__icontains=searched) |
-            Q(excerpt__icontains=searched)
+            Q(excerpt__icontains=searched),
+            status=1
         )
 
         comment_results = Comment.objects.filter(
