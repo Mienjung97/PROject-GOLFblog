@@ -5,9 +5,11 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.db.models import Q
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
+
 
 # Create your views here.
 
@@ -273,6 +275,11 @@ def search_result(request):
             Q(author__username__icontains=searched) |
             Q(body__icontains=searched)
         )
+
+        user_results = User.objects.filter(
+            Q(username__icontains=searched)
+        )
+
     else:
         return redirect('home')
 
@@ -283,6 +290,7 @@ def search_result(request):
             'searched': searched,
             'post_results': post_results,
             'comment_results': comment_results,
+            'user_results': user_results,
         }
     )
     

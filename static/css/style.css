@@ -3,8 +3,12 @@ body {
     background-color: #F9FAFC;
 }
 
-.mg-top {
+.mg-top-header {
     margin-top: 145px;
+}
+
+.mg-top {
+    margin-top: 5vh;
 }
 
 .mg-btm {
