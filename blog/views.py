@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
@@ -254,3 +255,34 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+# Search function
+
+def search_result(request):
+
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        post_results = Post.objects.filter(
+            Q(title__icontains=searched) |
+            Q(author__username__icontains=searched) |
+            Q(content__icontains=searched) |
+            Q(excerpt__icontains=searched)
+        )
+
+        comment_results = Comment.objects.filter(
+            Q(author__username__icontains=searched) |
+            Q(body__icontains=searched)
+        )
+    else:
+        return redirect('home')
+
+    return render(
+        request,
+        'blog/search_results.html',
+        {
+            'searched': searched,
+            'post_results': post_results,
+            'comment_results': comment_results,
+        }
+    )
+    

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row text-center">
+        <h1>Your search results for "{{ searched }}":</h1>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            {% if searched %}
+            <h3>Posts:</h3>
+                {% for post_result in post_results %}
+                <a href="{% url 'post_detail' post_result.slug %}"
+                class="post-link mg-btm">{{ post_result }}</a>
+                <hr>
+                {% endfor %}
+                <h3>Comments:</h3>
+                {% for comment_result in comment_results %}
+                <a href="{% url 'post_detail' comment_result.post.slug %}"
+                class="post-link mg-btm">{{ comment_result }}</a>
+                <hr>
+                {% endfor %}
+            {% else %}
+            <h1>You did not search for anything!</h1>
+            {% endif %}
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
