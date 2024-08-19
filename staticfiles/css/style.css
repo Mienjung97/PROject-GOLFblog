@@ -15,6 +15,10 @@ body {
     margin-bottom: 5vh;
 }
 
+.mg-btm-sm {
+    margin-bottom: 2vh;
+}
+
 .mg-r {
     margin-right: 3vw;
 }
@@ -111,6 +115,7 @@ body {
     min-width: 30%;
     left: -2px;
     background-color: #6d180f;
+    margin-bottom: 2vh;
 }
 /* Links */
 
