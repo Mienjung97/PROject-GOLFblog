@@ -49,6 +49,7 @@ def post_detail(request, slug):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    likes_count = post.likes.count()
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.count()
     comment_form = CommentForm()
@@ -72,6 +73,7 @@ def post_detail(request, slug):
         "comments" : comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
+        "likes_count": likes_count,
     },
     )
 
@@ -202,6 +204,13 @@ def edit_post(request, slug):
             'post': post
         }
     )
+
+# Likes
+
+def like_post(request, slug):
+    post = get_object_or_404(Post, slug=request.POST.get('post_slug')) #grabs like button via name
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 # Comment section
 

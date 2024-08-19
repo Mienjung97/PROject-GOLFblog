@@ -53,16 +53,45 @@
         </div>
     </div>
     {% endif %}
-    <!-- Displaying count of comments -->
+    <br>
+    <hr>
+
+    <!-- Like Button and counter -->
+
     <div class="row">
-        <div class="col-12">
+        <div class="col">
+            {% if user.is_authenticated %}
+            <form action="{% url 'post_like' post.slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit" name="post_slug" value="{{ post.slug }}">
+                    Like
+                </button>
+            </form>
+            {% else %}
+            <p>To like a post, please <a href="{% url 'account_login' %}">Login</a></p>
+            {% endif %}
+        </div>
+        <br>
+
+        <div class="col">
+            <strong class="text-secondary">
+                <i class="fas fa-thumbs-up"></i> {{ likes_count }}
+            </strong>
+        </div>
+
+        <!-- Displaying count of comments -->
+
+        <div class="col">
             <strong class="text-secondary">
                 <i class="far fa-comments"></i> {{ comment_count }}
             </strong>
         </div>
+        <div class="col-md-6">
+        </div>
         <div class="col-12">
             <hr>
         </div>
+
     </div>
     <!-- Displaying Comments -->
     <div class="row">
@@ -104,7 +133,8 @@
                     <button id="submitButtonComments" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% else %}
-                <p><a href="{% url 'account_login' %}">Log in</a> or <a href="{% url 'account_signup' %}">Register</a> to leave a comment</p>
+                <p><a href="{% url 'account_login' %}">Log in</a> or <a href="{% url 'account_signup' %}">Register</a>
+                    to leave a comment</p>
                 {% endif %}
             </div>
         </div>

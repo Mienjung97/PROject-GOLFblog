@@ -23,9 +23,13 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    likes = models.ManyToManyField(User, related_name='post_likes')
 
     class Meta:
         ordering = ["-created_on"]
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return f'The title of this post is "{self.title}" | written by "{self.author}"'
