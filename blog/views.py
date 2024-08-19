@@ -50,6 +50,9 @@ def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     likes_count = post.likes.count()
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        liked = True
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.count()
     comment_form = CommentForm()
@@ -74,6 +77,7 @@ def post_detail(request, slug):
         "comment_count": comment_count,
         "comment_form": comment_form,
         "likes_count": likes_count,
+        "liked": liked,
     },
     )
 
@@ -205,11 +209,18 @@ def edit_post(request, slug):
         }
     )
 
-# Likes
+# Likes (code was influenced by YouTube channel "Codemy.com")
 
 def like_post(request, slug):
     post = get_object_or_404(Post, slug=request.POST.get('post_slug')) #grabs like button via name
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 # Comment section
