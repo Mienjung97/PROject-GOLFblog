@@ -23,6 +23,12 @@ body {
     margin-right: 3vw;
 }
 
+/* Colors */
+
+.btn-red {
+    background-color: #6d180f;
+    border-radius: 3px;
+}
 
 /* Navbar */
 .navbar-shadow {
@@ -53,6 +59,15 @@ body {
 /* does not work yet */
 .navbar-nav > .active {
     color: white(0, 0, 0, 0.44);
+}
+
+.nav-link {
+    border-radius: 3px;
+}
+
+.nav-link:hover {
+    background-color: #6d180f;
+    color: #fff !important;
 }
 
 /* Text styles */
@@ -122,6 +137,11 @@ body {
 .post-link {
     text-decoration: none;
     color: #07090a;
+}
+
+.post-link-w {
+    text-decoration: none;
+    color: #fff;
 }
 
 .media-link {

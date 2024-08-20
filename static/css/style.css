@@ -23,11 +23,36 @@ body {
     margin-right: 3vw;
 }
 
-/* Colors */
+/* Links */
+
+.link-decoration {
+    text-decoration: none;
+}
+
+/* Buttons */
 
 .btn-red {
     background-color: #6d180f;
     border-radius: 3px;
+}
+
+.btn-g {
+    background-color: #055000 !important;
+}
+
+.btn-edit {
+    background-color: grey;
+    border: 2px solid #07090a;
+    color: #07090a;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    background-color: #6d180f !important;
+    border: none;
+    color: #fff;
 }
 
 /* Navbar */
@@ -185,6 +210,10 @@ body {
 }
 
 /* profile page */
+
+.background {
+    background-color: rgb(109, 24, 15, 0.44);
+}
 
 
 /* Media query: large devices (992px and more) */
