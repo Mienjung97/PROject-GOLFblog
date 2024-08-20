@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
@@ -29,9 +30,19 @@ class PostList(generic.ListView):
     """
     generates a geneal list of all posts.
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.filter(status=1).order_by('-pinned', '-created_on')
     template_name = "blog/index.html"
     paginate_by = 20
+
+
+@staff_member_required
+def pin_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.pinned = not post.pinned # help from perplexity
+    post.save()
+    action = "pinned" if post.pinned else "unpinned" # help from perplexity
+
+    return redirect('post_detail', slug=slug)
 
 def post_detail(request, slug):
     """

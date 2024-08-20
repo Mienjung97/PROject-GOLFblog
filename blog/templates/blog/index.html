@@ -17,7 +17,20 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 {% if post.pinned %}border border-dark rounded mg-btm-sm{% endif %}">
+
+                    {% if post.pinned %}
+
+                    <div class="card-header">
+
+                        <i class="fas fa-thumbtack"></i> Pinned Posts
+
+                    </div>
+
+                    {% endif %}
+
+
+
                     <div class="card mb-4">
                         <div class="image-container">
                             {% if not "placeholder" in post.featured_image.url %}

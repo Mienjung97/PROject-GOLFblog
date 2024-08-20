@@ -8,6 +8,7 @@ urlpatterns = [
     path('create/', views.create_post, name='create_post'),
     path('search-result/', views.search_result, name='search_result'),
     path('post/<slug:slug>/', views.post_detail, name='post_detail'),
+    path('pinned/<slug:slug>/', views.pin_post, name='pinned'),
     path('like/<slug:slug>', views.like_post, name='post_like'),
     path('post/<slug:slug>/delete', views.delete_post, name='delete_post'),
     path('post/<slug:slug>/edit', views.edit_post, name='edit_post'),

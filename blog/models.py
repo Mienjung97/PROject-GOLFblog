@@ -24,9 +24,10 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name='post_likes')
+    pinned = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ["-created_on"]
+        ordering = ["pinned", "-created_on"]
 
     def total_likes(self):
         return self.likes.count()

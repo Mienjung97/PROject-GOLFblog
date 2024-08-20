@@ -54,6 +54,18 @@
     </div>
     {% endif %}
     <br>
+    {% if user.is_staff %}
+    <div class="row">
+        <div class="col">
+            <form action="{% url 'pinned' post.slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn {% if post.pinned %}btn-danger{% else %}btn-secondary{% endif %}">
+                    {% if post.pinned %}Unpin Post{% else %}Pin Post{% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
     <hr>
 
     <!-- Like Button and counter -->
