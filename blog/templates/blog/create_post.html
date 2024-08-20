@@ -9,7 +9,7 @@
         <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
             {{ post_form | crispy }}
             {% csrf_token %}
-            <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}" class="btn btn-lg">Submit post</button>
+            <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}" class="btn btn-lg btn-success">Submit post</button>
         </form>
     </div>
 </div>

@@ -9,7 +9,7 @@
         <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;" class="mg-btm">
             {% csrf_token %}
             {{ post_form | crispy }}
-            <button type="submit">Save</button>
+            <button type="submit" class="btn btn-success">Save</button>
         </form>
         <div>
             {% if post.status == 1 %}
@@ -26,7 +26,7 @@
                 <div class="col">
                     <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
                         {% csrf_token %}
-                        <button type="submit">
+                        <button type="submit" class="btn btn-danger">
                             Delete this post
                         </button>
                     </form>
