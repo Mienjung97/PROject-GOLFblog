@@ -9,9 +9,14 @@
         <h1 class="mg-btm">
             This are your posts that you have saved as a draft.
         </h1>
-        <h3 class="mg-btm">
+        <h3 class="mg-btm-sm">
             You can modify and publish them here.
         </h3>
+        <div>
+            <button class="btn btn-edit btn-secondary mg-btm-sm">
+                <a href="{% url 'profile' request.user.username %}" class="post-link-w">Back to Profile</a>
+            </button>
+        </div>
         <hr>
     </div>
     <!-- Blog Entries Column -->

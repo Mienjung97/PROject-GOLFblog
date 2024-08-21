@@ -7,9 +7,14 @@
 <div class="container mg-btm">
     <!-- Blog Entries Column -->
     <div class="row text-center mg-btm">
-        <h1 class="mg-btm">
+        <h1 class="mg-btm-sm">
             This are your published posts:
         </h1>
+        <div>
+            <button class="btn btn-edit btn-secondary mg-btm-sm">
+                <a href="{% url 'profile' request.user.username %}" class="post-link-w">Back to Profile</a>
+            </button>
+        </div>
         <hr>
     </div>
     <div class="row">

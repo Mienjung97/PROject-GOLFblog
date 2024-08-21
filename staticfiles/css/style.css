@@ -3,6 +3,16 @@ body {
     background-color: #F9FAFC;
 }
 
+a {
+    color: #07090a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 .mg-top-header {
     margin-top: 145px;
 }
@@ -23,11 +33,39 @@ body {
     margin-right: 3vw;
 }
 
-/* Colors */
+/* Links */
+
+.link-decoration:hover {
+    text-decoration: none !important;
+}
+
+/* Buttons */
 
 .btn-red {
     background-color: #6d180f;
     border-radius: 3px;
+}
+
+.btn-g {
+    background-color: #055000 !important;
+}
+
+.btn-edit {
+    background-color: grey;
+    border: 1px solid #07090a;
+    color: #07090a;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    background-color: #6d180f !important;
+    border: 1px solid #07090a !important;
+    text-decoration: none;
+    border: none;
+    color: #fff;
 }
 
 /* Navbar */
@@ -134,9 +172,9 @@ body {
 }
 /* Links */
 
-.post-link {
-    text-decoration: none;
-    color: #07090a;
+.post-link:hover {
+    color: #07090a !important;
+    text-decoration: underline;
 }
 
 .post-link-w {
@@ -149,9 +187,9 @@ body {
     color: #6d180f;
 }
 
-.pro-link {
-    text-decoration: underline;
-    color: #07090a;
+.pro-link:hover {
+    text-decoration: underline !important;
+    color: #07090a !important;
 }
 
 .scale {
@@ -185,6 +223,10 @@ body {
 }
 
 /* profile page */
+
+.background {
+    background-color: rgb(109, 24, 15, 0.44);
+}
 
 
 /* Media query: large devices (992px and more) */

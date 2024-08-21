@@ -9,32 +9,38 @@
         <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;" class="mg-btm">
             {% csrf_token %}
             {{ post_form | crispy }}
-            <button type="submit" class="btn btn-success">Save</button>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
         </form>
-        <div>
+        <div class="col">
             {% if post.status == 1 %}
-            <button>
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">Back to post</a>
+            <button class="btn btn-edit btn-secondary">
+                <a href="{% url 'post_detail' post.slug %}" class="post-link-w">Back to post</a>
             </button>
-            {% else %}
-            <div class="row mg-btm">
-                <div class="col">
-                    <button>
-                        <a href="{% url 'posts_drafts' %}" class="post-link">Back to draft list</a>
-                    </button>
-                </div>
-                <div class="col">
-                    <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">
-                            Delete this post
-                        </button>
-                    </form>
-                </div>
-            </div>
-            {% endif %}
         </div>
     </div>
+    {% else %}
+    <div class="row">
+        <div class="row mg-btm">
+            <div class="col">
+                <button class="btn btn-edit btn-secondary">
+                    <a href="{% url 'posts_drafts' %}" class="post-link-w">Back to draft list</a>
+                </button>
+            </div>
+            <div class="col">
+                <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        Delete this post
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
 </div>
 
 

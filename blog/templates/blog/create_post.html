@@ -6,11 +6,25 @@
     <div class="card-body">
         <h1>Create a Post:</h1>
         <p>Posting as: {{ user.username }}</p>
-        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
-            {{ post_form | crispy }}
-            {% csrf_token %}
-            <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}" class="btn btn-lg btn-success">Submit post</button>
-        </form>
+        <div class="row">
+            <div class="col">
+                <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
+                    {{ post_form | crispy }}
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col text-center">
+                            <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}"
+                        class="btn btn-lg btn-success">Submit post</button>
+                        </div>
+                        <div class="col text-center">
+                        </form>
+                        <button class="btn btn-lg btn-edit btn-secondary">
+                            <a href="{% url 'home' %}" class="post-link-w">Cancel</a>
+                        </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

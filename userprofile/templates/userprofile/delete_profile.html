@@ -16,9 +16,11 @@
                 <button type="submit" class="btn btn-danger">
                     Delete my account
                 </button>
-                <a href="{% url 'profile' request.user.username %}" class="btn btn-secondary">
-                    Cancel
-                </a>
+                <button class="btn btn-edit btn-secondary">
+                    <a href="{% url 'profile' request.user.username %}" class="post-link-w">
+                        Cancel
+                    </a>
+                </button>
             </form>
         </div>
     </div>

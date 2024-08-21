@@ -10,13 +10,13 @@
     {% if user.is_authenticated and request.user == user %}
     <div class="row text-center mg-btm">
         <div class="col">
-            <button>
-                <a href="{% url 'profile_posts' %}" class="post-link">View Posts</a>
+            <button class="btn btn-edit btn-secondary">
+                <a href="{% url 'profile_posts' %}" class="post-link-w">View Posts</a>
             </button>
         </div>
         <div class="col">
-            <button>
-                <a href="{% url 'posts_drafts' %}" class="post-link">View drafts</a>
+            <button class="btn btn-edit btn-secondary">
+                <a href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
             </button>
         </div>
     </div>
@@ -68,8 +68,8 @@
         <div class="row text-center">
             
             <div class="col">
-                <button>
-                    <a href="{% url 'profile_edit' %}" class="post-link">Edit Profile</a>
+                <button class="btn btn-edit btn-secondary">
+                    <a href="{% url 'profile_edit' %}" class="post-link-w">Edit Profile</a>
                 </button>
             </div>
         </div>
