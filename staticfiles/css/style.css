@@ -37,6 +37,10 @@ a:hover {
     margin-right: 3vw;
 }
 
+/* Colors */
+
+
+
 /* Post styles */
 
 .post-pic {
@@ -45,7 +49,9 @@ a:hover {
 }
 
 .card-post:hover {
-    background-color: rgb(109, 24, 15, 0.44);
+    opacity: 0.8;
+    border: 1px solid #6d180f;
+    border-radius: 5px;
 }
 
 /* Links */
@@ -242,6 +248,11 @@ a:hover {
     background-color: rgb(109, 24, 15, 0.44);
 }
 
+/* Footer */
+
+.foot-bg {
+    background-color: rgb(109, 24, 15, 0.44);
+}
 
 /* Media query: large devices (992px and more) */
 @media screen and (min-width: 992px) {

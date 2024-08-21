@@ -30,9 +30,24 @@ class PostList(generic.ListView):
     """
     generates a geneal list of all posts.
     """
+    model = Post
     queryset = Post.objects.filter(status=1).order_by('-pinned', '-created_on')
     template_name = "blog/index.html"
     paginate_by = 10
+    context_object_name = 'post_list'
+
+    # Rewrite this code - just for ideas!
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = context['post_list']
+        
+        posts = posts.annotate(
+            likes_count=Count('likes'),
+            comments_count=Count('comments')
+        )
+        
+        context['post_list'] = posts
+        return context
 
 
 @staff_member_required
@@ -78,6 +93,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 'Your comment has been submitted.'
             )
+            return redirect('post_detail', slug=slug)
 
     return render(
         request,
