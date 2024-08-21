@@ -8,6 +8,7 @@ from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.db.models import Count
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
@@ -36,18 +37,13 @@ class PostList(generic.ListView):
     paginate_by = 10
     context_object_name = 'post_list'
 
-    # Rewrite this code - just for ideas!
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        posts = context['post_list']
-        
-        posts = posts.annotate(
-            likes_count=Count('likes'),
-            comments_count=Count('comments')
-        )
-        
-        context['post_list'] = posts
+        for post in context['post_list']:
+            post.comment_count = post.comments.count()
+            post.likes_count = post.likes.count()
         return context
+
 
 
 @staff_member_required
