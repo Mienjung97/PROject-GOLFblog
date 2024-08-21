@@ -16,8 +16,8 @@
         <div class="col-12">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-3"></div>
-                <div class="col-md-6 {% if post.pinned %}border border-dark rounded mg-btm-sm{% endif %}">
+                <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
+                <div class="col {% if post.pinned %}border border-dark rounded mg-btm-sm{% endif %}">
 
                     {% if post.pinned %}
 
@@ -26,34 +26,37 @@
                         <i class="fas fa-thumbtack"></i> Pinned Posts
 
                     </div>
-
                     {% endif %}
-
-
-
-                    <div class="card mb-4">
-                        <div class="image-container">
-                            {% if not "placeholder" in post.featured_image.url %}
-                            <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                            {% endif %}
-                        </div>
-                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                            <h2 class="card-title">{{ post.title }}</h2>
-                        </a>
-                        <p class="card-text mg-btm">{{ post.excerpt }}</p>
-                        <div class="col-md-4">
-                            <p class="author author-plate">Post from: <a
+                    <div class="card card-post">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col text-center">
+                                <p class="author author-plate mg-top-sm">Post from: <a
                                     class="author-link {% if request.path == profile_url %}"
                                     aria-current="page {% endif %}" href="{% url 'profile' post.author.username %}">
                                     {{ post.author }}</a></p>
+                            </div>
+                            <div class="col-3"></div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="image-container text-center">
+                            {% if not "placeholder" in post.featured_image.url %}
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <img class="card-img-top post-pic" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="card-body"> 
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                            </a>
+                            <p class="card-text mg-btm">{{ post.excerpt }}</p>
                             <p class="card-text text-muted h6">{{ post.created_on}}
                             </p>
                         </div>
                     </div>
                     <hr>
                 </div>
+                <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
             </div>
             <div class="row">
                 {% endfor %}

@@ -20,26 +20,36 @@
         <hr>
     </div>
     <!-- Blog Entries Column -->
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
+    <div class="col-12">
+        <div class="row">
             {% for post in posts %}
-            <div class="image-container">
-                {% if not "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                {% endif %}
+            <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
+            <div class="col">
+                <div class="card card-post">
+                    <div class="image-container text-center">
+                        {% if not "placeholder" in post.featured_image.url %}
+                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <img class="card-img-top post-pic" src=" {{ post.featured_image.url }}"
+                                alt="{{ post.title }}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                        </a>
+                        <p class="card-text mg-btm">{{ post.excerpt }}</p>
+
+                        <p class="card-text text-muted h6 mg-btm">{{ post.created_on}}
+                        </p>
+                    </div>
+                </div>
+                <hr />
             </div>
-            <a href="{% url 'edit_post' post.slug %}" class="post-link">
-                <h2 class="card-title">{{ post.title }}</h2>
-            </a>
-            <p class="card-text">{{ post.excerpt }}</p>
-            <hr />
-            <p class="card-text text-muted h6 mg-btm">{{ post.created_on}}
-            </p>
-            {% endfor %}
+            <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
         </div>
-        <div class="col">
+        <div class="row">
+            {% endfor %}
         </div>
     </div>
 </div>

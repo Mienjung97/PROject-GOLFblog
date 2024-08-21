@@ -21,6 +21,10 @@ a:hover {
     margin-top: 5vh;
 }
 
+.mg-top-sm {
+    margin-top: 2vh !important;
+}
+
 .mg-btm {
     margin-bottom: 5vh;
 }
@@ -31,6 +35,17 @@ a:hover {
 
 .mg-r {
     margin-right: 3vw;
+}
+
+/* Post styles */
+
+.post-pic {
+    max-height: 30vh;
+    max-width: fit-content;
+}
+
+.card-post:hover {
+    background-color: rgb(109, 24, 15, 0.44);
 }
 
 /* Links */
@@ -163,7 +178,6 @@ a:hover {
 }
 
 .author-plate {
-    position: absolute;
     bottom: 5%;
     min-width: 30%;
     left: -2px;
