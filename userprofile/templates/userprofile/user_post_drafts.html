@@ -27,24 +27,23 @@
             <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
             <div class="col">
                 <div class="card card-post">
-                    <div class="image-container text-center">
-                        {% if not "placeholder" in post.featured_image.url %}
-                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    <a href="{% url 'edit_post' post.slug %}" class="post-link text-decoration-none text-reset">
+                        <div class="image-container text-center">
+                            {% if not "placeholder" in post.featured_image.url %}
                             <img class="card-img-top post-pic" src=" {{ post.featured_image.url }}"
                                 alt="{{ post.title }}">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <a href="{% url 'edit_post' post.slug %}" class="post-link">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
                             <h2 class="card-title">{{ post.title }}</h2>
-                        </a>
-                        <p class="card-text mg-btm-sm">{{ post.excerpt }}</p>
 
-                        <p class="card-text text-muted h6 mg-btm">{{ post.created_on}}
-                        </p>
-                    </div>
+                            <p class="card-text mg-btm-sm">{{ post.excerpt }}</p>
+
+                            <p class="card-text text-muted h6 mg-btm">{{ post.created_on}}
+                            </p>
+                        </div>
                 </div>
+                </a>
                 <hr />
             </div>
             <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
