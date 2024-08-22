@@ -34,7 +34,7 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-pinned', '-created_on')
     template_name = "blog/index.html"
-    paginate_by = 10
+    paginate_by = 12
     context_object_name = 'post_list'
 
     def get_context_data(self, **kwargs):
