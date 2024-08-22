@@ -7,11 +7,16 @@
 <div class="container mg-btm">
     <div class="row text-center mg-btm">
         <h1 class="mg-btm-sm">
-            This are your published posts:
+            These are your posts:
         </h1>
+        <div class="mg-btm-sm">
+            <button class="btn btn-edit">
+                <a href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
+            </button>
+        </div>
         <div>
-            <button class="btn btn-edit btn-secondary mg-btm-sm">
-                <a href="{% url 'profile' request.user.username %}" class="post-link-w">Back to Profile</a>
+            <button class="btn btn-edit mg-btm-sm">
+                <a href="{% url 'home' %}" class="post-link-w">Back to Homepage</a>
             </button>
         </div>
         <hr>

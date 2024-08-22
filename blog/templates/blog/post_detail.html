@@ -39,7 +39,7 @@
     {% if user.is_authenticated and request.user == post.author  %}
     <div class="row mg-btm">
         <div class="col">
-            <button class="btn btn-edit btn-secondary">
+            <button class="btn btn-edit">
                 <a href="{% url 'edit_post' post.slug %}" class="post-link-w">Edit post</a>
             </button>
         </div>
@@ -153,7 +153,7 @@
                     </div>
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-delete btn-danger" data-comment_id="{{ comment.id }}">Delete</button>
-                    <button class="btn btn-edit btn-secondary" data-comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
                     {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
@@ -193,7 +193,7 @@
                 This action cannot be undone.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-edit" data-bs-dismiss="modal">Close</button>
                 <a id="deleteConfirm" href="#" class="btn
           btn-danger">Delete</a>
             </div>

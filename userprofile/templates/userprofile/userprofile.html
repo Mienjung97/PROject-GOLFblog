@@ -7,20 +7,6 @@
     <div class="row">
         <h1 class="text-center mg-btm">User Profile from {{ user }}</h1>
     </div>
-    {% if user.is_authenticated and request.user == user %}
-    <div class="row text-center mg-btm">
-        <div class="col">
-            <button class="btn btn-edit btn-secondary">
-                <a href="{% url 'profile_posts' %}" class="post-link-w">View Posts</a>
-            </button>
-        </div>
-        <div class="col">
-            <button class="btn btn-edit btn-secondary">
-                <a href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
-            </button>
-        </div>
-    </div>
-    {% endif %}
     <div class="row">
         <div class="col mg-btm">
             <div class="mg-btm text-center">
@@ -68,7 +54,7 @@
         <div class="row text-center">
             
             <div class="col">
-                <button class="btn btn-edit btn-secondary">
+                <button class="btn btn-edit">
                     <a href="{% url 'profile_edit' %}" class="post-link-w">Edit Profile</a>
                 </button>
             </div>

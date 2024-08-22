@@ -74,29 +74,43 @@
                     </li>
                     {% endif %}
                 </ul>
-                <form method="post" action="{% url 'search_result' %}">
-                    {% csrf_token %}
-                    <input type="search" placeholder="Search" aria-label="Search" name="searched">
-                    <button class="post-link-w btn-red mg-r" type="submit">Search</button>
-                </form>
                 {% if user.is_authenticated %}
                 <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
                     {% if user.is_staff %}
                     <li class="nav-item">
                         <a class="black nav-link {% if request.path == admin_url %}active"
-                            aria-current="page {% endif %}"
-                            href="{% url 'admin:index' %}">Admin Panel</a>
+                            aria-current="page {% endif %}" href="{% url 'admin:index' %}">Admin Panel</a>
                     </li>
                     {% endif %}
+                    {% if user.is_authenticated and request.user == user %}
                     <li class="nav-item navbar-between">
-                        <a class="black nav-link {% if request.path == profile_url %}active"
-                            aria-current="page {% endif %}"
-                            href="{% url 'profile' request.user.username %}">{{ request.user.username }}</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle black" href="#" id="navbarDarkDropdownMenuLink"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-user"></i> Profile
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item black nav-link {% if request.path == profile_url %}active"
+                                                aria-current="page {% endif %}"
+                                                href="{% url 'profile' request.user.username %}">{{ request.user.username }}</a>
+                                        </li>
+                                        <li><a class="dropdown-item black nav-link {% if request.path == profile_posts_url %}active"
+                                            aria-current="page {% endif %}" href="{% url 'profile_posts' %}">Show posts</a></li>
+                                        <li><a class="dropdown-item black nav-link {% if request.path == logout_url %}active"
+                                                aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class="nav-item navbar-between">
-                        <a class="black nav-link {% if request.path == logout_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
+                    {% endif %}
                 </ul>
                 {% else %}
                 <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
@@ -110,6 +124,11 @@
                     </li>
                 </ul>
                 {% endif %}
+                <form method="post" action="{% url 'search_result' %}">
+                    {% csrf_token %}
+                    <input type="search" placeholder="Search" aria-label="Search" name="searched">
+                    <button class="post-link-w btn-red mg-r" type="submit">Search</button>
+                </form>
             </div>
     </nav>
     <!-- displaying Django messages -->

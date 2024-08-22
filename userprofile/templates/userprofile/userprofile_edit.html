@@ -8,13 +8,13 @@
         <h1 class="text-center mg-btm-sm">User Profile from {{ user }}</h1>
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-edit btn-secondary">
+                <button class="btn btn-edit">
                     <a class="post-link-w {% if request.path == email_url %}active" aria-current="page {% endif %}"
                         href="{% url 'account_email' %}">Change Email</a>
                 </button>
             </div>
             <div class="col text-center">
-                <button class="btn btn-edit btn-secondary">
+                <button class="btn btn-edit">
                     <a class="post-link-w {% if request.path == change_password_url %}active"
                         aria-current="page {% endif %}" href="{% url 'account_change_password' %}">Change Password</a>
                 </button>
@@ -29,7 +29,7 @@
             </div>
         </form>
         <div class="col text-center">
-            <button class="btn btn-edit btn-secondary">
+            <button class="btn btn-edit">
                 <a href="{% url 'profile' request.user.username %}" class="post-link-w">Back to Profile</a>
             </button>
         </div>
