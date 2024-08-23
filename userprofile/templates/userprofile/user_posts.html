@@ -23,11 +23,10 @@
     </div>
     <!-- Blog Entries Column -->
     <div class="col-12">
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
             {% for post in posts %}
-            <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
             <div class="col">
-                <div class="card card-post">
+                <div class="card card-post h-100 card-body d-flex flex-column">
                     <a href="{% url 'post_detail' post.slug %}" class="post-link text-decoration-none text-reset">
                         <div class="image-container text-center">
                             {% if not "placeholder" in post.featured_image.url %}
@@ -45,9 +44,6 @@
                 </a>
                 <hr />
             </div>
-            <div class="col-1 col-sm-2 col-md-3 col-lg-4"></div>
-        </div>
-        <div class="row">
             {% endfor %}
         </div>
     </div>

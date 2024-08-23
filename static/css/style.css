@@ -67,8 +67,12 @@ a:hover {
     border-radius: 3px;
 }
 
-.btn-g {
+.btn-success {
     background-color: #055000 !important;
+}
+
+.btn-success:hover {
+    background-color: #033300 !important;
 }
 
 .btn-edit {
@@ -229,10 +233,6 @@ a:hover {
     right: 90%;
     height: 100%;
     width: 150%;
-    /* background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg); */
     z-index: 100;
 }
 
