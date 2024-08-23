@@ -37,6 +37,14 @@ a:hover {
     margin-right: 3vw;
 }
 
+.mg-r-xs {
+    margin-right: 1vw;
+}
+
+.mg-l-xs {
+    margin-left: 1vw;
+}
+
 /* Colors */
 
 
@@ -52,6 +60,14 @@ a:hover {
     opacity: 0.8;
     border: 1px solid #6d180f;
     border-radius: 5px;
+}
+
+.title {
+    margin: 3rem;
+}
+
+.subtitle {
+    margin: 0 3rem 0 3rem;
 }
 
 /* Links */
@@ -211,9 +227,15 @@ a:hover {
     color: #6d180f;
 }
 
+.pro-link {
+    text-decoration: underline !important;
+    color: #07090a !important;
+}
+
 .pro-link:hover {
     text-decoration: underline !important;
     color: #07090a !important;
+    opacity: 0.7;
 }
 
 .scale {
@@ -250,9 +272,12 @@ a:hover {
 
 /* Footer */
 
-.foot-bg {
+footer {
+    bottom: 0 !important;
     background-color: rgb(109, 24, 15, 0.44);
+    width: 100%;
 }
+
 
 /* Media query: large devices (992px and more) */
 @media screen and (min-width: 992px) {
