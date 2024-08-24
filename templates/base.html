@@ -49,9 +49,12 @@
     <!-- Navigation (Copied from the "I think therfore I blog" project, will be changed in future to match PROject GOLFacademy) -->
     <nav class="navbar navbar-expand-lg navbar-light light-bg navbar-shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="black-pro big-text navbar-mg-l">PRO</span><span
-                    class="normal-text black-pro">ject <span class="red-golf big-text">GOLF</span><span
-                        class="red-golf normal-text">blog</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <span class="black-pro big-text navbar-mg-l">PRO</span>
+                <span class="normal-text black-pro">ject </span>
+                <span class="red-golf big-text">GOLF</span>
+                <span class="red-golf normal-text">blog</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,17 +62,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mg-r-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="black navbar-between nav-link {% if request.path == home_url %}active"
+                        <a class="black navbar-between nav-link{% if request.path == home_url %}active"
                             aria-current="page {% endif %}" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item navbar-between">
-                        <a class="black nav-link
-                          {% if request.path == about_url %}active" aria-current="page {%endif%}"
+                        <a class="black nav-link{% if request.path == about_url %}active" aria-current="page {%endif%}"
                             href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item  navbar-between">
-                        <a class="black nav-link {% if request.path == create_post_url %}active"
+                    <li class="nav-item navbar-between">
+                        <a class="black nav-link{% if request.path == create_post_url %}active"
                             aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
                     </li>
                     {% endif %}
@@ -78,48 +80,45 @@
                 <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
                     {% if user.is_staff %}
                     <li class="nav-item">
-                        <a class="black nav-link {% if request.path == admin_url %}active"
+                        <a class="black nav-link{% if request.path == admin_url %}active"
                             aria-current="page {% endif %}" href="{% url 'admin:index' %}">Admin Panel</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated and request.user == user %}
-                    <li class="nav-item navbar-between">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle black" href="#" id="navbarDarkDropdownMenuLink"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-user"></i> Profile
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                                        <li><a class="dropdown-item black nav-link {% if request.path == profile_url %}active"
-                                                aria-current="page {% endif %}"
-                                                href="{% url 'profile' request.user.username %}">{{ request.user.username }}</a>
-                                        </li>
-                                        <li><a class="dropdown-item black nav-link {% if request.path == profile_posts_url %}active"
-                                            aria-current="page {% endif %}" href="{% url 'profile_posts' %}">Show posts</a></li>
-                                        <li><a class="dropdown-item black nav-link {% if request.path == logout_url %}active"
-                                                aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                    <li class="nav-item dropdown navbar-between">
+                        <a href="#" class="nav-link dropdown-toggle black" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item black nav-link {% if request.path == profile_url %}active"
+                                    aria-current="page {% endif %}"
+                                    href="{% url 'profile' request.user.username %}">{{ request.user.username }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item black nav-link {% if request.path == profile_posts_url %}active"
+                                    aria-current="page {% endif %}" href="{% url 'profile_posts' %}">Show posts
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item black nav-link{% if request.path == logout_url %}active"
+                                    aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     {% endif %}
                 </ul>
                 {% else %}
                 <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="black nav-link {% if request.path == signup_url %}active"
+                        <a class="black nav-link{% if request.path == signup_url %}active"
                             aria-current="page {% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item navbar-between">
-                        <a class="black nav-link {% if request.path == login_url %}active"
+                        <a class="black nav-link{% if request.path == login_url %}active"
                             aria-current="page {% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                 </ul>
@@ -130,6 +129,7 @@
                     <button class="post-link-w btn-red mg-r" type="submit">Search</button>
                 </form>
             </div>
+        </div>
     </nav>
     <!-- displaying Django messages -->
     <div class="container mg-top-header">
@@ -155,7 +155,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 foot-bg mg-top-sm">
+    <footer class="footer mt-auto py-3 footer-bg">
         <p class="m-0 text-center black normal-text">
             {% block copyright %}
             Copyright 2024 Sebastian Kefer

@@ -4,11 +4,14 @@
 
 <div class="container">
     <!-- <a href="https://www.freepik.com/free-vector/flat-404-error-template_1588530.htm#fromView=search&page=1&position=0&uuid=8be28a2c-c97b-4520-9b88-1d515108f73e">Image by freepik</a> -->
-    <img src="static/images/404_error.webp" alt="Error 404, page not found">
+    <img src="static/images/404_error.webp" alt="Error 404, page not found" class="error-img">
     <div class="text-center">
+        <br>
         <h3>The page you have tried to reach cannot be found.</h3>
         <hr>
-        <p>Go back to the <a href="{% url 'home' %}">Homepage</a></p>
+        <button class="btn btn-edit text-center">
+            <a href="{% url 'home' %}">Homepage</a>
+        </button>
     </div>
 </div>
 

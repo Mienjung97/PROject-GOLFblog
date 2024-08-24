@@ -273,9 +273,22 @@ a:hover {
 /* Footer */
 
 footer {
-    bottom: 0 !important;
-    background-color: rgb(109, 24, 15, 0.44);
+    padding-top: 3vh;
     width: 100%;
+}
+
+.footer-bg {
+    background-color: rgb(109, 24, 15, 0.44) !important;
+}
+
+/* Error pages */
+
+.error-img {
+    display: flex;
+    text-align: center;
+    margin: 0 auto 2vh auto;
+    max-height: 50vh;
+    max-width: 70vw;
 }
 
 

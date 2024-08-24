@@ -44,8 +44,6 @@ class PostList(generic.ListView):
             post.likes_count = post.likes.count()
         return context
 
-
-
 @staff_member_required
 def pin_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
