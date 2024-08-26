@@ -88,6 +88,11 @@ def post_detail(request, slug):
                 'Your comment has been submitted.'
             )
             return redirect('post_detail', slug=slug)
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'Your comment could not be submitted.'
+            )
 
     return render(
         request,
@@ -121,30 +126,25 @@ def create_post(request):
 
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
-        print("Files:", request.FILES) 
         if post_form.is_valid():
-            print("Form is valid. Data:", post_form.cleaned_data)
             post = post_form.save(commit=False)
             post.author = request.user
-            print("Assigned author:", post.author)
             if not post.slug:
                 post.slug = slugify(post.title)
-                print("Generated slug:", post.slug)
             if 'featured_image' in post_form.cleaned_data and post_form.cleaned_data['featured_image']:
                 post.featured_image = post.featured_image = post_form.cleaned_data['featured_image']
             else:
                 post.featured_image = None
             post.save()
-            print('POST: ', post)
-            print("post has been saved")
             messages.add_message(
                 request, messages.SUCCESS,
                 'Your post has been submitted.')
             return redirect("home")
-            
-
         else:
-            print("Form errors:", post_form.errors)
+            messages.add_message(
+                request, messages.ERROR,
+                'Your post could not be submitted.'
+            )
 
     else:
         post_form = PostForm()
@@ -218,6 +218,12 @@ def edit_post(request, slug):
                 return redirect('post_detail', slug=post.slug)
             else:
                 return redirect('posts_drafts')
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'There was a problem updating your post.'
+            )
+            
     else:
         post_form = PostForm(instance=post)
     

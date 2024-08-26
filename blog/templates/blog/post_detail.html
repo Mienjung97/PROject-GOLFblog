@@ -168,10 +168,12 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button id="submitButtonComments" type="submit" class="btn btn-signup btn-lg btn-success">Submit</button>
+                    <button id="submitButtonComments" type="submit"
+                        class="btn btn-signup btn-lg btn-success">Submit</button>
                 </form>
                 {% else %}
-                <p><a href="{% url 'account_login' %}?next={{request.path}}">Log in</a> or <a href="{% url 'account_signup' %}?next={{request.path}}">Register</a>
+                <p><a href="{% url 'account_login' %}?next={{request.path}}">Log in</a> or <a
+                        href="{% url 'account_signup' %}?next={{request.path}}">Register</a>
                     to leave a comment or like a post.</p>
                 {% endif %}
             </div>

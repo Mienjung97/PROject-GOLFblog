@@ -59,11 +59,16 @@ def user_profile_edit(request):
         instance=profile)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
-        profile.save()
-        messages.add_message(
-                    request, messages.SUCCESS,
-                    'Your profile has been updated.')
-        return redirect("profile", username=request.user.username)
+            profile.save()
+            messages.add_message(
+                        request, messages.SUCCESS,
+                        'Your profile has been updated.')
+            return redirect("profile", username=request.user.username)
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'Your profile could not be updated.'
+            )
 
     else:
         profile_form = ProfileForm(instance=profile)
@@ -100,10 +105,6 @@ def account_delete(request):
         request, 
         "userprofile/delete_profile.html")
 
-# class UserPostList(generic.ListView):
-#     queryset = Post.objects.filter()
-#     template_name = "userprofile/user_posts.html"
-#     paginate_by = 5
 
 @login_required
 def view_user_postlist(request):
