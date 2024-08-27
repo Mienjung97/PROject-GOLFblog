@@ -38,9 +38,7 @@
     {% if user.is_authenticated and request.user == post.author  %}
     <div class="row mg-btm">
         <div class="col">
-            <button class="btn btn-edit">
-                <a href="{% url 'edit_post' post.slug %}">Edit post</a>
-            </button>
+            <a class="btn btn-edit" href="{% url 'edit_post' post.slug %}">Edit post</a>
         </div>
         <div class="col">
             <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">

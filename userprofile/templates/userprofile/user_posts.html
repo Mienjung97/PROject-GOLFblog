@@ -10,14 +10,10 @@
             These are your posts:
         </h1>
         <div class="mg-btm-sm">
-            <button class="btn btn-edit">
-                <a href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
-            </button>
+            <a class="btn btn-edit" href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
         </div>
         <div>
-            <button class="btn btn-edit mg-btm-sm">
-                <a href="{% url 'home' %}" class="post-link-w">Back to Homepage</a>
-            </button>
+            <a class="btn btn-edit mg-btm-sm" href="{% url 'home' %}" class="post-link-w">Back to Homepage</a>
         </div>
         <hr>
     </div>

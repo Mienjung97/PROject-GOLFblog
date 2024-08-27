@@ -16,11 +16,9 @@
                 <button type="submit" class="btn btn-danger">
                     Delete this post
                 </button>
-                <button>
-                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-edit post-link">
-                        Cancel
-                    </a>
-                </button>
+                <a class="btn btn-edit" href="{% url 'post_detail' post.slug %}">
+                    Cancel
+                </a>
             </form>
         </div>
     </div>

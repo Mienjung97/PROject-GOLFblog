@@ -12,7 +12,7 @@
     <div class="row text-center mg-btm">
       <div class="col">
         <button class="btn btn-edit">
-          <a class="post-link-w nav-link {% if request.path == signup_url %}active" aria-current="page {% endif %}"
+          <a class="post-link-w nav-link {% if request.path == signup_url %}" aria-current="page {% endif %}"
             href="{% url 'account_signup' %}">Register</a>
         </button>
       </div>

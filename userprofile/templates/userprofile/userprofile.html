@@ -23,7 +23,7 @@
                     {{ user.profile.first_name | default:"No name provided" }}
                 </p>
             </div>
-                <div>
+            <div>
                 <p>
                     Last name:
                     {{ user.profile.last_name | default:"No name provided" }}
@@ -52,11 +52,9 @@
         </div>
         {% if user.is_authenticated and request.user == user %}
         <div class="row text-center">
-            
+
             <div class="col">
-                <button class="btn btn-edit">
-                    <a href="{% url 'profile_edit' %}" class="post-link-w">Edit Profile</a>
-                </button>
+                <a class="btn btn-edit" href="{% url 'profile_edit' %}" class="post-link-w">Edit Profile</a>
             </div>
         </div>
         {% endif %}

@@ -70,8 +70,8 @@
                             href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item navbar-between">
-                        <a class="black nav-link{% if request.path == create_post_url %}active"
+                    <li class="nav-item">
+                        <a class="black navbar-between nav-link{% if request.path == create_post_url %}active"
                             aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
                     </li>
                     {% endif %}

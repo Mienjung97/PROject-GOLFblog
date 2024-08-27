@@ -47,7 +47,13 @@ a:hover {
 
 /* Colors */
 
-
+.errorlist {
+    background-color: red;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
 
 /* Post styles */
 
@@ -106,7 +112,7 @@ a:hover {
     border: 1px solid #07090a !important;
     text-decoration: none;
     border: none;
-    color: #fff;
+    color: #fff !important;
 }
 
 /* Navbar */

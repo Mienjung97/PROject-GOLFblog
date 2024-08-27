@@ -25,20 +25,23 @@
                 value="{{emailaddress.email}}" />
 
               {{ emailaddress.email }}
+              <!-- 
+              The following code is not deleted so it can be integrated in future implementation:
               {% if emailaddress.verified %}
               <span class="verified">{% trans "Verified" %}</span>
               {% else %}
               <span class="unverified">{% trans "Unverified" %}</span>
               {% endif %}
+               -->
               {% if emailaddress.primary %}<span class="primary">{% trans "Primary" %}</span>{% endif %}
             </label>
           </div>
           {% endfor %}
-
+          <br>
           <div class="buttonHolder">
-            <button class="secondaryAction" type="submit" name="action_primary">{% trans 'Make Primary' %}</button>
-            <button class="secondaryAction" type="submit" name="action_send">{% trans 'Re-send Verification' %}</button>
-            <button class="primaryAction" type="submit" name="action_remove">{% trans 'Remove' %}</button>
+            <button class="secondaryAction btn btn-success" type="submit"
+              name="action_primary">{% trans 'Make Primary' %}</button>
+            <button class="primaryAction btn btn-edit" type="submit" name="action_remove">{% trans 'Remove' %}</button>
           </div>
 
         </fieldset>
@@ -47,21 +50,21 @@
       {% else %}
       {% include "account/snippets/warn_no_email.html" %}
       {% endif %}
-
+      <br>
       {% if can_add_email %}
       <h2>{% trans "Add Email Address" %}</h2>
 
       <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Add Email" %}</button>
+        <button class="btn btn-success" name="action_add" type="submit">{% trans "Add Email" %}</button>
       </form>
       {% endif %}
+      <br>
+      <br>
       <div>
-        <button>
-            <a href="{% url 'profile' request.user.username %}">Back to Profile</a>
-        </button>
-    </div>
+        <a class="btn btn-edit" href="{% url 'profile' request.user.username %}">Back to Profile</a>
+      </div>
     </div>
   </div>
 </div>
