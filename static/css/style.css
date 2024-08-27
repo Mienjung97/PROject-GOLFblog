@@ -252,6 +252,8 @@ a:hover {
 .masthead-image {
     position: relative;
     overflow: hidden;
+    max-height: 60vh;
+    max-width: fit-content;
 }
 
 .masthead-image:after {
