@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-{# djlint:off H006 #}
+    {# djlint:off H006 #}
 
     <!-- index.html content starts here -->
     <div class="container mg-btm">
@@ -20,37 +20,43 @@
         </div>
         <!-- Blog Entries Column -->
         <div class="col-12">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-                {% for post in posts %}
-                    <div class="col">
-                        <div class="card card-post h-100 card-body d-flex flex-column">
-                            <a href="{% url 'post_detail' post.slug %}"
-                               class="post-link text-decoration-none text-reset">
-                                <div class="image-container text-center">
-                                    {% if not "placeholder" in post.featured_image.url %}
-                                        <img class="card-img-top post-pic"
-                                             src=" {{ post.featured_image.url }}"
-                                             alt="{{ post.title }}">
-                                    {% endif %}
+            {% if posts|length > 0 %}
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                    {% for post in posts %}
+                        <div class="col">
+                            <div class="card card-post h-100 card-body d-flex flex-column">
+                                <a href="{% url 'post_detail' post.slug %}"
+                                   class="post-link text-decoration-none text-reset">
+                                    <div class="image-container text-center">
+                                        {% if not "placeholder" in post.featured_image.url %}
+                                            <img class="card-img-top post-pic"
+                                                 src=" {{ post.featured_image.url }}"
+                                                 alt="{{ post.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
+                                            {{ post.title }}
+                                        </h2>
+                                        <p class="card-text mg-btm-sm">
+                                            {{ post.excerpt }}
+                                        </p>
+                                        <p class="card-text text-muted h6 mg-btm">
+                                            {{ post.created_on }}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h2 class="card-title">
-                                        {{ post.title }}
-                                    </h2>
-                                    <p class="card-text mg-btm-sm">
-                                        {{ post.excerpt }}
-                                    </p>
-                                    <p class="card-text text-muted h6 mg-btm">
-                                        {{ post.created_on }}
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        <hr />
-                    </div>
-                {% endfor %}
+                            </a>
+                            <hr />
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% else %}
+            <h3 class="text-center">
+                You do not have any posts at this point.
+            </h3>
+        {% endif %}
     </div>
 
     <!-- index.html content ends here -->
