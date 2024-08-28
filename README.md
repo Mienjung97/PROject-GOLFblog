@@ -32,20 +32,21 @@ Blog is up to date with "I think therfore I blog" -> started custom CSS -> About
 
 Profile picture for Assessor: Photo by <a href="https://unsplash.com/@markusspiske?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Markus Spiske</a> on <a href="https://unsplash.com/photos/colorful-software-or-web-code-on-a-computer-monitor-Skf7HxARcoc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-My Profile Picture: 
+My Profile (Sebastian) Picture: 
 Photo by <a href="https://unsplash.com/@alexacea?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alexandru Acea</a> on <a href="https://unsplash.com/photos/turned-on-flat-screen-tv--WBYxmW4yuw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
 
 Imported Readme from distinction project and will be modified:
 
-# **Review | Alliance**
-Review | Alliance is a resource for finding more about albums and concerts by the artists that you love! The site offers top reviews of albums and concerts by both *Review | Alliance approved staff* and *Review | Alliance users*. To create a more interactive and lively site all visitors can create their own user to start writing reviews and comment on other reviewers content. All comments and reviews need approval by Review | Alliance staff members to secure a digital hangout where everyone can feel safe from abuse, inappropriate language, etc. The approvals are being made from an admin dashboard that only is accessed by staff members with the correct access status. From a visual point of view the site has a clean look that makes navigation easy for the users.
+# **PROject GOLFblog**
+PROject GOLFblog is a blog project which in the future is supposed to be an extention for the webpage of [PROject GOLFacademy](https://projectgolfacademy.com/). The goal for this blog is to be a collection point for everyone who is already part of PROject GOLFacademy, either as a staff member or a student, as well as for anyone who is interested in golf. Staff members are able to post updates and information (e.g. free spaces in courses, holidays and more) that can be pinned to the top, while site users can ask questions related to the sport or the company, write about their personal experiences, give feedback to the staff or just ask for play partners. 
 
-This fictional site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://www.codeinstitute.net).
+[Access live website here](https://project-golfblog-96e6107b0f52.herokuapp.com/)
 
-[View live website here](https://project-golfblog-96e6107b0f52.herokuapp.com/)
+This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://www.codeinstitute.net).
 
-![Review | Alliance responsive design]( responsiveness picture)
+
+![PROject GOLFblog responsive design](readme/assets/images/responsive.PNG)
 
 # Table of Content
 
@@ -102,7 +103,7 @@ This fictional site was created for Portfolio Project #4 (Full-Stack Toolkit) - 
 
 
 ## Site Users Goal
-
+Every user is able to include their local golf course and handicap so that finding people in your area and similar skill level is possible.
 
 ## Site Owners Goal
 
@@ -146,36 +147,36 @@ Below the user stories for the project are listed to clarify why particular feat
 ### Site User
 |  | | |
 |:-------:|:--------|:--------|
-| As a Site User | I can view a list of the music reviews so that I can select one to read | &check; |
-| As a Site User | I can view a list of the concert reviews so that I can select one to read | &check; |
-| As a Site User | I can click on a specific review so that I can read it in detail | &check; |
-| As a Site User | I can like and unlike a review so that it is possible for me to interact with the review | &check; |
-| As a Site User | I can view the number of likes on each review so that I can see how popular a specific review is | &check; |
-| As a Site User | I can contact Review Alliance in an easy way so that I can interact with them if I have a need for it | &check; |
-| As a Site User | I can navigate easy on the site through paginated list of posts so that I feel comfortable using the site | &check; |
-| As a Site User | I can view comments on a specific review so that I can read the conversations between different users on the site | &check; |
-| As a Site User | I can sign up an account so that I can like and comment on reviews, create a profile page, create own reviews and edit / remove my reviews | &check; |
-| As a Site User | I can create a profile page so that other reviewers can read about who I am | &check; |
-| As a Site User | I can comment on a review so that I can be involved in the conversation | &check; |
-| As a Site User | I can edit my comment so that I can change the content if needed | &check; |
-| As a Site User | I can remove my review so that I have full control of my reviews | &check; |
-| As a Site User | I can choose to see my own reviews so that I can find them easily | &check; |
-| As a Site User | I can create a new review so that I can contribute to with new content to Review Alliance | &check; |
-| As a Site User | I can log out from the site so that I can feel safe that nobody can access my information | &check; |
-| As a Site User | I can create draft reviews so that I can finish writing the content later | &check; |
-| As a Site User | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page | &check; |
+| As a Site User | I can view a list of posts so that I can select which post I want to view | &check; |
+| As a Site User | I can click on a post so that I can view the whole post | &check; |
+| As a Site User | I can register an account so that I can use all features on the webpage | &check; |
+| As a Site User | I can create comments on posts so that I can express my opinion or share information related to a post | &check; |
+| As a Site User | I can modify or delete my comments so that I can correct my comment or delete it, if it is not valid anymore. | &check; |
+| As a Site User | I can create draft posts so that I can finish writing the content later | &check; |
+| As a Site User | I can view comments on an individual post so that I can read the conversation | &check; |
+| As a Site User | I can delete my account so that if I want to leave the website, I no longer have an active account | &check; |
+| As a Site User | I will as a logged in user start the home page on the blog site so that I dont have to sign up or see the about page | &check; |
+| As a Site User | While logged out or being a new user I will start on the about page so that I get information about what the website is about | &check; |
+| As a Site User | As a logged out / new user I can press a button to sign in / sign up on the about page so that I don't have manually search for the link | &check; |
+| As a Site User | I can access the about page so that they can get more information about the website | &check; |
+| As a Site User | I can access my profile page so that I can modify and delete information about me | &check; |
+| As a Site User | I can create posts so that I can share my thoughts on the blog | &check; |
+| As a Site User | I can modify and delete my posts so that I can correct mistakes or delete irelevant posts | &check; |
+| As a Site User | I can access the profile page of other users so that I can see who is posting/commenting | &check; |
+| As a Site User | I can use the search function so that I can find posts, comments or users | &check; |
+| As a Site User | I can access a page that results in an error so that I get a custom error html page | &check; |
+| As a Site User | I can like posts so that other users see how well the post is perceived | &check; |
 
 ### Site Admin
 
 |  | | |
 |:-------:|:--------|:--------|
-| As a Site Admin | I can log out from the site so that I can feel safe that nobody can access my information | &check; |
-| As a Site Admin | I can create, read, update and delete reviews so that I can manage my review content | &check; |
-| As a Site Admin | I can approve reviews so that I can secure high quality of the content | &check; |
-| As a Site Admin | I can approve and disapprove comments so that I can secure a safe environment for the Site Users | &check; |
-| As a Site Admin | I can create draft reviews so that I can finish writing the content later | &check; |
-| As a Site Admin | I can access an admin area so that I can get a general understanding of logged in users, number of likes and number of posts | &check; |
-| As a Site Admin | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page | &check; |
+| As a Site Admin | I can create, read, update and delete posts so that manage my blog content | &check; |
+| As a Site Admin | I can create draft posts so that I can finish writing the content later | &check; |
+| As a Site Admin | I can delete accounts so that users who break the GTCs no longer have access to the blog | &check; |
+| As a Site Admin | I can create an about page so that I can present information of the company | &check; |
+| As a Site Admin | I can access the admin panel so that the url does not have to be typed manually | &check; |
+| As a Site Admin | I can pin a post to the top so that other users can be informed about important infos | &check; |
 
 [Back to top](<#table-of-content>)
 
