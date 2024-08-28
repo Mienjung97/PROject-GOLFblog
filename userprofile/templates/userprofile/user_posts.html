@@ -2,48 +2,56 @@
 {% load static %}
 
 {% block content %}
+{# djlint:off H006 #}
 
-<!-- index.html content starts here -->
-<div class="container mg-btm">
-    <div class="row text-center mg-btm">
-        <h1 class="mg-btm-sm">
-            These are your posts:
-        </h1>
-        <div class="mg-btm-sm">
-            <a class="btn btn-edit" href="{% url 'posts_drafts' %}" class="post-link-w">View drafts</a>
-        </div>
-        <div>
-            <a class="btn btn-edit mg-btm-sm" href="{% url 'home' %}" class="post-link-w">Back to Homepage</a>
-        </div>
-        <hr>
-    </div>
-    <!-- Blog Entries Column -->
-    <div class="col-12">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-            {% for post in posts %}
-            <div class="col">
-                <div class="card card-post h-100 card-body d-flex flex-column">
-                    <a href="{% url 'post_detail' post.slug %}" class="post-link text-decoration-none text-reset">
-                        <div class="image-container text-center">
-                            {% if not "placeholder" in post.featured_image.url %}
-                            <img class="card-img-top post-pic" src=" {{ post.featured_image.url }}"
-                                alt="{{ post.title }}">
-                            {% endif %}
-                        </div>
-                        <div class="card-body">
-                            <h2 class="card-title">{{ post.title }}</h2>
-                            <p class="card-text mg-btm-sm">{{ post.excerpt }}</p>
-                            <p class="card-text text-muted h6 mg-btm">{{ post.created_on}}
-                            </p>
-                        </div>
-                </div>
-                </a>
-                <hr />
+    <!-- index.html content starts here -->
+    <div class="container mg-btm">
+        <div class="row text-center mg-btm">
+            <h1 class="mg-btm-sm">
+                These are your posts:
+            </h1>
+            <div class="mg-btm-sm">
+                <a class="btn btn-edit post-link-w" href="{% url 'posts_drafts' %}">View drafts</a>
             </div>
-            {% endfor %}
+            <div>
+                <a class="btn btn-edit mg-btm-sm post-link-w" href="{% url 'home' %}">Back to Homepage</a>
+            </div>
+            <hr>
+        </div>
+        <!-- Blog Entries Column -->
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                {% for post in posts %}
+                    <div class="col">
+                        <div class="card card-post h-100 card-body d-flex flex-column">
+                            <a href="{% url 'post_detail' post.slug %}"
+                               class="post-link text-decoration-none text-reset">
+                                <div class="image-container text-center">
+                                    {% if not "placeholder" in post.featured_image.url %}
+                                        <img class="card-img-top post-pic"
+                                             src=" {{ post.featured_image.url }}"
+                                             alt="{{ post.title }}">
+                                    {% endif %}
+                                </div>
+                                <div class="card-body">
+                                    <h2 class="card-title">
+                                        {{ post.title }}
+                                    </h2>
+                                    <p class="card-text mg-btm-sm">
+                                        {{ post.excerpt }}
+                                    </p>
+                                    <p class="card-text text-muted h6 mg-btm">
+                                        {{ post.created_on }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <hr />
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 
-<!-- index.html content ends here -->
+    <!-- index.html content ends here -->
 {% endblock %}

@@ -3,41 +3,52 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <h1 class="text-center mg-btm-sm">User Profile from {{ user }}</h1>
+    <div class="container">
         <div class="row">
-            <div class="col text-center">
-                    <a class="btn btn-edit post-link-w {% if request.path == email_url %}active" aria-current="page {% endif %}"
-                        href="{% url 'account_email' %}">Change Email</a>
-            </div>
-            <div class="col text-center">
-                    <a class="btn btn-edit post-link-w {% if request.path == change_password_url %}active"
-                        aria-current="page {% endif %}" href="{% url 'account_change_password' %}">Change Password</a>
-            </div>
-        </div>
-        <form id="profileEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
-            {% csrf_token %}
-            {{ profile_form | crispy }}
-            <div class="row mg-btm">
-                <div class="col">
-                    <button type="submit" class="btn btn-lg btn-success">Save</button>
+            <h1 class="text-center mg-btm-sm">
+                User Profile from {{ user }}
+            </h1>
+            <div class="row mg-btm-sm">
+                <div class="col text-center">
+                    <a class="btn btn-edit post-link-w
+                              {% if request.path == email_url %}
+                                  active" aria-current="page
+                              {% endif %}"
+                       href="{% url 'account_email' %}">Change Email</a>
                 </div>
-        </form>
-        <div class="col text-center">
-            <a class="btn btn-edit" href="{% url 'profile' request.user.username %}" class="post-link-w">Back to
-                Profile</a>
-        </div>
-        <div class="col">
-            <form action="{% url 'account_delete' %}" method="get" class="text-end">
+                <div class="col text-center">
+                    <a class="btn btn-edit post-link-w
+                              {% if request.path == change_password_url %}
+                                  active" aria-current="page
+                              {% endif %}"
+                       href="{% url 'account_change_password' %}">Change Password</a>
+                </div>
+            </div>
+            <form id="profileEdit" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger">
-                    Delete my account
-                </button>
-            </form>
+                {{ profile_form | crispy }}
+                <div class="row mg-btm">
+                    <div class="col">
+                        <button type="submit" class="btn btn-lg btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+                <div class="col text-center">
+                    <a class="btn btn-edit post-link-w"
+                       href="{% url 'profile' request.user.username %}">Back to
+                    Profile</a>
+                </div>
+                <div class="col">
+                    <form action="{% url 'account_delete' %}" method="get" class="text-end">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">
+                            Delete my account
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
 
 {% endblock %}

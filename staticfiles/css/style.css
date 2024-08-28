@@ -142,7 +142,7 @@ a:hover {
 }
 
 /* does not work yet */
-.navbar-nav > .active {
+.navbar-nav>.active {
     color: white(0, 0, 0, 0.44);
 }
 
@@ -216,6 +216,7 @@ a:hover {
     background-color: #6d180f;
     margin-bottom: 2vh;
 }
+
 /* Links */
 
 .post-link:hover {
@@ -303,9 +304,9 @@ footer {
 /* Media query: large devices (992px and more) */
 @media screen and (min-width: 992px) {
     /* header */
-    
-.navbar-between {
-    margin-left: 2vw;
-}
+
+    .navbar-between {
+        margin-left: 2vw;
+    }
 
 }

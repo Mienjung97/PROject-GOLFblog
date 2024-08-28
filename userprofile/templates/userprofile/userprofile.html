@@ -2,64 +2,68 @@
 {% load static %}
 
 {% block content %}
+{# djlint:off H006 #}
 
-<div class="container">
-    <div class="row">
-        <h1 class="text-center mg-btm">User Profile from {{ user }}</h1>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center mg-btm">
+                User Profile from {{ user }}
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col mg-btm">
+                <div class="mg-btm text-center">
+                    <!-- If there is a profile picture, it will be displayed here -->
+                    {% if user.profile.profile_picture %}
+                        <img class="image-fluid"
+                             src="{{ user.profile.profile_picture.url }}"
+                             alt="{{ user.username }}" />
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col mg-btm">
+                <div>
+                    <p>
+                        First name:
+                        {{ user.profile.first_name | default:"No name provided" }}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Last name:
+                        {{ user.profile.last_name | default:"No name provided" }}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Handicap:
+                        {{ user.profile.handicap | default:"No handicap provided" }}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Local golf course:
+                        {{ user.profile.golfcourse | default:"No golf course provided" }}
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        {{ user }}'s bio:
+                    </p>
+                    <p>
+                        {{ user.profile.user_bio | default:"No bio provided" }}
+                    </p>
+                </div>
+            </div>
+            {% if user.is_authenticated and request.user == user %}
+                <div class="row text-center">
+
+                    <div class="col">
+                        <a class="btn btn-edit post-link-w" href="{% url 'profile_edit' %}">Edit Profile</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </div>
-    <div class="row">
-        <div class="col mg-btm">
-            <div class="mg-btm text-center">
-                <!-- If there is a profile picture, it will be displayed here -->
-                {% if user.profile.profile_picture %}
-                <img class="image-fluid" src="{{ user.profile.profile_picture.url }}" alt="{{ user.username}}" />
-                {%endif%}
-            </div>
-        </div>
-        <div class="col mg-btm">
-            <div>
-                <p>
-                    First name:
-                    {{ user.profile.first_name | default:"No name provided" }}
-                </p>
-            </div>
-            <div>
-                <p>
-                    Last name:
-                    {{ user.profile.last_name | default:"No name provided" }}
-                </p>
-            </div>
-            <div>
-                <p>
-                    Handicap:
-                    {{ user.profile.handicap | default:"No handicap provided" }}
-                </p>
-            </div>
-            <div>
-                <p>
-                    Local golf course:
-                    {{ user.profile.golfcourse | default:"No golf course provided" }}
-                </p>
-            </div>
-            <div>
-                <p>
-                    {{ user }}'s bio:
-                </p>
-                <p>
-                    {{ user.profile.user_bio | default:"No bio provided" }}
-                </p>
-            </div>
-        </div>
-        {% if user.is_authenticated and request.user == user %}
-        <div class="row text-center">
-
-            <div class="col">
-                <a class="btn btn-edit" href="{% url 'profile_edit' %}" class="post-link-w">Edit Profile</a>
-            </div>
-        </div>
-        {% endif %}
-    </div>
-</div>
-
 
 {% endblock %}

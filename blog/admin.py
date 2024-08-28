@@ -19,9 +19,10 @@ class PostAdmin(SummernoteModelAdmin):
 
     def pin_posts(self, request, queryset):
         queryset.update(pinned=True)
-    
+
     def unpin_posts(self, request, queryset):
         queryset.update(pinned=False)
+
 
 # Register your models here.
 admin.site.register(Comment)

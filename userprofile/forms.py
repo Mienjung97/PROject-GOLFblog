@@ -4,6 +4,7 @@ from django.contrib import messages
 from cloudinary.forms import CloudinaryFileField
 from .models import Profile
 
+
 class Handicap(forms.CharField):
     def clean(self, value):
         value = super().clean(value)
@@ -26,38 +27,47 @@ class ProfileForm(forms.ModelForm):
     A form for editing the info displayed on the users
     profile page.
     """
+
     first_name = forms.CharField(
-        required=False, widget=forms.TextInput(
-            attrs={"placeholder": "First Name"}
-        )
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "First Name"}),
     )
     last_name = forms.CharField(
-        required=False, widget=forms.TextInput(
-            attrs={"placeholder": "Last Name"}
-        )
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "Last Name"}),
     )
     profile_picture = CloudinaryFileField(
-        options= {
-            'crop': 'limit', 'width': 333, 'height': 333,
+        options={
+            'crop': 'limit',
+            'width': 333,
+            'height': 333,
         },
-        required=False
+        required=False,
     )
     handicap = Handicap(
-        required=False, widget=forms.TextInput(
+        required=False,
+        widget=forms.TextInput(
             attrs={"placeholder": 'Enter your handicap or "Pro"'}
-        )
+        ),
     )
     golfcourse = forms.CharField(
-        required=False, widget=forms.TextInput(
-            attrs={"placeholder": "Your home golf course"}
-        )
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "Your home golf course"}),
     )
     user_bio = forms.CharField(
-        required=False, widget=forms.Textarea(
+        required=False,
+        widget=forms.Textarea(
             attrs={"placeholder": "Tell other users about yourself!"}
-        )
+        ),
     )
 
     class Meta:
         model = Profile
-        fields = ("profile_picture", "first_name", "last_name", "handicap", "golfcourse", "user_bio")
+        fields = (
+            "profile_picture",
+            "first_name",
+            "last_name",
+            "handicap",
+            "golfcourse",
+            "user_bio",
+        )

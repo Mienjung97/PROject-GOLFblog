@@ -15,6 +15,7 @@ from .forms import CommentForm, PostForm
 
 # Create your views here.
 
+
 def startup_page(request):
     """
     This decides on what page the the user starts the webpage:
@@ -27,10 +28,12 @@ def startup_page(request):
     else:
         return redirect('about')
 
+
 class PostList(generic.ListView):
     """
     generates a geneal list of all posts.
     """
+
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-pinned', '-created_on')
     template_name = "blog/index.html"
@@ -44,14 +47,16 @@ class PostList(generic.ListView):
             post.likes_count = post.likes.count()
         return context
 
+
 @staff_member_required
 def pin_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    post.pinned = not post.pinned # help from perplexity
+    post.pinned = not post.pinned
     post.save()
-    action = "pinned" if post.pinned else "unpinned" # help from perplexity
+    action = "pinned" if post.pinned else "unpinned"
 
     return redirect('post_detail', slug=slug)
+
 
 def post_detail(request, slug):
     """
@@ -84,30 +89,30 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Your comment has been submitted.'
+                request, messages.SUCCESS, 'Your comment has been submitted.'
             )
             return redirect('post_detail', slug=slug)
         else:
             messages.add_message(
-                request, messages.ERROR,
-                'Your comment could not be submitted.'
+                request, messages.ERROR, 'Your comment could not be submitted.'
             )
 
     return render(
         request,
         "blog/post_detail.html",
-    {
-        "post": post,
-        "comments" : comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
-        "likes_count": likes_count,
-        "liked": liked,
-    },
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
+            "likes_count": likes_count,
+            "liked": liked,
+        },
     )
 
+
 # Code for creating, editing and deleting posts
+
 
 @login_required
 def create_post(request):
@@ -131,31 +136,36 @@ def create_post(request):
             post.author = request.user
             if not post.slug:
                 post.slug = slugify(post.title)
-            if 'featured_image' in post_form.cleaned_data and post_form.cleaned_data['featured_image']:
-                post.featured_image = post.featured_image = post_form.cleaned_data['featured_image']
+            if (
+                'featured_image' in post_form.cleaned_data
+                and post_form.cleaned_data['featured_image']
+            ):
+                post.featured_image = post.featured_image = (
+                    post_form.cleaned_data['featured_image']
+                )
             else:
                 post.featured_image = None
             post.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Your post has been submitted.')
+                request, messages.SUCCESS, 'Your post has been submitted.'
+            )
             return redirect("home")
         else:
             messages.add_message(
-                request, messages.ERROR,
-                'Your post could not be submitted.'
+                request, messages.ERROR, 'Your post could not be submitted.'
             )
 
     else:
         post_form = PostForm()
-    
+
     return render(
         request,
         "blog/create_post.html",
-    {
-        "post_form": post_form,
-    },
+        {
+            "post_form": post_form,
+        },
     )
+
 
 @login_required
 def delete_post(request, slug):
@@ -168,22 +178,19 @@ def delete_post(request, slug):
         if request.user == post.author:
             post.delete()
             messages.success(
-                request, "Your account has been deleted successfully."
+                request, "Your post has been deleted successfully."
             )
             return redirect("home")
         else:
             messages.add_message(
-                request, messages.ERROR,
-                'You cannot delete other peoples posts!'
+                request,
+                messages.ERROR,
+                'You cannot delete other peoples posts!',
             )
             return redirect(reverse("home"))
 
-    return render(
-        request, 
-        "blog/delete_post.html",
-        {
-            'post':post
-        })
+    return render(request, "blog/delete_post.html", {'post': post})
+
 
 @login_required
 def edit_post(request, slug):
@@ -211,8 +218,7 @@ def edit_post(request, slug):
                 post.slug = slugify(post.title)
             post.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Your post has been updated.'
+                request, messages.SUCCESS, 'Your post has been updated.'
             )
             if post.status == 1:
                 return redirect('post_detail', slug=post.slug)
@@ -220,26 +226,26 @@ def edit_post(request, slug):
                 return redirect('posts_drafts')
         else:
             messages.add_message(
-                request, messages.ERROR,
-                'There was a problem updating your post.'
+                request,
+                messages.ERROR,
+                'There was a problem updating your post.',
             )
-            
+
     else:
         post_form = PostForm(instance=post)
-    
+
     return render(
-        request,
-        "blog/edit_post.html",
-        {
-            'post_form': post_form,
-            'post': post
-        }
+        request, "blog/edit_post.html", {'post_form': post_form, 'post': post}
     )
+
 
 # Likes (code was influenced by YouTube channel "Codemy.com")
 
+
 def like_post(request, slug):
-    post = get_object_or_404(Post, slug=request.POST.get('post_slug')) #grabs like button via name
+    post = get_object_or_404(
+        Post, slug=request.POST.get('post_slug')
+    )  # grabs like button via name
     liked = False
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
@@ -250,7 +256,9 @@ def like_post(request, slug):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 # Comment section
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -278,9 +286,12 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+            )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -301,32 +312,34 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 # Search function
+
 
 def search_result(request):
 
     if request.method == 'POST':
         searched = request.POST['searched']
         post_results = Post.objects.filter(
-            Q(title__icontains=searched) |
-            Q(author__username__icontains=searched) |
-            Q(content__icontains=searched) |
-            Q(excerpt__icontains=searched),
-            status=1
+            Q(title__icontains=searched)
+            | Q(author__username__icontains=searched)
+            | Q(content__icontains=searched)
+            | Q(excerpt__icontains=searched),
+            status=1,
         )
 
         comment_results = Comment.objects.filter(
-            Q(author__username__icontains=searched) |
-            Q(body__icontains=searched)
+            Q(author__username__icontains=searched)
+            | Q(body__icontains=searched)
         )
 
-        user_results = User.objects.filter(
-            Q(username__icontains=searched)
-        )
+        user_results = User.objects.filter(Q(username__icontains=searched))
 
     else:
         return redirect('home')
@@ -339,6 +352,5 @@ def search_result(request):
             'post_results': post_results,
             'comment_results': comment_results,
             'user_results': user_results,
-        }
+        },
     )
-    

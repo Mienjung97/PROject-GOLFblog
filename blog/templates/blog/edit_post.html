@@ -3,40 +3,47 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <h1>Edit the post "{{ post.title }}"</h1>
-        <form id="postEdit" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;" class="mg-btm">
-            {% csrf_token %}
-            {{ post_form | crispy }}
-            <div class="row">
-                <div class="col">
-                    <button type="submit" class="btn btn-success">Save</button>
-                </div>
-        </form>
-        <div class="col">
-            {% if post.status == 1 %}
-            <a href="{% url 'post_detail' post.slug %}" class="btn btn-edit post-link-w">Back to post</a>
-        </div>
-    </div>
-    {% else %}
-    <div class="row">
-        <div class="row mg-btm">
-            <div class="col">
-                <a href="{% url 'posts_drafts' %}" class="btn btn-edit post-link-w">Back to draft list</a>
-            </div>
-            <div class="col">
-                <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">
-                        Delete this post
-                    </button>
+    <div class="container">
+        <div class="row">
+            <h1 class="mg-btm-sm">
+                Edit the post "{{ post.title }}"
+            </h1>
+            <form id="postEdit"
+                  method="post"
+                  enctype="multipart/form-data"
+                  class="mg-btm">
+                {% csrf_token %}
+                {{ post_form | crispy }}
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
                 </form>
+                <div class="col">
+                    {% if post.status == 1 %}
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-edit post-link-w">Back to post</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="row mg-btm">
+                        <div class="col">
+                            <a href="{% url 'posts_drafts' %}" class="btn btn-edit post-link-w">Back to draft list</a>
+                        </div>
+                        <div class="col">
+                            <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">
+                                    Delete this post
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
-        {% endif %}
     </div>
-</div>
 
-
-{% endblock %}
+    {% endblock %}

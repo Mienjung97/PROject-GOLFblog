@@ -8,175 +8,220 @@
 {% url 'account_email' as email_url %}
 {% url 'account_change_password' as change_password_url %}
 
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
-<head>
-    <title>PROject GOLFblog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <title>PROject GOLFblog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description"
+              content="A blog page for people interested in golfing. Will extend to the PROject GOLFacademy webpage." />
+        <meta name="keywords" content="golf, golfing, blog, project, golfacademy, golfworld" />
 
-    <!-- Google Fonts CSS -->
-    <!--
+        <!-- Google Fonts CSS -->
+        <!--
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     -->
-    <!-- Google Fonts used on the projectgolfacademy.com/ website -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+        <!-- Google Fonts used on the projectgolfacademy.com/ website -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+              rel="stylesheet">
 
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+              crossorigin="anonymous">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
 
-</head>
+    </head>
 
-<body class="d-flex flex-column min-vh-100 light-bg">
+    <body class="d-flex flex-column min-vh-100 light-bg">
 
-    <!-- Navigation (Copied from the "I think therfore I blog" project, will be changed in future to match PROject GOLFacademy) -->
-    <nav class="navbar navbar-expand-lg navbar-light light-bg navbar-shadow">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <span class="black-pro big-text navbar-mg-l">PRO</span>
-                <span class="normal-text black-pro">ject </span>
-                <span class="red-golf big-text">GOLF</span>
-                <span class="red-golf normal-text">blog</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mg-r-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="black navbar-between nav-link{% if request.path == home_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item navbar-between">
-                        <a class="black nav-link{% if request.path == about_url %}active" aria-current="page {%endif%}"
-                            href="{% url 'about' %}">About</a>
-                    </li>
+        <!-- Navigation (Copied from the "I think therfore I blog" project, will be changed in future to match PROject GOLFacademy) -->
+        <nav class="navbar navbar-expand-lg navbar-light light-bg navbar-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <span class="black-pro big-text navbar-mg-l">PRO</span>
+                    <span class="normal-text black-pro">ject </span>
+                    <span class="red-golf big-text">GOLF</span>
+                    <span class="red-golf normal-text">blog</span>
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarText"
+                        aria-controls="navbarText"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mg-r-auto mb-2 mb-lg-0 d-flex align-items-center">
+                        <li class="nav-item">
+                            <a class="black navbar-between nav-link
+                                      {% if request.path == home_url %}
+                                          " aria-current="page
+                                      {% endif %}"
+                               href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item navbar-between">
+                            <a class="black nav-link
+                                      {% if request.path == about_url %}
+                                          " aria-current="page
+                                      {% endif %}"
+                               href="{% url 'about' %}">About</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item navbar-between">
+                                <a class="black nav-link
+                                          {% if request.path == create_post_url %}
+                                              " aria-current="page
+                                          {% endif %}"
+                                   href="{% url 'create_post' %}">Add Post</a>
+                            </li>
+                        {% endif %}
+                    </ul>
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="black navbar-between nav-link{% if request.path == create_post_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'create_post' %}">Add Post</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                {% if user.is_authenticated %}
-                <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
-                    {% if user.is_staff %}
-                    <li class="nav-item">
-                        <a class="black nav-link{% if request.path == admin_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'admin:index' %}">Admin Panel</a>
-                    </li>
-                    {% endif %}
-                    {% if user.is_authenticated and request.user == user %}
-                    <li class="nav-item dropdown navbar-between">
-                        <a href="#" class="nav-link dropdown-toggle black" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fas fa-user"></i> Profile
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item black nav-link {% if request.path == profile_url %}active"
-                                    aria-current="page {% endif %}"
-                                    href="{% url 'profile' request.user.username %}">{{ request.user.username }}
-                                </a>
+                        <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
+                            {% if user.is_staff %}
+                                <li class="nav-item">
+                                    <a class="black nav-link
+                                              {% if request.path == admin_url %}
+                                                  " aria-current="page
+                                              {% endif %}"
+                                       href="{% url 'admin:index' %}">Admin Panel</a>
+                                </li>
+                            {% endif %}
+                            {% if user.is_authenticated and request.user == user %}
+                                <li class="nav-item dropdown navbar-between">
+                                    <a href="#"
+                                       class="nav-link dropdown-toggle black"
+                                       role="button"
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        <i class="fas fa-user"></i> Profile
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li>
+                                            <a class="dropdown-item black nav-link
+                                                      {% if request.path == profile_url %}
+                                                          " aria-current="page
+                                                      {% endif %}"
+                                               href="{% url 'profile' request.user.username %}">{{ request.user.username }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item black nav-link
+                                                      {% if request.path == profile_posts_url %}
+                                                          " aria-current="page
+                                                      {% endif %}"
+                                               href="{% url 'profile_posts' %}">Show posts
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item black nav-link
+                                                      {% if request.path == logout_url %}
+                                                          " aria-current="page
+                                                      {% endif %}"
+                                               href="{% url 'account_logout' %}">Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0 d-flex align-items-center">
+                            <li class="nav-item">
+                                <a class="black nav-link
+                                          {% if request.path == signup_url %}
+                                              " aria-current="page
+                                          {% endif %}"
+                                   href="{% url 'account_signup' %}">Register</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item black nav-link {% if request.path == profile_posts_url %}active"
-                                    aria-current="page {% endif %}" href="{% url 'profile_posts' %}">Show posts
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item black nav-link{% if request.path == logout_url %}active"
-                                    aria-current="page {% endif %}" href="{% url 'account_logout' %}">Logout
-                                </a>
+                            <li class="nav-item navbar-between">
+                                <a class="black nav-link
+                                          {% if request.path == login_url %}
+                                              " aria-current="page
+                                          {% endif %}"
+                                   href="{% url 'account_login' %}">Login</a>
                             </li>
                         </ul>
-                    </li>
                     {% endif %}
-                </ul>
-                {% else %}
-                <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="black nav-link{% if request.path == signup_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item navbar-between">
-                        <a class="black nav-link{% if request.path == login_url %}active"
-                            aria-current="page {% endif %}" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                </ul>
-                {% endif %}
-                <form method="post" action="{% url 'search_result' %}">
-                    {% csrf_token %}
-                    <input type="search" placeholder="Search" aria-label="Search" name="searched">
-                    <button class="post-link-w btn-red mg-r" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!-- displaying Django messages -->
-    <div class="container mg-top-header">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible
-          fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <form method="post" action="{% url 'search_result' %}">
+                        {% csrf_token %}
+                        <input type="search" placeholder="Search" aria-label="Search" name="searched">
+                        <button class="post-link-w btn-red mg-r" type="submit">
+                            Search
+                        </button>
+                    </form>
                 </div>
-                {% endfor %}
+            </div>
+        </nav>
+        <!-- displaying Django messages -->
+        <div class="container mg-top-header">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show"
+                             id="msg"
+                             role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
 
-    <main class="flex-shrink-0 light-bg">
+        <main class="flex-shrink-0 light-bg">
 
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
+            {% block content %}
+                <!-- Content Goes here -->
+            {% endblock content %}
 
-    </main>
+        </main>
 
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 footer-bg">
-        <p class="m-0 text-center black normal-text">
-            {% block copyright %}
-            Copyright 2024 Sebastian Kefer
-            {% endblock copyright %}
-        </p>
-        <p class="m-0 text-center black normal-text">Follow us:
-            <a href="https://www.facebook.com/projectgolfacademy" target="_blank" class="media-link"><i
-                    class="fab fa-facebook-square ms-3"></i></a>
-            <a href="https://www.instagram.com/project_golfacademy/" target="_blank" class="media-link"><i
-                    class="fab fa-instagram-square ms-3"></i></a>
-            <a href="https://www.linkedin.com/company/project-golfworld/" target="_blank" class="media-link"><i
-                    class="fab fa-brands fa-linkedin ms-3"></i></a>
-        </p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 footer-bg">
+            <p class="m-0 text-center black normal-text">
+                {% block copyright %}
+                    Copyright 2024 Sebastian Kefer
+                {% endblock copyright %}
+            </p>
+            <p class="m-0 text-center black normal-text">
+                Follow us:
+                <a href="https://www.facebook.com/projectgolfacademy"
+                   target="_blank"
+                   class="media-link"><i class="fab fa-facebook-square ms-3"></i></a>
+                <a href="https://www.instagram.com/project_golfacademy/"
+                   target="_blank"
+                   class="media-link"><i class="fab fa-instagram-square ms-3"></i></a>
+                <a href="https://www.linkedin.com/company/project-golfworld/"
+                   target="_blank"
+                   class="media-link"><i class="fab fa-brands fa-linkedin ms-3"></i></a>
+            </p>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
 
-    {% block extras %}
-    {% endblock %}
-</body>
+        {% block extras %}
+        {% endblock %}
+    </body>
 
 </html>

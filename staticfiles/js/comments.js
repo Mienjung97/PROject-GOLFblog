@@ -44,4 +44,3 @@ for (let button of deleteButtons) {
         deleteModal.show();
     });
 }
-

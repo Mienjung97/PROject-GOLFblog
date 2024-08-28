@@ -1,26 +1,34 @@
-{% extends 'base.html' %} {% block content %}
-{% load static %}
-{% load crispy_forms_tags %}
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% load crispy_forms_tags %}
 
-<div class="container">
-    <div class="row">
-        <h1>Create a Post:</h1>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em;">
-            {{ post_form | crispy }}
-            {% csrf_token %}
-            <div class="row">
-                <div class="col text-center mg-btm-sm">
-                    <button id="submitButtonPost" type="submit" data-post_id="{{ post.id }}"
-                        class="btn btn-lg btn-success">Submit post</button>
+    <div class="container">
+        <div class="row">
+            <h1>
+                Create a Post:
+            </h1>
+            <p class="mg-btm-sm">
+                Posting as: {{ user.username }}
+            </p>
+            <form id="postForm" method="post" enctype="multipart/form-data">
+                {{ post_form | crispy }}
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col text-center mg-btm-sm">
+                        <button type="submit" data-post_id="{{ post.id }}" class="btn btn-lg btn-success">
+                            Submit post
+                        </button>
+                    </div>
+                    <div class="col text-center">
+                    </form>
+                    <a href="{% url 'home' %}" class="btn btn-lg btn-edit post-link-w">Cancel</a>
                 </div>
-                <div class="col text-center">
-        </form>
-        <a href="{% url 'home' %}" class="btn btn-lg btn-edit post-link-w">Cancel</a>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/post.js' %}"></script>
+    <script src="{% static 'js/post.js' %}"></script>
 {% endblock %}

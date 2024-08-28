@@ -11,6 +11,7 @@ from .forms import ProfileForm
 
 # Create your views here.
 
+
 @login_required
 def user_profile(request, username):
     """
@@ -30,11 +31,9 @@ def user_profile(request, username):
     return render(
         request,
         "userprofile/userprofile.html",
-    {
-        "user": user
-    },
+        {"user": user},
     )
-    
+
 
 @login_required
 def user_profile_edit(request):
@@ -55,19 +54,19 @@ def user_profile_edit(request):
     profile, created = Profile.objects.get_or_create(user=request.user)
 
     if request.method == "POST":
-        profile_form = ProfileForm(request.POST, request.FILES,
-        instance=profile)
+        profile_form = ProfileForm(
+            request.POST, request.FILES, instance=profile
+        )
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.save()
             messages.add_message(
-                        request, messages.SUCCESS,
-                        'Your profile has been updated.')
+                request, messages.SUCCESS, 'Your profile has been updated.'
+            )
             return redirect("profile", username=request.user.username)
         else:
             messages.add_message(
-                request, messages.ERROR,
-                'Your profile could not be updated.'
+                request, messages.ERROR, 'Your profile could not be updated.'
             )
 
     else:
@@ -76,10 +75,9 @@ def user_profile_edit(request):
     return render(
         request,
         "userprofile/userprofile_edit.html",
-    {
-        "profile_form": profile_form
-    },
+        {"profile_form": profile_form},
     )
+
 
 @login_required
 def account_delete(request):
@@ -96,14 +94,13 @@ def account_delete(request):
             )
             return redirect("home")
         elif user != request.user:
-                messages.add_message(
-                    request, messages.ERROR,
-                    'You cannot delete other peoples profiles!'
-                )
-                return redirect(reverse("home"))
-    return render(
-        request, 
-        "userprofile/delete_profile.html")
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'You cannot delete other peoples profiles!',
+            )
+            return redirect(reverse("home"))
+    return render(request, "userprofile/delete_profile.html")
 
 
 @login_required
@@ -112,10 +109,9 @@ def view_user_postlist(request):
     return render(
         request,
         "userprofile/user_posts.html",
-        {
-            "posts": posts
-        },
-        )
+        {"posts": posts},
+    )
+
 
 @login_required
 def show_drafts(request):
@@ -123,7 +119,5 @@ def show_drafts(request):
     return render(
         request,
         "userprofile/user_post_drafts.html",
-        {
-            "posts": posts
-        },
-        )
+        {"posts": posts},
+    )
