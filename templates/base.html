@@ -13,10 +13,10 @@
 
     <head>
         <title>PROject GOLFblog</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description"
-              content="A blog page for people interested in golfing. Will extend to the PROject GOLFacademy webpage." />
-        <meta name="keywords" content="golf, golfing, blog, project, golfacademy, golfworld" />
+              content="A blog page for people interested in golfing. Will extend to the PROject GOLFacademy webpage."/>
+        <meta name="keywords" content="golf, golfing, blog, project, golfacademy, golfworld"/>
 
         <!-- Google Fonts CSS -->
         <!--
@@ -79,16 +79,14 @@
                         <li class="nav-item navbar-between">
                             <a class="black nav-link
                                       {% if request.path == about_url %}
-                                          " aria-current="page
-                                      {% endif %}"
+                                          " aria-current="page{% endif %}"
                                href="{% url 'about' %}">About</a>
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item navbar-between">
                                 <a class="black nav-link
                                           {% if request.path == create_post_url %}
-                                              " aria-current="page
-                                          {% endif %}"
+                                              " aria-current="page{% endif %}"
                                    href="{% url 'create_post' %}">Add Post</a>
                             </li>
                         {% endif %}
@@ -99,8 +97,7 @@
                                 <li class="nav-item">
                                     <a class="black nav-link
                                               {% if request.path == admin_url %}
-                                                  " aria-current="page
-                                              {% endif %}"
+                                                  " aria-current="page{% endif %}"
                                        href="{% url 'admin:index' %}">Admin Panel</a>
                                 </li>
                             {% endif %}
@@ -117,24 +114,21 @@
                                         <li>
                                             <a class="dropdown-item black nav-link
                                                       {% if request.path == profile_url %}
-                                                          " aria-current="page
-                                                      {% endif %}"
+                                                          " aria-current="page{% endif %}"
                                                href="{% url 'profile' request.user.username %}">{{ request.user.username }}
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item black nav-link
                                                       {% if request.path == profile_posts_url %}
-                                                          " aria-current="page
-                                                      {% endif %}"
+                                                          " aria-current="page{% endif %}"
                                                href="{% url 'profile_posts' %}">Show posts
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item black nav-link
                                                       {% if request.path == logout_url %}
-                                                          " aria-current="page
-                                                      {% endif %}"
+                                                          " aria-current="page{% endif %}"
                                                href="{% url 'account_logout' %}">Logout
                                             </a>
                                         </li>
@@ -147,15 +141,13 @@
                             <li class="nav-item">
                                 <a class="black nav-link
                                           {% if request.path == signup_url %}
-                                              " aria-current="page
-                                          {% endif %}"
+                                              " aria-current="page{% endif %}"
                                    href="{% url 'account_signup' %}">Register</a>
                             </li>
                             <li class="nav-item navbar-between">
                                 <a class="black nav-link
                                           {% if request.path == login_url %}
-                                              " aria-current="page
-                                          {% endif %}"
+                                              " aria-current="page{% endif %}"
                                    href="{% url 'account_login' %}">Login</a>
                             </li>
                         </ul>
