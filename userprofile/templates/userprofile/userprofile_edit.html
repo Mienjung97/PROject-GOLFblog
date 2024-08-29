@@ -24,17 +24,18 @@
                        href="{% url 'account_change_password' %}">Change Password</a>
                 </div>
             </div>
-            <form id="profileEdit" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ profile_form | crispy }}
-                <div class="row mg-btm">
-                    <div class="col">
+            <div class="row mg-btm">
+                <form id="profileEdit" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ profile_form | crispy }}
+                    <div class="col text-center">
                         <button type="submit" class="btn btn-lg btn-success">
                             Save
                         </button>
                     </div>
                 </form>
-                <div class="col text-center">
+                <br>
+                <div class="col">
                     <a class="btn btn-edit post-link-w"
                        href="{% url 'profile' request.user.username %}">Back to
                     Profile</a>
@@ -50,5 +51,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
