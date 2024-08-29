@@ -3,6 +3,10 @@ from .forms import CommentForm
 
 
 class TestCommentForm(TestCase):
+    """
+    Automated test to check validation for comment forms.
+    This code has been taken from the walk through project
+    """
 
     def test_form_is_valid(self):
         comment_form = CommentForm({'body': 'This is a great post'})

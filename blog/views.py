@@ -50,6 +50,10 @@ class PostList(generic.ListView):
 
 @staff_member_required
 def pin_post(request, slug):
+    """
+    Allows staff members to pin and unpin (toggle button)
+    posts to the top of the page, newest comes first.
+    """
     post = get_object_or_404(Post, slug=slug)
     post.pinned = not post.pinned
     post.save()
