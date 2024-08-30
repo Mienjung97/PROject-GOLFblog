@@ -39,7 +39,7 @@ Photo by <a href="https://unsplash.com/@alexacea?utm_content=creditCopyText&utm_
 Imported Readme from distinction project and will be modified:
 
 # **PROject GOLFblog**
-PROject GOLFblog is a blog project which in the future is supposed to be an extention for the webpage of [PROject GOLFacademy](https://projectgolfacademy.com/). The goal for this blog is to be a collection point for everyone who is already part of PROject GOLFacademy, either as a staff member or a student, as well as for anyone who is interested in golf. Staff members are able to post updates and information (e.g. free spaces in courses, holidays and more) that can be pinned to the top, while site users can ask questions related to the sport or the company, write about their personal experiences, give feedback to the staff or just ask for play partners. 
+PROject GOLFblog is a blog project which in the future is intended to be to be an extension for the webpage of [PROject GOLFacademy](https://projectgolfacademy.com/). The goal for this blog is to serve as a central hub for everyone who associated with PROject GOLFacademy, including staff members and students, as well as anyone who is interested in golf. Staff members are can post updates and information (e.g. available spaces in courses, holidays and more) that can be pinned to the top, while site users can ask questions related to the sport or the company, write about their personal experiences, give feedback to the staff or just ask for play partners. 
 
 [Access live website here](https://project-golfblog-96e6107b0f52.herokuapp.com/)
 
@@ -100,13 +100,13 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
 # **Project**
 
 ## Objective
-
+I knew I was going to create a blog project for my PP4 and after talking to my brother about it, he suggested that I could create a blog that can work as an extension of his [webpage](https://projectgolfacademy.com/). This would allow both the staff to keep the members up to date with news as well as members being able to communicate about anything related to golf or the company. Since I used to golf myself, I am not completely unfamiliar with the topic and highly enjoyed the idea. For my project to fully function as the blog it is intended to be, there are quite a few more features that still need to be implemented (more about this in the "Future features" section). This would have stretched way beyond the requirements and will be addressed as soon as I have finished the course. Nevertheless I am happy about the current state of the project.
 
 ## Site Users Goal
-Every user is able to include their local golf course and handicap so that finding people in your area and similar skill level is possible.
+Site users can inform themselves about PROject GOLFacademy, learn about the experiences others have had with the company, leave reviews or suggestions, and get information about updates on courses, clubs, trips, and more. They can also try to find people to play with, as every user can include their local golf course and handicap, making it easy to connect with others in their area who have similar skill levels.
 
 ## Site Owners Goal
-
+All staff members can post updates that can be pinned and unpinned at the top. These updates include, but are not limited to, letting people know that courses and tournaments from one of their locations, or holidays from [PROject GOLFtravel](https://projectgolfworld.com/project-golftravel/) have available slots, explaining changes in the system or new rules in the golf world, or asking for feedback themselves. Also, seeing the students interact with each other would be a huge plus, as this would improve customer satisfaction, provide valuable information for the company, and could additionally lead to more new customers.
 
 ## Project Management
 
@@ -115,8 +115,9 @@ Every user is able to include their local golf course and handicap so that findi
 
 <details><summary><b>Github Board</b></summary>
 
-![User Stories]()
+![User Stories](readme/assets/images/user_stories.png)
 </details><br/>
+
 
 [Back to top](<#table-of-content>)
 

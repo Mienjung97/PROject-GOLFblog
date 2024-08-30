@@ -23,14 +23,14 @@
                 </form>
                 <div class="col">
                     {% if post.status == 1 %}
-                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-edit post-link-w">Back to post</a>
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-edit">Back to post</a>
                     </div>
                 </div>
             {% else %}
                 <div class="row">
                     <div class="row mg-btm">
                         <div class="col">
-                            <a href="{% url 'posts_drafts' %}" class="btn btn-edit post-link-w">Back to draft list</a>
+                            <a href="{% url 'posts_drafts' %}" class="btn btn-edit">Back to draft list</a>
                         </div>
                         <div class="col">
                             <form action="{% url 'delete_post' post.slug %}" method="get" class="text-end">

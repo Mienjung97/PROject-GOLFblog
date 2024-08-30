@@ -10,14 +10,14 @@
             </h1>
             <div class="row mg-btm-sm">
                 <div class="col text-center">
-                    <a class="btn btn-edit post-link-w
+                    <a class="btn btn-edit
                               {% if request.path == email_url %}
                                   active" aria-current="page
                               {% endif %}"
                        href="{% url 'account_email' %}">Change Email</a>
                 </div>
                 <div class="col text-center">
-                    <a class="btn btn-edit post-link-w
+                    <a class="btn btn-edit
                               {% if request.path == change_password_url %}
                                   active" aria-current="page
                               {% endif %}"
@@ -36,7 +36,7 @@
                 </form>
                 <br>
                 <div class="col">
-                    <a class="btn btn-edit post-link-w"
+                    <a class="btn btn-edit"
                        href="{% url 'profile' request.user.username %}">Back to
                     Profile</a>
                 </div>
