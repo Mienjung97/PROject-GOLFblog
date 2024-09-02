@@ -55,6 +55,7 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
     * [Site Users Goal](<#site-users-goal>)
     * [Site Owners Goal](<#site-owners-goal>)
     * [Project Management](<#project-management>)
+    * [Repository Issues](<#repository-issues>)
 
 * [**User Experience (UX)**](<#user-experience-ux>)
     * [Wireframes](<#wireframes>)
@@ -81,7 +82,7 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
     * [Footer](<#footer>)
     * [Flash Messages](<#flash-messages-and-confirmation-pages-to-the-user>)
 
-* [**Features Left To Implement**](<#features-left-to-implement>)
+* [**Future Features**](<#future-features>)
 
 * [**Technologies Used**](<#technologies-used>)
     * [Languages](<#languages>)
@@ -111,11 +112,24 @@ All staff members can post updates that can be pinned and unpinned at the top. T
 ## Project Management
 
 ### Github Board
-
+For organizing and planning my project, I have used the [Github board](https://github.com/users/Mienjung97/projects/8/views/1), which has helped me a lot with planning out and fulfilling the acceptance criterias. 
 
 <details><summary><b>Github Board</b></summary>
 
-![User Stories](readme/assets/images/user_stories.png)
+![User Stories](readme/assets/images/User_stories.PNG)
+
+</details><br/>
+
+### Repository Issues
+
+Due to migration issues early in production, I had to restart the project in a new repository. The old repository is [PROject GOLDacademy blog](https://github.com/Mienjung97/PROject-GOLFacademy-blog) and the board has been moved to the new project. 
+
+Since I had already created most user stories before, I assigned the user stories to the new project. The entire documentation can be traced in the individual user stories, including the labels that I added later. I started to use sprint labels, but have not followed through with them since this was my first django project, and I was unable to properly estimate the time needed for each user story. An example of the documentation can be seen here:
+
+<details><summary><b>User Story documentation</b></summary>
+
+![user story example](readme/assets/images/user_story.PNG)
+
 </details><br/>
 
 
@@ -143,7 +157,7 @@ The wireframes for the site were created in the software [Balsamiq](https://bals
 </details><br/>
 
 ## User Stories
-Below the user stories for the project are listed to clarify why particular feature matters. These will then be tested and confirmed in the [Testing](<#testing>) section.
+Below the user stories for the project are listed to clarify why particular feature matters. These will then be tested and confirmed in the [Testing](<#testing>) section. In the Github board are two more user stories included, which are not part of the project yet and will be explained in the [Future Features](<#future-features>) section.
 
 ### Site User
 |  | | |
@@ -406,7 +420,7 @@ The sites incorporates flash messages and confirmation pages when an action has 
 ![Review Deleted Success](readme/assets/images/review_deleted_success.png)
 </details><br/>
 
-### Features Left to Implement
+### Future Features
 
 * Add more automated testing
 * Add 'current page is active' in navbar
@@ -853,131 +867,151 @@ No known bugs besides those in the fixed / unfixed bugs section.
 
 ## Deployment To Heroku
 
-The project was deployed to [Heroku](https://www.heroku.com). To deploy, please follow the process below:
+The project was deployed to [Heroku](https://www.heroku.com). To deploy a project, these are the steps:
 
-1. To begin with we need to create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template) by following the link and then click 'Use this template'.
+1. Begin by creating a GitHub repository using the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template). Navigate to the template and select 'Use this template'.
 
 <details><summary><b>Heroku Deployment - Step 1</b></summary>
 
-![Heroku Deployment Step 1](readme/assets/images/heroku_01.png)
+![Heroku Deployment Step 1]()
 </details><br />
 
-2. Fill in the needed details as stated in the screenshot below and then click 'Create Repository From Template'.
+2. Complete the necessary details as shown in the provided image, then click 'Create Repository From Template'.
 
 <details><summary><b>Heroku Deployment - Step 2</b></summary>
 
-![Heroku Deployment Step 2](readme/assets/images/heroku_02.png)
+![Heroku Deployment Step 2]()
 </details><br />
 
-3. When the repository creation is done click 'Gitpod' as stated in the screenshot below.
+3. After the repository is created, click on 'Gitpod' as indicated in the picture.
 
 <details><summary><b>Heroku Deployment - Step 3</b></summary>
 
-![Heroku Deployment Step 3](readme/assets/images/heroku_03.png)
+![Heroku Deployment Step 3]()
 </details><br />
 
-4. Now it's time to install Django and the supporting libraries that are needed. Type the commands below to do this.
+4. Install Django by entering this command:
 
-* ```pip3 install 'django<4' gunicorn```
-* ```pip3 install 'dj_database_url psycopg2```
-* ```pip3 install 'dj3-cloudinary-storage```
+* ```pip3 install Django~=4.2.1```
 
 <details><summary><b>Heroku Deployment - Step 4</b></summary>
 
-![Heroku Deployment Step 4](readme/assets/images/heroku_04.png)
+![Heroku Deployment Step 4]()
 </details><br />
 
-5. When Django and the libraries are installed we need to create a requirements file.
+5. Generate a requirements file using the following command:
 
-* ```pip3 freeze --local > requirements.txt``` - This will create and add required libraries to requirements.txt
+* ```pip3 freeze --local > requirements.txt``` - This will create the requirements.txt file and adds required libraries to it. This command needs to exectuted every time a new libary gets added to the project.
 
 <details><summary><b>Heroku Deployment - Step 5</b></summary>
 
 ![Heroku Deployment Step 5](readme/assets/images/heroku_05.png)
 </details><br />
 
-6. Now it's time to create the project.
+6. Create your project:
 
-* ```django-admin startproject YOUR_PROJECT_NAME .``` - This will create your project
+* ```django-admin startproject YOUR_PROJECT_NAME .``` - "YOUR_PROJECT_NAME" is the name you choose for your project.
 
 <details><summary><b>Heroku Deployment - Step 6</b></summary>
 
 ![Heroku Deployment Step 6](readme/assets/images/heroku_06.png)
 </details><br />
 
-7. When the project is created we can now create the application.
+7. Create your application using:
 
-* ```python3 manage.py startapp APP_NAME``` - This will create your application
+* ```python3 manage.py startapp APP_NAME``` - This will create your application with the name "APP-NAME"
 
 <details><summary><b>Heroku Deployment - Step 7</b></summary>
 
 ![Heroku Deployment Step 7](readme/assets/images/heroku_07.png)
 </details><br />
 
-8. We now need to add the application to settings.py
+8. Add your local server to "ALLOWED_HOSTS" in the settings.py file. For this you need to run the command
+
+* ```python3 manage.py runserver``` - This runs the server. This will give you an error message "DisallowedHost at /", following the link of your local server. Copy this link and add it in your settings.py file.
+* While in the settings.py file, also add your newly created app in the "INSTALLED_APPS" section at the bottom of the list. In the picture, the first app is called "APP".
 
 <details><summary><b>Heroku Deployment - Step 8</b></summary>
 
 ![Heroku Deployment Step 8](readme/assets/images/heroku_08.png)
 </details><br />
 
-8. Now it is time to do our first migration and run the server to test that everything works as expected. This is done by writing the commands below.
+9. To get the code ready for deployment, gunicorn needs to be installed and added to the requirements with the following commands:
 
-* ```python3 manage.py migrate``` - This will migrate the changes
-* ```python3 manage.py runserver``` - This runs the server. To test it, click the open browser button that will be visible after the command is run.
+* ```pip3 install gunicorn~=20.1``` - This installs gunicorn
+* ```pip3 freeze --local > requirements.txt``` - This will add gunicorn to the requirements.txt file
 
-9. Now it is time to create our application on Heroku, attach a database, prepare our environment and settings.py file and setup the Cloudinary storage for our static and media files.
+<details><summary><b>Heroku Deployment - Step 9</b></summary>
+
+![Heroku Deployment Step 9]()
+</details><br />
+
+10. Create a file in the root directory named "Procfile" and add the nessesary lines to the settings.py file:
+
+- Procfile:
+* ```web: gunicorn "proejec_name".wsgi``` - "project_name" stands for the name of your project
+- settings.py:
+* ```DEBUG = False``` - This is the debug line in the settings.py file. It is very important that debug is never set to "True" on a deployed webpage for security reasons. While in development, DEBUG should be set to "True"
+* ```,'.herokuapp.com'``` needs to be added to the "ALLOWED_HOSTS" section in the settings.py file, so that heroku has the permission to access the project.
+
+<details><summary><b>Heroku Deployment - Step 10 - Procfile</b></summary>
+
+![Heroku Deployment Step 10 - Procfile]()
+</details><br />
+
+<details><summary><b>Heroku Deployment - Step 10 - settings.py</b></summary>
+
+![Heroku Deployment Step 10 - settings.py]()
+</details><br />
+
+11. Now it is time to create the application on Heroku:
 
 * Head on to [Heroku](https://www.heroku.com/) and sign in (or create an account if needed).
 
 * In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
 
-<details><summary><b>Heroku Step 09</b></summary>
-
-![Heroku Step 9](readme/assets/images/heroku_09.png)
-</details><br />
-
-10. Now it's time to enter an application name that needs to be unique. When you have chosen the name, choose your region and click 'Create app".
-
-<details><summary><b>Heroku Step 10</b></summary>
-
-![Heroku Step 10](readme/assets/images/heroku_10.png)
-</details><br />
-
-11. To add a database to the app you need to go to the resources tab ->> add-ons, search for 'Heroku Postgres' and add it.
-
 <details><summary><b>Heroku Step 11</b></summary>
 
-![Heroku Step 11](readme/assets/images/heroku_11_1.png)
-![Heroku Step 11](readme/assets/images/heroku_11_2.png)
+![Heroku Step 11]()
 </details><br />
 
-12. Go to the settings tab and click on the reveal Config Vars button. Copy the text from DATABASE_URL (because we are going to need it in the next step).
+12. On Heroku, enter a unique application name, choose your region, and click 'Create app':
 
 <details><summary><b>Heroku Step 12</b></summary>
 
-![Heroku Step 12](readme/assets/images/heroku_12.png)
+![Heroku Step 12]()
 </details><br />
 
-13. Go back to GitPod and create a new env.py in the top level directory. Then add these rows.
+13. Add a Postgres database, which is created with the Code Institute link for [PostgresSQL](https://dbs.ci-dbs.net/) from the LMS and add it to your app via the Settings tab on Heroku:
 
-* ```import os``` - This imports the os library
-* ```os.environ["DATABASE_URL_FROM HEROKU"]``` - This sets the environment variables.
-* ```os.environ["SECRET_KEY"]``` - Here you can choose whatever secret key you want.
+* Press "Reveal Config Vars" and add "DATABASE_URL" as key and enter the postgres URL, which has been sent by email, as the value.
+* Addistionally, add the "DISABLE_COLLECTSTATIC" key with a value of "1" as a second config var. This is nessesary for the later implementation of the Cloudinary API.
 
 <details><summary><b>Heroku Step 13</b></summary>
 
-![Heroku Step 13](readme/assets/images/heroku_13.png)
+![Heroku Step 13]()
 </details><br />
 
-14. Now we are going to head back to Heroku to add our secret key to config vars. See screenshot below.
+14. In GitPod, create an env.py file in the top-level directory with the following content:
+
+* ```import os``` - This imports the os library
+* ```os.environ("DATABASE_URL", "postgres://*********************")``` - This sets database variable to your PostgresSQL database.
+* ```os.environ("SECRET_KEY", "actual_secret_key")``` - You can create your own key with a webpage like [RandomKeyGen](https://randomkeygen.com/).
+* if using the Code Institute template, the env.py file should already be in the "gitignore" file, if not, it has to be added manually.
 
 <details><summary><b>Heroku Step 14</b></summary>
 
-![Heroku Step 14](readme/assets/images/heroku_14.png)
+![Heroku Step 14]()
 </details><br />
 
-15. Now we have some preparations to do connected to our environment and settings.py file. In the settings.py, add the following code:
+15. Add your secret key to Heroku's Config Vars:
+
+<details><summary><b>Heroku Step 15</b></summary>
+
+![Heroku Step 15]()
+</details><br />
+
+16. In settings.py, add the following code:
 
 ```import os```
 
@@ -987,108 +1021,100 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy, please 
 
 ```import env```
 
-<details><summary><b>Heroku Step 15</b></summary>
-
-![Heroku Step 15](readme/assets/images/heroku_15.png)
-</details><br />
-
-16. In the settings file, remove the insecure secret key and replace it with:
-```SECRET_KEY = os.environ.get('SECRET_KEY')```
-
 <details><summary><b>Heroku Step 16</b></summary>
 
-![Heroku Step 16](readme/assets/images/heroku_16.png)
+![Heroku Step 15]()
 </details><br />
 
-17. Now we need to comment out the old database setting in the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
+17. Replace the insecure secret key in settings.py with:
+```SECRET_KEY = os.environ.get('SECRET_KEY')```
 
-<details><summary><b>Heroku Step 17 1/2</b></summary>
+<details><summary><b>Heroku Step 17</b></summary>
 
-![Heroku Step 17](readme/assets/images/heroku_17_1.png)
+![Heroku Step 17]()
 </details><br />
 
-Now, add the link to the DATABASE_URL that we added to the environment file earlier.
+18. Comment out the old database settings and add the link to DATABASE_URL since the project does not use the standart sqlite3 database. 
 
-<details><summary><b>Heroku Step 17 2/2</b></summary>
+```
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+```
 
-![Heroku Step 17](readme/assets/images/heroku_17_2.png)
+<details><summary><b>Heroku Step 18</b></summary>
+
+![Heroku Step 18]()
 </details><br />
 
-18. Save all your fields and migrate the changes.
+
+18. Save all your fields and migrate the changes with the following commands:
 
 ```python3 manage.py migrate```
 
-19. Now we are going to get our connection to Cloudinary connection working (this is were we will store our static files). First you need to create a Cloudinary account and from the Cloudinary dashboard copy the API Environment Variable.
+19. Set up Cloudinary for static file storage: After creating a Cloudinary account, you can copy the API Environment Variable from the Cloudinary dashboard.
 
-20. Go back to the env.py file in Gitpod and add the Cloudinary url (it's very important that the url is correct):
+20. In the env.py file, add the Cloudinary url (it's very important that the url is unaltered):
 
-```os.environ["CLOUDINARY_URL"] = "cloudinary://************************"```
+```os.environ.setdefault("CLOUDINARY_URL", "cloudinary://*********************************")```
 
-21. Let's head back to Heroku and add the Cloudinary url in Config Vars. We also need to add a disable collectstatic variable to get our first deployment to Heroku to work.
+21. In the Config Vars of heroku, add the Cloudinary url (CLOUDINARY_URL as the key, the actual url as the value). 
 
 <details><summary><b>Heroku Step 21</b></summary>
 
-![Heroku Step 21](readme/assets/images/heroku_21.png)
+![Heroku Step 21]()
 </details><br />
 
-22. Let's head back to our settings.py file on Gitpod. We now need to add our Cloudinary Libraries we installed earlier to the installed apps. Here it is important to get the order correct.
+22. In the settings.py file, the Cloudinary Libraries have to be added to the installed apps. The correct order is very important.
 
 <details><summary><b>Heroku Step 22</b></summary>
 
-![Heroku Step 22](readme/assets/images/heroku_22.png)
+![Heroku Step 22]()
 </details><br />
 
-23. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file.
+23. In the bottom of settings.py, add additional settings for static file management:
 
 <details><summary><b>Heroku Step 23</b></summary>
 
-![Heroku Step 23](readme/assets/images/heroku_23.png)
+![Heroku Step 23]()
 </details><br />
 
-24. Hang in there, we have just a couple of steps left. Now it's time to link the file to the Heroku templates directory.
+24. The next step is to link the file to the Heroku templates directory:
 
 <details><summary><b>Heroku Step 24</b></summary>
 
-![Heroku Step 24](readme/assets/images/heroku_24.png)
+![Heroku Step 24]()
 </details><br />
 
-25. Let's change the templates directory to TEMPLATES_DIR in the teamplates array.
+25. Now edit the templates directory to "TEMPLATES_DIR" in the teamplates array.
 
 <details><summary><b>Heroku Step 25</b></summary>
 
-![Heroku Step 25](readme/assets/images/heroku_25.png)
+![Heroku Step 25]()
 </details><br />
 
-26. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed.
+26. Some more files are needed before deploying:
 
-<details><summary><b>Heroku Step 26</b></summary>
+* Create 2 folders in the top level directory: **static** and **templates**
+* The **static** folder will include all CSS and JS files as well as images.
+* The **templates** folder will include the "base.html" file, as well as all django related templates.
 
-![Heroku Step 26](readme/assets/images/heroku_26.png)
-</details><br />
-
-27. Now we just need to add some files to Gitpod.
-
-* Create 3 folders in the top level directory: **media**, **static**, **templates**
-* Create a file called **Procfile* and add the line ```web: gunicorn PROJ_NAME.wsgi?``` to it.d
-
-28. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+27. Make sure that all the files are saved, then enter the following lines in the console for the first commit and push to Github:
 
 * ```git add .```
-* ```git commit -m "Deployment Commit```
+* ```git commit -m "Deployment commit"```
 * ```git push```
-
-29. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
 
 30. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
 
-31. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
+31. Scroll down to the manual deployment section and click 'Deploy Branch'.
 
 <details><summary><b>Heroku Step 31</b></summary>
 
 ![Heroku Step 31](readme/assets/images/heroku_31.png)
 </details><br />
 
-The live link to the 'Review | Alliance' site on Heroku an be found [here](https://project-portfolio-4.herokuapp.com/). And the Github repository can be found [here](https://github.com/worldofmarcus/project-portfolio-4).
+The live link to the 'PROject GOLFblog' site on Heroku an be found [here](https://project-golfblog-96e6107b0f52.herokuapp.com/). And the Github repository can be found [here](https://github.com/Mienjung97/PROject-GOLFblog).
 
 [Back to top](<#table-of-content>)
 
