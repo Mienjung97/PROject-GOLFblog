@@ -205,7 +205,8 @@
                             </form>
                         {% else %}
                             <p>
-                                <a href="{% url 'account_login' %}?next={{ request.path }}">Log in</a> or <a href="{% url 'account_signup' %}?next={{ request.path }}">Register</a>
+                                <a href="{% url 'account_login' %}?next={{ request.path }}" class="pro-link">Log in</a> or
+                                <a href="{% url 'account_signup' %}?next={{ request.path }}" class="pro-link">Register</a>
                                 to leave a comment or like a post.
                             </p>
                         {% endif %}

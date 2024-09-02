@@ -197,9 +197,16 @@ Below the user stories for the project are listed to clarify why particular feat
 
 ## Site Structure
 
-The Review | Alliance site is split up in two parts: **when the user is logged out** and **when the user is logged in**. Depending on login status different pages is available for the user. When the user is logged out the pages: *about* and *home* are avaliable. When the user is logged in *about*, *home*, *add post*, *create comments* (on the post detail page), *a search bar*, *view my posts* and *profile page* of all users are available. If you are logged in as an administrator an *admin area* is available.
+The PROject GOLFblog site is split up in two parts: **when the user is logged out** and **when the user is logged in**. Depending on login status, the user will either start on the **About** page with visible buttons for **login** and **Register**, while a logged in user will start on the **Home** page.
 
-Read more about the different choices in the [Features](<#features>) section.
+
+When the user is logged out, the pages **About**, **Home**, as well as the **Search** bar are avaliable. A logged out user is able to access any post or comment to read - commenting, visiting profile pages, writing comments or posts and liking them is reserved for logged in users. Trying to access a profile page will redirect a user to the **Login** page, in the comment section, the user is informed that a login is necessary to leave a **comment** or **like** a post.
+
+If a user is logged in, they have the additional **Add Post** Nav-link which lets them create a new post and a **Profile** drop down menu, where they have access to their profile page (labled withe their **username**), the **Show Posts** section, in which they can see their published and drafted posts, as well as the **Logout** button. While visiting a posts site, they additionally have a **like** button and a field to leave a **comment**.
+
+If a staff user is logged in, they have an additional **Amin Panel** button, which directs them to the django admin panel.
+
+Read more about all functionalities in the [Features](<#features>) section.
 
 [Back to top](<#table-of-content>)
 
@@ -225,19 +232,20 @@ The fonts used for the site are 'Roboto' and 'Tinos'. Fallback font for both of 
 [Back to top](<#table-of-content>)
 
 # **Features**
-The features of the site are listed below.
+This section is devided in **Existing Features** and **Future Features** since there are more features needed for the production ready page.
 
 ## **Existing Features**
 
 ### **Navigation**
-The navigation bar is very clean and straight forward. Depending if you  are logged in or not different menus are visible for the site user. An extra menu item is visible if you are logged in as an administrator.
+The styling of the navigation bar was heavily influenced by the [PROject GOLFacademy](https://projectgolfacademy.com/) website, while I tried to keep it as clean as possible. Depending if you are logged in or not, different menus are visible for the site user. **Login** and **Register** will transform to the **Profile** dropdown, a staff member will get the extra menu item **Admin Panel**.
+
 
 *Links that are visible to logged out users*
 
-* About - Includes information about Review | Alliance and presents the reviewers that are registered.
+* About - Includes information about the PROject GOLFblog and the PROject GOLFacademy.
 * Home - Lists all posts on the site.
 * Search - a search bar that filters for profiles, posts and comments.
-* Login / Sign Up - Gives the user the opportunity to log in or sign up if not ready a registered user at Review | Alliance.
+* Login / Register - Gives the user the option to log in or register to the PROject GOLFblog.
 
 <details><summary><b>Navigation Large - User Not Logged In</b></summary>
 
