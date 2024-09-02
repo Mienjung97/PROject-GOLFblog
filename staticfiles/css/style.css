@@ -304,4 +304,9 @@ footer {
         margin-left: 2vw;
     }
 
+    .nav-big {
+        display: flex;
+        align-items: center;
+    }
+
 }
