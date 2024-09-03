@@ -556,13 +556,15 @@ Some examples are in the screenshots below:
 
 ### Future Features
 
-* Add more automated testing
+* Custom user model for setting up propper email varification and password reset
 * Add 'current page is active' in navbar
-* Search reviews functionality from the navbar
-* Information in the about section how many reviews each reviewer has made
-* Add / remove genre and category in admin section
-* Add image resize functionality
-* Remove admin approval of comments
+* Add categories for different topics (updates, free courses, requests for play partner, equipment discussions)
+* Subscribing to the PROject GOLFacademy Newsletter
+* Add / remove categorys in admin section
+* View other peoples posts through their profile page
+* Add possibility to add videos to posts
+* Pin comments to the top of a comment section
+* Implement the blog on the [PROject GOLFacademy](https://projectgolfacademy.com/) website
 
 [Back to top](<#table-of-content>)
 
@@ -579,24 +581,18 @@ Some examples are in the screenshots below:
 * [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
 * [Django](https://www.djangoproject.com/) - A model-view-template framework used to create the Review | Alliance site
 * [Balsamiq](https://balsamiq.com/) - Used to create the wireframe.
-* [Microsoft Excel](https://www.microsoft.com/sv-se/microsoft-365/excel) - Used to create testing scenarios.
 * [Github](https://github.com/) - Used to host and edit the website.
 * [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal in [Gitpod](https://www.gitpod.io) used to push changes to the GitHub repository.
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
 * [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
-* [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used for responsiveness check.
-* [Wave Web Accessibility Evaluation Tool](https://wave.webaim.org/) - Used to validate the sites accessibility.
-* [a11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) - Used to test color contrast on the site
+* [Multi Mockup](https://techsini.com/multi-mockup/) - Used for responsiveness check.
 * [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to create a *.dot file of all models in the project.
 * [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Creates visually appealing database diagrams of *.dot files.
-* [Favicon](https://favicon.io/) - Used to create the favicon.
-* [VSCode](https://code.visualstudio.com/) - Used to create and edit the site.
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
-* [Trello](https://trello.com/en-GB) - A project management tool to organize the project.
 * [Cloudinary](https://cloudinary.com/) - A service that hosts all static files in the project.
 * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
 * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
-* [PEP8 Validation](http://pep8online.com/) - At the time for deploying this project the PEP8 Online Validaton service was offline, therefore not used.
+* [PEP8CI Validation](https://pep8ci.herokuapp.com/) - Used to validate the Python Code
 * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
 
 ## Libraries
@@ -605,106 +601,119 @@ Some examples are in the screenshots below:
 
 The libraries used in this project are located in the requirements.txt file and have been documented below
 
-* [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI.
-* [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets.
-* [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
+* [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI
+* [click](https://pypi.org/project/django-click/) - django-click is a library to easily write Django management commands using the click command line library
+* [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets
+* [Colorama](https://pypi.org/project/colorama/) - Makes ANSI escape character sequences (for producing colored terminal text and cursor positioning) work under MS Windows
+* [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - Bootstrap5 template pack for django-crispy-forms
+* [CSSbeautifier](https://pypi.org/project/cssbeautifier/) - Beautify, unpack or deobfuscate CSS
+* [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application
+* [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API
 * [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 * [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
-* [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - Used to integrate Django DRY forms in the project.
-* [django-extensions](https://pypi.org/project/django-extensions/) - Django Extensions is a collection of custom extensions for the Django Framework.
-* [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
-* [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
+* [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - Used to integrate Django DRY forms in the project
+* [django-extensions](https://pypi.org/project/django-extensions/) - Django Extensions is a collection of custom extensions for the Django Framework
+* [django-summernote](https://pypi.org/project/django-summernote/) - Summernote is a simple WYSIWYG editor which allows you to embed Summernote into Django very handy. Support admin mixins and widgets.
+* [djLint](https://pypi.org/project/djlint/) - djLint is a community build project to and add consistency to html templates
+* [EditorConfig](https://pypi.org/project/EditorConfig/) - EditorConfig makes it easy to maintain the correct coding style when switching between different text editors and between different projects. The EditorConfig project maintains a file format and plugins for various text editors which allow this file format to be read and used by those editors
+* [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy
+* [html-tag-names](https://pypi.org/project/html-tag-names/) - This is a list of HTML tag names. It includes ancient (for example, nextid and basefont) and modern (for example, shadow and template) names from the HTML living standard. The repo includes scripts to regenerate the data from the specs
+* [html-void-elements](https://pypi.org/project/html-void-elements/) - Similar to "html-tag-names"
+* [jsbeautifier](https://pypi.org/project/jsbeautifier/) - Beautify, unpack or deobfuscate JavaScript. Handles popular online obfuscators.
+* [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework
+* [pathspec](https://pypi.org/project/pathspec/) - pathspec is a utility library for pattern matching of file paths. So far this only includes Git’s wildmatch pattern matching which itself is derived from Rsync’s wildmatch. Git uses wildmatch for its gitignore files
 * [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
 * [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
-* [pylint-django-2.5.3](https://pypi.org/project/pylint-django/) - A Pylint plugin for improving code analysis when analysing code using Django.
-* [pylint-plugin-utils-0.7](https://pypi.org/project/pylint-plugin-utils/) - This is not a direct Pylint plugin, but rather a set of tools and functions used by other plugins such as pylint-django.
-* [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
-* [pytz](https://pypi.org/project/pytz/) - This is a set of Python packages to support use of the OpenID decentralized identity system in your application, update to Python 3
-* [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - P    rovides first-class OAuth library support for Requests.
+* [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers
+* [regex](https://pypi.org/project/regex/) - This regex implementation is backwards-compatible with the standard ‘re’ module, but offers additional functionality like enabling other Python threads to run concurrently
+* [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - Provides first-class OAuth library support for Requests.
 * [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
-* [cryptography-3.3.23](https://pypi.org/project/cryptography/3.3/) - Cryptography is a package which provides cryptographic recipes and primitives to Python developers.
+* [tqdm](https://pypi.org/project/tqdm/) - Instantly make your loops show a smart progress meter when coding in the console
+* [urllib3](https://pypi.org/project/urllib3/1.26.19/) - urllib3 is a powerful, user-friendly HTTP client for Python
+* [whitenoise](https://pypi.org/project/whitenoise/) - Radically simplified static file serving for Python web apps. WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on nginx, Amazon S3 or any other external service
+
 
 # Testing
 
 ## Testing User Stories
 
-* As a Site User | I can view a list of the music reviews so that I can select one to read
-    * At the top of the site there is a navigation bar with a link that lists all reviews when the user clicks on it.
+* As a Site User | I can view a list of posts so that I can select which post I want to view
+    * 
 
-* As a Site User | I can view a list of the concert reviews so that I can select one to read
-   * At the top of the site there is a navigation bar with a link that lists all concert reviews when the user clicks on it.
+* As a Site User | I can click on a post so that I can view the whole post
+   * 
 
-* As a Site User | I can click on a specific review so that I can read it in detail
-   * At the top of the site there is a navigation bar with a link that lists all album reviews when the user clicks on it.
+* As a Site User | I can register an account so that I can use all features on the webpage
+   * 
 
-* As a Site User | I can like and unlike a review so that it is possible for me to interact with the review
-    * When the user is logged it is possible to click on a heart on the review detail page to like / unlike a review.
+* As a Site User | I can create comments on posts so that I can express my opinion or share information related to a post
+    * 
 
-* As a Site User | I can view the number of likes on each review so that I can see how popular a specific review is
-    * On the review detail page the user can see how many likes the specific review has.
+* As a Site User | I can modify or delete my comments so that I can correct my comment or delete it, if it is not valid anymore
+    * 
 
-* As a Site User | I can contact Review Alliance in an easy way so that I can interact with them if I have a need for it
-    * In the footer there is clear information about how to contact Review | Alliance.
+* As a Site User | I can create draft posts so that I can finish writing the content later
+    * 
 
-* As a Site User | I can navigate easy on the site through paginated list of posts so that I feel comfortable using the site
-    * On the review pages the pagination is activated when there are more than 6 reviews on a page.
+* As a Site User | I can view comments on an individual post so that I can read the conversation
+    * 
 
-* As a Site User | I can view comments on a specific review so that I can read the conversations between different users on the site
-    * When the user clicks on a specific review the comment section can, in an easily way, be viewed.
+* As a Site User | I can delete my account so that if I want to leave the website, I no longer have an active account
+    * 
 
-* As a Site User | I can sign up an account so that I can like and comment on reviews, create a profile page, create own reviews and edit / remove my reviews
-    * In the navigation bar the user can click the Login / Sign up link to either login or sign up for a new account. When this is done the user can interact on the page as stated in the user story).
+* As a Site User | I will as a logged in user start the home page on the blog site so that I dont have to sign up or see the about page
+    * 
 
-* As a Site User | I can create a profile page so that other reviewers can read about who I am
-    * If a user is registered and logged in there is a 'Show Profile'-page in the navigation menu where the user can fill in profile details. The profile is shown for the site users in the about section.
+* As a Site User | While logged out or being a new user I will start on the about page so that I get information about what the website is about
+    * 
 
-* As a Site User | I can comment on a review so that I can be involved in the conversation
-    * When the user is logged in they can write a comment on a specific review on the review detail page.
+* As a Site User | As a logged out / new user I can press a button to sign in / sign up on the about page so that I don't have manually search for the link
+    * 
 
-* As a Site User | I can edit my comment so that I can change the content if needed
-    * When the user is logged in an edit button appears on the all comments that the specific user has written. When the user clicks the edit button they can change the content in the comment.
+* As a Site User | I can access the about page so that they can get more information about the website
+    * 
 
-* As a Site User | I can remove my review so that I have full control of my reviews
-    * When the user is logged in a delete button appears on the all comments that the specific user has written. When the user clicks the delete button they get the option to delete the comment.
+* As a Site User | I can access my profile page so that I can modify and delete information about me
+    * 
 
-* As a Site User | I can choose to see my own reviews so that I can find them easily
-    * When a user is logged in they can choose to view their own reviews through the link 'My Reviews'.
+* As a Site User | I can create posts so that I can share my thoughts on the blog
+    * 
 
-* As a Site User | I can create a new review so that I can contribute to with new content to Review Alliance
-    * When a user is logged in they can create a new review through the 'Create New Review'-link in the navigation bar.
+* As a Site User | I can modify and delete my posts so that I can correct mistakes or delete irelevant posts
+    * 
 
-* As a Site User | I can log out from the site so that I can feel safe that nobody can access my information
-    * When the user is logged in it is possible to choose the 'Log Out'-option in the navigation menu.
+* As a Site User | I can access the profile page of other users so that I can see who is posting/commenting
+    * 
 
-* As a Site User | I can create draft reviews so that I can finish writing the content later
-    * When a logged in user creates a review they have the possibility to set the status on the review either on published or draft.
+* As a Site User | I can use the search function so that I can find posts, comments or users
+    * 
 
-* As a Site User | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page
-    * When the user sign in, sign out, create / update / deletes reviews and comments they always get a confirmation message to secure visual feedback.
+* As a Site User | I can access a page that results in an error so that I get a custom error html page
+    * 
 
-* As a Site Admin | I can log out from the site so that I can feel safe that nobody can access my information
-   * When the admin is logged in it is possible to choose the 'Log Out'-option in the navigation menu.
+* As a Site User | I can like posts so that other users see how well the post is perceived
+   * 
 
-* As a Site Admin | I can create, read, update and delete reviews so that I can manage my review content
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can read, update and delete reviews. Creation of reviews can be made the same way as any logged in user. Updating reviews can only be made if the administrator has written the original review.
+* As a Site Admin | I can create, read, update and delete posts so that manage my blog content
+    * 
 
-* As a Site Admin | I can approve reviews so that I can secure high quality of the content
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can approve / unapprove / publish / unpublish reviews.
+* As a Site Admin | I can create draft posts so that I can finish writing the content later
+    * 
 
-* As a Site Admin | I can approve and disapprove comments so that I can secure a safe environment for the Site Users
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can approve / unapprove comments.
+* As a Site Admin | I can delete accounts so that users who break the GTCs no longer have access to the blog
+    * 
 
-* As a Site Admin | I can create draft reviews so that I can finish writing the content later
-    * When a user is logged in as an administrator they have the possibility to create a review they and set the status to published or draft.
+* As a Site Admin | I can create an about page so that I can present information of the company
+    * 
 
-* As a Site Admin | I can access an admin area so that I can get a general understanding of logged in users, number of likes and number of posts
-    * In the admin area there is an summary area in the top with general information about the site (i.e. number of users, number of reviews / comments that need approval)
+* As a Site Admin | I can access the admin panel so that the url does not have to be typed manually
+    * 
 
-* As a Site Admin | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page
-    * When the admin signs in, signs out, create / update / deletes reviews and comments they always get a confirmation message to secure visual feedback.
+* As a Site Admin | I can pin a post to the top so that other users can be informed about important infos
+    * 
 
 ## Code Validation
-The code on the 'Review | Alliance' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service and JSHint. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). One error appeared as well in the W3C CSS Validation but that was connected to Font Awesome and not to the site code itself (see bugs section).
+The code on the 'PROject GOLFblog' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service, JSHint and the CodeInstutute pep8 validator. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). 
 
 ### Markup Validation
 After fixing the inital errors that W3C Markup Validation Service reported, no errors were returned.
