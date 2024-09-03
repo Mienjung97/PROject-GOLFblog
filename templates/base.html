@@ -92,7 +92,7 @@
                     </ul>
                     {% if user.is_authenticated %}
                         <ul class="black text-muted navbar-nav navbar-mg-r mb-2 mb-lg-0">
-                            {% if user.is_staff %}
+                            {% if request.user.is_staff %}
                                 <li class="nav-item">
                                     <a class="black nav-link
                                               {% if request.path == admin_url %}
@@ -100,7 +100,7 @@
                                        href="{% url 'admin:index' %}">Admin Panel</a>
                                 </li>
                             {% endif %}
-                            {% if user.is_authenticated and request.user == user %}
+                            {% if user.is_authenticated %}
                                 <li class="nav-item dropdown navbar-between">
                                     <a href="#"
                                        class="nav-link dropdown-toggle black"

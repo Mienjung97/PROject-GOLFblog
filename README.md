@@ -851,26 +851,15 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | Reviews that need approval shows the correct numer of reviews that need approval
 | &check; | Comments that need approval shows the correct numer of comments that need approval
 
- Status | **Create A Review - User Logged In**
+ Status | **Create A Post - User Logged In**
 |:-------:|:--------|
 | &check; | Title field is required
 | &check; | Title field does not accept empty field
 | &check; | Title field does not accept just spaces
-| &check; | Artist field is required
-| &check; | Artist field does not accept empty field
-| &check; | Artist field does not accept just spaces
 | &check; | Featured Image is not required
-| &check; | Fragment field is required
-| &check; | Fragment field does not accept empty field
-| &check; | Body field is required
-| &check; | Body field does not accept empty field
-| &check; | Category field defaults to Uncategorized
-| &check; | Fragment field is required
-| &check; | Fragment field does not accept empty field
-| &check; | Record Label is not required
-| &check; | Venue is not required
-| &check; | Genre field defaults to Uncategorized
-| &check; | Rating field defaults to 3
+| &check; | Content field is required
+| &check; | Content field does not accept empty field
+| &check; | Excerpt is not required
 | &check; | Status field defaults to Draft
 | &check; | Posting as shows name of logged in user
 | &check; | Review Success Page is displayed when the user submits the review and the form validation is ok.

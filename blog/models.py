@@ -36,8 +36,7 @@ class Post(models.Model):
         return self.likes.count()
 
     def __str__(self):
-        return f'The title of this post is '
-        '"{self.title}" | written by "{self.author}"'
+        return f'{self.title} | written by {self.author}'
 
 
 class Comment(models.Model):
