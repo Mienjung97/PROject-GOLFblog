@@ -137,11 +137,12 @@ Since I had already created most user stories before, I assigned the user storie
 
 * **Post** - Handles all the posts
 * **Comment** - Handles all the comments
-* **UserProfile** - Handles the user profile information (first name, last name, bio and profile image for the specific user). There is a one-to-one relation to the user model to connect it to the standard user model.
+* **Profile** - Handles the user profile information (first name, last name, bio and profile image for the specific user). There is a one-to-one relation to the user model to connect it to the standard user model.
+* **About** - Handles the about information provided through the admin panel
 
-<details><summary><b>Database Schema</b></summary>
+<details><summary><b>Database Schema (Auto generated)</b></summary>
 
-![Database Schema]()
+![Database Schema](readme/assets/images/graphviz.png)
 </details><br/>
 
 # **User Experience (UX)**
@@ -638,89 +639,97 @@ The libraries used in this project are located in the requirements.txt file and 
 ## Testing User Stories
 
 * As a Site User | I can view a list of posts so that I can select which post I want to view
-    * 
+    * On the **Home** page, any user will see all the posts
 
 * As a Site User | I can click on a post so that I can view the whole post
-   * 
+   * A user can click underneath the "Author" section of any post on the **Home** page to see the whole post detail view
 
 * As a Site User | I can register an account so that I can use all features on the webpage
-   * 
+   * When clicking the **Register** link in the nav-bar or on the about page, a profile can be created (Username, email and password are necessary)
 
 * As a Site User | I can create comments on posts so that I can express my opinion or share information related to a post
-    * 
+    * When a user is logged in, they can comment on any post in the comment section
 
 * As a Site User | I can modify or delete my comments so that I can correct my comment or delete it, if it is not valid anymore
-    * 
+    * After writing a comment, a user can modify them by clicking "Edit" or delete the comment with the "Delete" button
 
 * As a Site User | I can create draft posts so that I can finish writing the content later
-    * 
+    * When creating a post, the default status is "Draft". Unless the user changes the status to "Published", the post will be saved as a draft and can be accessed in the "Show Posts" -> "View Drafts" section to be modified, published or deleted
 
 * As a Site User | I can view comments on an individual post so that I can read the conversation
-    * 
+    * When going to a posts detail view, any user can see all the comments
 
 * As a Site User | I can delete my account so that if I want to leave the website, I no longer have an active account
-    * 
+    * In the "Edit Profile" section on the profile page is a "Delete my account" button that deletes the profile after confirming the choice
 
 * As a Site User | I will as a logged in user start the home page on the blog site so that I dont have to sign up or see the about page
-    * 
+    * When still logged in, entering the "base" url will redirect the user to the **Home** page
 
 * As a Site User | While logged out or being a new user I will start on the about page so that I get information about what the website is about
-    * 
+    * When not logged in, entering the "base" url will redirect the user to the **About** page
 
 * As a Site User | As a logged out / new user I can press a button to sign in / sign up on the about page so that I don't have manually search for the link
-    * 
+    * When not logged in, the **About** page will show buttons labled "Register" and "Log In" which redirects the user to the corresponding link
 
 * As a Site User | I can access the about page so that they can get more information about the website
-    * 
+    * When a user is logged in, they can still visit the **About** page
 
 * As a Site User | I can access my profile page so that I can modify and delete information about me
-    * 
+    * When a user is logged in, they have a dropdown menu called "Profile" through which they can navigate towards their profile page. On the bottom of this page is a "Edit Profile" button, where they can change or delete their profile information
 
 * As a Site User | I can create posts so that I can share my thoughts on the blog
-    * 
+    * In the Nav-bar is a link "Add Post" that lets a logged in user create a post
 
 * As a Site User | I can modify and delete my posts so that I can correct mistakes or delete irelevant posts
-    * 
+    * When a user is logged in, they have a dropdown menu called "Profile" through which they can navigate towards the "Show Posts" section. In this section, all of the users posts will be displayed and by clicking on the post, they will be redirected to the posts detail view. There the "Edit Post" and "Delete Post" buttons are available for the posts author
 
 * As a Site User | I can access the profile page of other users so that I can see who is posting/commenting
-    * 
+    * On the **Home** page and in a posts detail view, a logged in user can click on the authors username, as well as on the author of a comment to get to their profile page
 
 * As a Site User | I can use the search function so that I can find posts, comments or users
-    * 
+    * When entering any type of string into the search function, the user gets all profiles, posts and comments presented, in which the searched for string is found. The user will also get a notification, if any of the categories do not have a match or if the user did not search for anything at all
+    * **New bug**: Posts will still be displayed, but without their title
 
 * As a Site User | I can access a page that results in an error so that I get a custom error html page
-    * 
+    * If a user tries to enter a wrong url, a custom "Error 404" page will load
+    * An "Error 500" page has been implemented and worked last time I encountered it. I do not know how to reproduce this error for additional testing
 
 * As a Site User | I can like posts so that other users see how well the post is perceived
-   * 
+   * When a user is logged in, they can like and unlinke any post. The amount of likes can be seen by any user both on the home page as on the posts detail view page
 
 * As a Site Admin | I can create, read, update and delete posts so that manage my blog content
-    * 
+    * Both on the frontend as well as in the admin panel, an admin can create, read, update and delete any post
 
 * As a Site Admin | I can create draft posts so that I can finish writing the content later
-    * 
+    * Both on the frontend as well as in the admin panel, an admin can create a draft post
 
 * As a Site Admin | I can delete accounts so that users who break the GTCs no longer have access to the blog
-    * 
+    * In the Django Admin panel, an Admin can delete any user
 
 * As a Site Admin | I can create an about page so that I can present information of the company
-    * 
+    * In the Django Admin panel, an Admin can modify or create a new **About** page with Picture, Title and Content
 
 * As a Site Admin | I can access the admin panel so that the url does not have to be typed manually
-    * 
+    * If a staff member is logged in, they have an additional Nav-bar link that redirects them to the admin panel
 
 * As a Site Admin | I can pin a post to the top so that other users can be informed about important infos
-    * 
+    * Both on the frontend as well as in the admin panel, an admin can select a post and pin and unpin it from the top of the homepage
 
 ## Code Validation
 The code on the 'PROject GOLFblog' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service, JSHint and the CodeInstutute pep8 validator. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). 
 
 ### Markup Validation
-After fixing the inital errors that W3C Markup Validation Service reported, no errors were returned.
+While validating the HTML code, I encountered a few errors, which were easily fixed (more in the "Bugs" section). The **About** page displays 2 errors concerning the "font element" - this is produced through the Summernote extension. Since the Markup validator is not an authenticated user, I could only validate the **Home** and **About** page via url input - so with use of the chrome developer tools I validated every page via direct input. No errors came up, proof for all validations are in the folder with path "readme/assets/images/validation/html"
 
 <details><summary><b>HTML Validation Result</b></summary>
 
-![HTML Result Home Page](readme/assets/images/html_validation_no_error.png)
+* Home page:
+
+![HTML Result Home Page](readme/assets/images/validation/html/home_val.PNG)
+
+* About page:
+
+![HTML Result About Page](readme/assets/images/validation/html/about_val.PNG)
 </details><br/>
 
 [Back to top](<#table-of-content>)
@@ -730,31 +739,24 @@ When validating my own code the W3C CSS Validator reports no errors.
 
 <details><summary><b>CSS Validation Result</b></summary>
 
-![CSS Result](readme/assets/images/css_validation_no_error.png)
+![CSS Result](readme/assets/images/validation/static/css_val.PNG)
 </details><br/>
 
 [Back to top](<#table-of-content>)
 
 ### PEP Validation
-At the time of this project the website [pep8online](http://pep8online.com/) is currently offline. Usually I'm using that site to validate my Python code. Due to the site being offline I have followed Code Institutes workaround to add the PEP8 validator 'pycodestyle' to the Gitpod Workspace. I have tested the following Python files:
-
-* admin.py - No errors or warnings reported
-* forms.py - No errors or warnings reported
-* models.py - No errors or warnings reported
-* test_forms.py - No errors or warnings reported
-* urls.py - No errors or warnings reported
-* views.py - No errors or warnings reported
+To validate the python files, I have used the [pep8 CodeInstitute linter](https://pep8ci.herokuapp.com/) I have tested all python files in my project without getting any errors. The documentation can be found in the path "readme/assets/images/validation/python". Every picture is labled with the first letter as the corresponding app (a=about, b=blog, u=userprofile and p=project_golfblog) and the name of the python file. None of the 25 files reported an error.
 
 [Back to top](<#table-of-content>)
 
 ### JavaScript Validation
 The JSHint validator results can be seen below:
 
-No errors were returned when passing through JSHint (script.js) but the test reported one undefined variable connected to Bootstrap which is no problem.
+No errors were returned when passing through JSHint (comments.js), the test reported one undefined variable connected to Bootstrap and gave out 19 warnings. None of these are problematic.
 
 <details><summary><b>JSHint Validation Result</b></summary>
 
-![JSHint Validation](readme/assets/images/js_hint_validation.png)
+![JSHint Validation](readme/assets/images/validation/static/comments_val.PNG)
 </details><br/>
 
 [Back to top](<#table-of-content>)
@@ -768,59 +770,81 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | Status | **Main Website - User Logged Out**
 |:-------:|:--------|
 | &check; | Typing in a incorrect URL on the page loads the 404 error page
-| &check; | Pasting page that needs authentication loads a forbidden page
+| &check; | Pasting page that needs authentication loads the log in page
 | &check; | Clicking the nav logo loads the home page
-| &check; | Clicking the Home button on the nav bar loads the home page and lists all reviews
-| &check; | Clicking the All button on the nav bar lists all reviews
-| &check; | Clicking the Albums button on the nav bar lists all album reviews
-| &check; | Clicking the Concert button on the nav bar lists all concert reviews
-| &check; | Clicking the Log In / Sign Up loads the sign up page
-| &check; | 6 Reviews are rendered for the user on all / albums / concert page before pagination kicks in
-| &check; | Clicking the Read More button on the a review card loads the review detail page
+| &check; | Clicking the Home button on the nav bar loads the home page and lists all posts
+| &check; | Clicking the Register link loads the Register page
+| &check; | Clicking the Log In link loads the Log In page 
+| &check; | 12 posts are rendered for the user on home page before pagination kicks in 
+| &check; | Clicking the area underneath the author on the a post card loads the review detail page
+| &check; | In the details view or the home page, clicking any username will redirect to the Log In page
 | &check; | In the details view the user cannot create a comment
-| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window
-| &check; | Clicking the YouTube link in the footer area opens YouTube in a new window
-| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window
-| &check; | Clicking the Twitter link in the footer area opens Twitter in a new window
+| &check; | Clicking the Facebook link in the footer area opens Facebook in a new window 
+| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window 
+| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window 
 
 | Status | **Main Website - User Logged In**
 |:-------:|:--------|
 | &check; | Typing in a incorrect URL on the page loads the 404 error page
-| &check; | Pasting page that needs authentication loads a forbidden page
+| &check; | User cannot access Admin Panel without being staff member
 | &check; | Clicking the nav logo loads the home page
-| &check; | Clicking the Home button on the nav bar loads the home page and lists all reviews
-| &check; | Clicking the All button on the nav bar lists all reviews
-| &check; | Clicking the Albums button on the nav bar lists all album reviews
-| &check; | Clicking the Concert button on the nav bar lists all concert reviews
-| &check; | 6 Reviews are rendered for the user on all / albums / concert page before pagination kicks in
-| &check; | Clicking the Read More button on the a review card loads the review detail page
-| &check; | In the detail view the logged in user can comment a review
-| &check; | When user submits a comment a message with approval information is being showed on the page
+| &check; | Clicking the Home button on the nav bar loads the home page and lists all posts
+| &check; | 12 posts are rendered for the user on home page before pagination kicks in 
+| &check; | Clicking the area underneath the author on the a post card loads the review detail page
+| &check; | In the details view or the home page, clicking any username will redirect to their page
+| &check; | In the detail view the logged in user can comment underneath a post
+| &check; | When user submits a comment a confirmation message is being shown on the page
 | &check; | In the detail view the logged in user can update/delete the comments written by themselves
-| &check; | Clicking the update button loads the update comment page
+| &check; | Clicking the update button the comment text will show in the comment box
 | &check; | Clicking the delete button loads the delete comment page
-| &check; | In the detail view the logged in user can like/unlike reviews
-| &check; | In the detail view the logged in user can update/delete the reviews written by themselves
-| &check; | Clicking the update button in the detail view loads the update review page
-| &check; | Clicking the delete button in the detail view loads the delete review page
-| &check; | Clicking the My Reviews button in the logged in user menu lists the logged in users reviews
-| &check; | Clicking the update button in the My Reviews view loads the update review page
-| &check; | Clicking the delete button in the My Reviews view loads the delete review page
-| &check; | In the My Reviews view the information about the review status is correct
+| &check; | In the detail view the logged in user can like/unlike posts
+| &check; | In the detail view the logged in user can update/delete the post written by themselves
+| &check; | Clicking the edit button in the detail view loads the edit post page
+| &check; | Clicking the delete button in the detail view loads the delete post page
+| &check; | Clicking the Show Posts button in the logged in user menu lists the logged in users posts
+| &check; | Clicking the Show Drafts button in Show posts lists the logged in users drafts
 | &check; | In the logged in user menu the Admin Area is not visible
-| &check; | Clicking the Show Profile Page button in the logged in user menu loads the My Profile page
+| &check; | Clicking the Profile Page button in the logged in user menu loads the Profile page
 | &check; | Clicking the Instagram link in the footer area opens Instagram in a new window
-| &check; | Clicking the YouTube link in the footer area opens YouTube in a new window
-| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window
-| &check; | Clicking the Twitter link in the footer area opens Twitter in a new window
+| &check; | Clicking the Facebook link in the footer area opens Facebook in a new window 
+| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window 
+| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window 
 
 | Status | **Main Website - Admin Logged In**
 |:-------:|:--------|
-| &check; | Clicking the Admin Area button in the logged in user menu loads the Admin Area Page
-| &check; | In the review section. Clicking the approve / unapprove / publish / unpublish toggles the approve and status signs
-| &check; | The view button is only visible if a review is published
-| &check; | In the comment section. Clicking the approve / unapprove toggles the approve and status signs
-| &cross; | When clicking delete / add genre the appropiate page loads and shows success page after submit
+| &check; | Clicking the Admin Panel button in the Nav-bar loads the Admin Panel Page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 | &check; | Total Users shows correct number of total users
 | &check; | Total Reviews shows the correct number of total reviews
 | &check; | Total Comments shows the correct number of total comments
@@ -906,7 +930,6 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 ### Browser Compatibility
 * Google Chrome Version (106.0.5249.119)
 * Mozilla Firefox (version 105.0.3)
-* Min (version 1.26.0)
 * Apple Safari (version 16.0)
 * Microsoft Edge (version 106.0.1370.47)
 
@@ -935,76 +958,84 @@ In general this is OK results. The performance is affected in a negative way by 
 <details><summary><b>Lighthouse Admin Area Result</b></summary>
 
 
-![Lighthouse Admin Area Result](readme/assets/images/lighthouse_admin_area.png)
+![Lighthouse Admin Area Result]()
 </details><br/>
 
 <details><summary><b>Lighthouse About Page Result</b></summary>
 
-![Lighthouse About Page Result](readme/assets/images/lighthouse_about.png)
+![Lighthouse About Page Result]()
 </details><br/>
 
-
-### WAVE
-[WAVE](https://wave.webaim.org/) was used to check accessibility. 0 errors were found.
-
-<details><summary><b>WAVE Result</b></summary>
-
-![WAVE Result](readme/assets/images/wave_result.png)
-</details><br/>
-
-### a11y Color Contrast Accessibility Validator
-[a11y](https://color.a11y.com/Contrast/) was used to check the color contrast accessibility. 0 errors were found.
-
-<details><summary><b>a11y Result</b></summary>
-
-![a11y Result](readme/assets/images/a11y_contrast_test.png)
-</details><br/>
-
-[Back to top](<#table-of-content>)
 
 ### Peer Review
 Additional testing of the application was conducted by people outside of the software development field. Some smaller spelling and grammar errors were found and corrected. No issues connected to design or handling of the site.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Known bugs
-No known bugs besides those in the fixed / unfixed bugs section.
+* Search bar titles of posts are not shown
+* Profile dropdown menu does not work when on someone elses profile
+* Sometimes when using the chrome auto fill function to log in, a CSRF error appears - when pressing the "back" button in the browser, the user will be redirected to the **Home** page and will be logged in:
+
+<details><summary><b>CSRF Error</b></summary>
+
+![CSRF Error](readme/assets/images/csrf-login-error.PNG)
+
+* After pressing the back button:
+
+![Lighthouse Index Result](readme/assets/images/csrf-login-back.PNG)
+</details><br/>
 
 ### Fixed Bugs
-**2022-10-10**
-* Bug: When updating a review or comment the approved variable did not get updated to 'False'. This is is now handled and fixed.
+**2024-07-31**
+* Problems with "git commit not possible" because of user story template commit directly in github. fix Provided by tutor support (Oisin).
 
-**2022-10-11**
-* Bug: When updating a review the slug did not change. I chose to fix this bug so that the slug updates when a review is updated but one 'school' within this area says that a slug never should be changed (due to problems with urls / linking in the future). This functionality is an easy fix to remove if necessary but I chose to keep it for now.
+**2024-08-03**
+* Due to wrong migrations, the programm stopped working. Instead of fixing the issue in the early stages, I started a new repository.
 
-**2022-10-14**
-* Bug: When the Markup Validation was done there was initially quite a lot of errors. The debugging process was very straight forward and the errors could easily be fixed.
+**2024-08-29**
+* Bug: The active page indicator was implemented, but did not work on the "Add Post" Nav-bar link. Therefore the "active" indicator was taken out for now.
 
-<details><summary><b>HTML Validation</b></summary>
+**2024-08-29**
+* Bug: Missing "div" elements were causing a validation error. 
 
-![HTML Validation](readme/assets/images/html_validation_error.png)
-</details><br />
+**2024-09-02**
+* Bug: Due to problems in the requirements.txt file, I was unable to deploy on heroku. Rerunning the "pip3 freeze > requirements.txt" command fixed the problem.
 
-**2022-10-17**
-* Bug: The CSS Validation reported an error that is connected to Font Awesome. When I validate my own CSS code there are no errors at all. So this might be a Font Awesome bug that is out of my control. But I thought it would be proper to highlight the error here in the bugs section.
-
-<details><summary><b>CSS Validation</b></summary>
-
-![CSS Validation](readme/assets/images/css_validaton_error.png)
-</details><br />
 
 ### Unfixed Bugs
 
 **2022-10-14**
-* Bug: Summernote is not working 100% properly. I have debugged and sweeped the Internet for solutions. The issue is that when a user creates a review it's not possible to overide the choices the user makes when writing the review (i.e. font-size and font). I tried to handle this by setting rules of what tools to show in the Summernote editor without success. One workaround could of course be to remove the Summernote functionality but I did not want to do that in this project at least. This bug is still unfixed and I haven't found a solution to it yet.
-
-**2022-10-15**
-* Bug: 2 warning / issues reported in the Google Chrome DevTools console. The first one is connected to a navigator.userAgent issue and the second to usage of a deprecated feature. I have done some digging and it seems that these issues have been reported within different forums on the web. I have checked other browsers (i.e. Firefox, Min and Edge) and the issue does not show up there.
-
-<details><summary><b>Warnings from Google Chrome DevTools</b></summary>
-
-![HTML Validation](readme/assets/images/google_chrome_warning.png)
-</details><br />
-
-[Back to top](<#table-of-content>)
+* Search bar titles of posts are not shown
+* Profile dropdown menu does not work when on someone elses profile
 
 # Deployment
 
@@ -1254,12 +1285,25 @@ DATABASES = {
 
 <details><summary><b>Heroku Step 31</b></summary>
 
-![Heroku Step 31](readme/assets/images/heroku_31.png)
+![Heroku Step 31]()
 </details><br />
 
 The live link to the 'PROject GOLFblog' site on Heroku an be found [here](https://project-golfblog-96e6107b0f52.herokuapp.com/). And the Github repository can be found [here](https://github.com/Mienjung97/PROject-GOLFblog).
 
 [Back to top](<#table-of-content>)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## How To Fork The Repository On GitHub
 
