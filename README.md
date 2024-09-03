@@ -66,16 +66,14 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
 * [**Existing Features**](<#existing-features>)
     * [Navigation](<#navigation>)
     * [About](<#about>)
-    * [All](<#all>)
-    * [Albums](<#albums>)
-    * [Concerts](<#concerts>)
-    * [Review Detail View](<#review-detail-view>)
+    * [Home](<#home>)
+    * [Post Detail View](<#post-detail-view>)
     * [Update / Delete Comment](<#update-and-delete-comment>)
-    * [Member Reviews](<#member-reviews>)
-    * [Create Review](<#create-review>)
-    * [Update Review](<#update-review>)
+    * [Member Post](<#member-post>)
+    * [Add Post](<#add-post>)
+    * [Update Post](<#update-post>)
     * [Profile Page](<#profile-page>)
-    * [Admin Area](<#admin-area>)
+    * [Admin Panel](<#admin-panel>)
     * [Sign Up](<#sign-up>)
     * [Sign In](<#sign-in>)
     * [Sign Out](<#sign-out>)
@@ -197,10 +195,10 @@ Below the user stories for the project are listed to clarify why particular feat
 
 ## Site Structure
 
-The PROject GOLFblog site is split up in two parts: **when the user is logged out** and **when the user is logged in**. Depending on login status, the user will either start on the **About** page with visible buttons for **login** and **Register**, while a logged in user will start on the **Home** page.
+The PROject GOLFblog site is split up in two parts: **when the user is logged out** and **when the user is logged in**. Depending on login status, the user will either start on the **About** page with visible buttons for **log In** and **Register**, while a logged in user will start on the **Home** page.
 
 
-When the user is logged out, the pages **About**, **Home**, as well as the **Search** bar are avaliable. A logged out user is able to access any post or comment to read - commenting, visiting profile pages, writing comments or posts and liking them is reserved for logged in users. Trying to access a profile page will redirect a user to the **Login** page, in the comment section, the user is informed that a login is necessary to leave a **comment** or **like** a post.
+When the user is logged out, the pages **About**, **Home**, as well as the **Search** bar are avaliable. A logged out user is able to access any post or comment to read - commenting, visiting profile pages, writing comments or posts and liking them is reserved for logged in users. Trying to access a profile page will redirect a user to the **Log In** page, in the comment section, the user is informed that a login is necessary to leave a **comment** or **like** a post.
 
 If a user is logged in, they have the additional **Add Post** Nav-link which lets them create a new post and a **Profile** drop down menu, where they have access to their profile page (labled withe their **username**), the **Show Posts** section, in which they can see their published and drafted posts, as well as the **Logout** button. While visiting a posts site, they additionally have a **like** button and a field to leave a **comment**.
 
@@ -237,7 +235,7 @@ This section is devided in **Existing Features** and **Future Features** since t
 ## **Existing Features**
 
 ### **Navigation**
-The styling of the navigation bar was heavily influenced by the [PROject GOLFacademy](https://projectgolfacademy.com/) website, while I tried to keep it as clean as possible. Depending if you are logged in or not, different menus are visible for the site user. **Login** and **Register** will transform to the **Profile** dropdown, a staff member will get the extra menu item **Admin Panel**.
+The styling of the navigation bar was heavily influenced by the [PROject GOLFacademy](https://projectgolfacademy.com/) website, while I tried to keep it as clean as possible. Depending if you are logged in or not, different menus are visible for the site user. **Log In** and **Register** will transform to the **Profile** dropdown, a staff member will get the extra menu item **Admin Panel**.
 
 
 *Links that are visible to logged out users*
@@ -245,16 +243,16 @@ The styling of the navigation bar was heavily influenced by the [PROject GOLFaca
 * About - Includes information about the PROject GOLFblog and the PROject GOLFacademy.
 * Home - Lists all posts on the site.
 * Search - a search bar that filters for profiles, posts and comments.
-* Login / Register - Gives the user the option to log in or register to the PROject GOLFblog.
+* Log In / Register - Gives the user the option to log in or register to the PROject GOLFblog.
 
 <details><summary><b>Navigation Large - User Not Logged In</b></summary>
 
-![Navigation Large - User Not Logged In]()
+![Navigation Large - User Not Logged In](readme/assets/images/features/Navbar-b-logout.PNG)
 </details><br/>
 
 <details><summary><b>Navigation Small - User Not Logged In</b></summary>
 
-![Navigation Small - User Not Logged In]()
+![Navigation Small - User Not Logged In](readme/assets/images/features/navbar-s-open.PNG)
 </details><br/>
 
 *Links that are visible to logged in users*
@@ -269,163 +267,291 @@ All of the links that are visible to a not logged in user plus the ones below.
 
 <details><summary><b>Navigation Large - User Logged In</b></summary>
 
-![Navigation Large - User Logged In](readme/assets/images/navbar_large_logged_in.png)
+![Navigation Large - User Logged In](readme/assets/images/features/nav-big.PNG)
 </details><br/>
 
 <details><summary><b>Navigation Small - User Logged In</b></summary>
 
-![Navigation Small - User Logged In](readme/assets/images/navbar_small_logged_in.png)
+![Navigation Small - User Logged In](readme/assets/images/features/nav-sm.PNG)
 </details><br/>
 
-*Link that is visible if user is administrator*
+*Link that is visible if user is staff*
 
 All of the links above plus the one below.
 * Admin Panel - Directs the superuser to the django admin panel where they have full access to all users, posts, comments and more (see more in the features section).
 
 <details><summary><b>Navigation Large - Admin Logged In</b></summary>
 
-![Navigation Large - Admin Logged In](readme/assets/images/navbar_large_admin_logged_in.png)
+![Navigation Large - Admin Logged In](readme/assets/images/features/nav-admin.PNG)
 </details><br/>
 
 <details><summary><b>Navigation Small - Admin Logged In</b></summary>
 
-![Navigation Small - Admin Logged In](readme/assets/images/navbar_small_admin_logged_in.png)
+* For all logged in users (staff and non staff), the "Profile" button is a dropdown menu in both sizes of the navbar.
+
+![Navigation Small - Admin Logged In](readme/assets/images/features/nav-admin-sm.PNG)
+</details><br/>
+
+<details><summary><b>Navigation Large - Active Page Indicator</b></summary>
+
+* When hovering over any of the links in the Nav-bar, they will transform like in the screnshot below:
+
+![Navigation Large - Active Page Indicator](readme/assets/images/features/Active_page_indicator.PNG)
+
+* This also applies for all grey buttons:
+
+![Grey Button Hover](readme/assets/images/features/grey_btn_hover.PNG)
+</details><br/>
+
+<details><summary><b>Navigation Large - Pagination</b></summary>
+
+* The buttons to navigate between the **Home** pages will only appear if there are enough posts. For 0 to 12 posts, there is no button. If there are more posts than that, the first page will only show the **NEXT** button, the last page only the **PREV** button and if there are more than 24 posts, any page inbetween will show both buttons. 
+* The buttons are grey by default and turn red while hovering over them:
+
+![Navigation Large - Pagination](readme/assets/images/features/paginator.PNG)
 </details><br/>
 
 ### **About**
-In the about section the user can read about ...
+In the **About** section the user can read what the purpose of the PROject GOLFblog and GOLFacademy are.
 
-<details><summary><b>About Section</b></summary>
+<details><summary><b>About Section - User Not Logged In</b></summary>
 
-![About](readme/assets/images/about.png)
+* Buttons which redirect to **Log In** and **Register** will appear.
+
+![About](readme/assets/images/features/about-logout.PNG)
 </details><br/>
 
-### **All**
-This page lists all the reviews that has been made at Review | Alliance. If the user is not logged in there is only a "read more" option visible for the user on each review card. If the user is logged in an *update* and *delete* option gets visible on the reviews that the user has written. The page shows 6 cards on bigger screens before a pagination mechanism kicks in. On smaller screens the cards are stacked vertically.
+<details><summary><b>About Section - User Logged In</b></summary>
 
-<details><summary><b>All Reviews - User Logged Out</b></summary>
-
-![All Reviews - User Logged Out](readme/assets/images/all_reviews_logged_out.png)
+![About](readme/assets/images/features/about.PNG)
 </details><br/>
 
-<details><summary><b>All Reviews - User Logged In</b></summary>
+### **Home**
+The **Home** page lists all posts contained in the PROject GOLFblog, while being paginated by 12 posts per page and depending on the display size, will show between one and three posts next to each other. In the general overview, the posts picture, title, exerpt and like and comment count are visible. As a logged out user, this page is accessable, they can go through all pages and click on individual posts - visiting profile pages, liking and commenting is reserved for logged in users. More about these functionalities in in the [Post Detail View](<#post-detail-view>) section. Therefore besides the Nav-Bar, the page looks the same for any user. Any staff member has the ability to pin and unpin posts on the homepage, which leaves the sorting on the **Home** page as following: The first posts are the pinned posts (newest first), then the rest of the posts (newest first).
 
-![All Reviews - User Logged In](readme/assets/images/all_reviews_logged_in.png)
+<details><summary><b>Home - All Posts</b></summary>
+
+![Home - All Posts](readme/assets/images/features/home_d.PNG)
 </details><br/>
 
-### **Albums**
-This page lists all the album reviews that has been made at Review | Alliance. If the user is not logged in there is only a "read more" option visible for the user on each review card. If the user is logged in an *update* and *delete* option gets visible on the reviews that the user has written. No screenshots for this view due to the fact it's the same concept as in the all reviews section except that the review cards are filtered on the category 'album'.
+<details><summary><b>Home - Select a post</b></summary>
 
-### **Concerts**
-This page lists all the concert reviews that has been made at Review | Alliance. If the user is not logged in there is only a "read more" option visible for the user on each review card. If the user is logged in an *update* and *delete* option gets visible on the reviews that the user has written. No screenshots for this view due to the fact it's the same concept as in the all reviews section except that the review cards are filtered on the category 'concert'.
+* To select a post to get to the [Post Detail View](<#post-detail-view>), the whole area underneath the horizontal line is a clickable area.
+* To select a [Profile Page](<#profile-page>), the user has to click the authors name.
 
-### **Review Detail View**
-The review detail shows the details about the review that the user has chosen in the all, albums or concert view. Depending on if the user is logged in the view looks a little bit different. If the user is logged in they get the possibility to like the review and also update and delete it if they have written it. A logged in user can also leave a comment (and update / delete their own comment as well).
-
-<details><summary><b>Review Detail View - User Logged Out</b></summary>
-
-![Review Detail View - User Logged Out](readme/assets/images/review_detail_logged_out.png)
-![Review Detail View Comment - User Logged Out](readme/assets/images/review_detail_comment_logged_out.png)
+![All Posts - User Logged Out](readme/assets/images/features/post.PNG)
 </details><br/>
 
-<details><summary><b>Review Detail View - User Logged In</b></summary>
+### **Post Detail View**
+The **post detail** shows the whole post, which the user has chosen in the home view. Depending on if the user is logged out, in or is a staff member, the view has different options. If the user is logged in, they have the option to **like** the post and write a **comment** underneath, which they can **update** and **delete** afterwards. As a logged in staff member, they can also **pin** and **unpin** any post. If the post belongs to the logged in user, extra **CRUD elements** will be shown.
 
-![Review Detail View - User Logged In](readme/assets/images/review_detail_logged_in.png)
-![Review Detail View Comment - User Logged In](readme/assets/images/review_detail_comment_logged_in.png)
+<details><summary><b>Post Detail View - User Logged Out</b></summary>
+
+![Post Detail View - User Logged Out](readme/assets/images/features/post_detail_logout.PNG)
+</details><br/>
+
+<details><summary><b>Post Detail View - User Logged In</b></summary>
+
+![Post Detail View - User Logged In](readme/assets/images/features/post_detail_li.PNG)
+</details><br/>
+
+<details><summary><b>Post Detail View - Staff member</b></summary>
+
+![Post Detail View - Staff member](readme/assets/images/features/post_detail_a.PNG)
+</details><br/>
+
+<details><summary><b>CRUD functionalities</b></summary>
+
+![Post Detail View - CRUD](readme/assets/images/features/post_crud.PNG)
+</details><br/>
+
+<details><summary><b>Like and Unlike</b></summary>
+
+Once a user has liked a post, the **Like** button will transform into the **Unlike** button and the like counter increases by one:
+
+![Post Detail View - Like](readme/assets/images/features/like.PNG)
+![Post Detail View - Unlike](readme/assets/images/features/unlike.PNG)
 </details><br/>
 
 ### **Update And Delete Comment**
-If the user is logged in and has written a comment there is a possibility to edit and delete the comment. When the comment has been updated it needs to be re-approved by Review | Alliance.
+If the user is logged in and has written a comment, they can edit and delete the comment. If the user selects the **Edit** button, their written text will appear in the comment field, so it can be changed and the **Submit** button changes to **Update**. Clicking **Delete** will promt a modal asking if the user is sure to delete the comment.
 
 <details><summary><b>Update Comment</b></summary>
 
-![Update Comment](readme/assets/images/update_comment.png)
+![Update Comment](readme/assets/images/features/edit_comment.PNG)
 </details><br/>
 
-### **Member Reviews**
-The Member Review Page lists the reviews that the logged in user has written. The user can update and delete their review on this page and also gets information about the status of the review. There are 4 different statuses:
+<details><summary><b>Delete Comment Modal</b></summary>
 
-* *Your review is awaiting approval* - Review has been submitted with the status 'published' and awaits approval
-* *Your review is in draft status but is approved* - The review is in draft status but has been approved
-* *Your review is published and approved* - The review is published and approved
-* *Your review is in draft status* - The review has been submitted with the status 'draft'
-
-<details><summary><b>Member Reviews</b></summary>
-
-![Member Reviews](readme/assets/images/member_reviews.png)
+![Update Comment](readme/assets/images/features/delete_comment_modal.PNG)
 </details><br/>
 
-### **Create Review**
-On this page the registered and logged in user can create their own review. When they have sent it in Review | Alliance needs to approve it, until it's approved it will not be visible for the public.
 
-<details><summary><b>Create Review</b></summary>
+### **Add Post**
+On this page, a logged in user can create their own post which either can be published or saved as a draft for editing it at a later point. A post saved as a draft is only accessible by the author in their **Show Posts** section in the [Profile Page](<#profile-page>) dropdown or by any staff member in the [Admin Panel](<#admin-panel>). In this form, the user has to add a **Title**, the **Content** and set the **Status** to "draft" (default) or "published", while the **Featured Image** and the **Exerpt** are optional. Adding an **Exerpt** is recommended since this is the information which is displayed on the **Home** page. 
 
-![Create Review](readme/assets/images/create_review.png)
+<details><summary><b>Add Post</b></summary>
+
+![Add Post](readme/assets/images/features/add_post.PNG)
 </details><br/>
 
-### **Update Review**
-On this page the registered and logged in user can update their own review. When they have updated it in Review | Alliance needs to re-approve it, until it's re-approved it will not be visible for the public.
+### **Update Post**
+While in the **post detail view** of a post belonging to the logged in user, they get extra CRUD functionalities with buttons to **Edit post** and **Delete this post**. **Edit post** will redirect the user to a form where they can edit every field in the post form while clicking **Delete this post** will promt a modal asking if the user is sure to delete the post.
 
-<details><summary><b>Update Review</b></summary>
+<details><summary><b>Update Post</b></summary>
 
-![Update Review](readme/assets/images/update_review.png)
+![Update Post](readme/assets/images/features/edit_post.PNG)
+</details><br/>
+
+<details><summary><b>Delete this post</b></summary>
+
+![Update Post](readme/assets/images/features/delete_post.PNG)
+</details><br/>
+
+### **Profile**
+The **Profile** button in the nav-bar is a dropdown menu which contains the **Profile Page**, **Show Posts** and **Logout** links.
+
+<details><summary><b>Profile Dropdown</b></summary>
+
+![Profile Dropdown](readme/assets/images/features/dropdown_profile.PNG)
 </details><br/>
 
 ### **Profile Page**
-On this page the user can view and update their own profile page. The profile is visible in the about section.
+The profile page will appear in form of the **username**. It can be accessed by other logged in users via the **Home** or **Post detail** page as a "view only" version, while accessing your own profile page will give you full CRUD functionality.
 
 <details><summary><b>Profile Page</b></summary>
 
-![Profile Page](readme/assets/images/update_profile.png)
+* Page of other user
+![Profile Page](readme/assets/images/features/other_profile.PNG)
+* Own profile page
+![Profile Page](readme/assets/images/features/profile_active.PNG)
 </details><br/>
 
-### **Admin Area**
-On this page the administrator (or other superuser decided by Review | Alliance) can *approve* / *unapprove* / *publish* / *unpublish* and *delete* reviews and comments. General information about *number of users*, *number of comments*, *number of reviews*, *unapproved comments / reviews* is also being showed on the page.
+<details><summary><b>Profile Page Edit</b></summary>
 
-<details><summary><b>Admin Area</b></summary>
-
-![Admin Area](readme/assets/images/admin_area.png)
+![Profile Page](readme/assets/images/features/edit_profile.PNG)
 </details><br/>
 
-### **Sign Up**
-If the site visitor has no registered user at Review | Alliance they can sign up. They can also add a presentation and upload a featured image that will be used on the users profile page.
+<details><summary><b>Profile Page change email</b></summary>
 
-<details><summary><b>Sign Up</b></summary>
-
-![Sign Up](readme/assets/images/sign_up.png)
+![Profile Page](readme/assets/images/features/email_change.PNG)
 </details><br/>
 
-### **Sign In**
-On this page the user can sign in to Review | Alliance
+<details><summary><b>Profile Page change password</b></summary>
 
-<details><summary><b>Sign In</b></summary>
-
-![Sign In](readme/assets/images/sign_in.png)
+![Profile Page](readme/assets/images/features/change_pw.PNG)
 </details><br/>
 
-### **Sign Out**
-When the user clicks sign out in the menu bar a confirmation page is being showed so that the user don't accidently sign out.
+<details><summary><b>Delete Profile Page Modal</b></summary>
 
-<details><summary><b>Sign Out</b></summary>
+![Profile Page](readme/assets/images/features/delete_profile.PNG)
+</details><br/>
 
-![Member Reviews](readme/assets/images/sign_out.png)
+### **Show Posts**
+The **Show Posts** section is devided into the main page, on which published posts will appear and a page with all drafts, that can be accessed via the **View drafts** button. While clicking one of the published posts, it will redirect the user towads the **post detail view**, selecting a draft will open the **edit post** page.
+
+<details><summary><b>Show posts</b></summary>
+
+* View with published posts available
+
+![Show posts](readme/assets/images/features/posts.PNG)
+
+* View without posts available
+
+![Show posts](readme/assets/images/features/no_posts.PNG)
+</details><br/>
+
+<details><summary><b>View drafts</b></summary>
+
+* View with drafts available (The posts in this picture have screenshots of exactly this topic as an image, there is no duplicate code)
+
+![Show posts](readme/assets/images/features/drafts.PNG)
+
+* View without drafts available
+
+![Show posts](readme/assets/images/features/no_drafts.PNG)
+
+* Update Drafts
+
+![Update Drafts](readme/assets/images/features/edit_draft.PNG)
+</details><br/>
+
+### **Logout**
+With this link, the user gets redirected to the **Logout** page which will ask the user if they really want to log out of the page.
+
+<details><summary><b>Logout</b></summary>
+
+![Logout](readme/assets/images/features/logout.PNG)
+</details><br/>
+
+### **Admin**
+All staff members have the possibility to access the **Django admin panel**, as well as **Pin** and **Unpin** posts in the post detail view.
+
+### **Admin Panel**
+PROject GOLFblog makes use of the Django Admin Panel, including the Summernote libary. In the Admin Panel, any staff member has the full ability to **modify** and **delete** any post, comment, user or email, manage **pins**, collect information about **likes** on posts, as well as changing the about page.
+
+<details><summary><b>Admin Panel</b></summary>
+
+![Admin Panel](readme/assets/images/features/admin_panel.PNG)
+</details><br/>
+
+### **Pin and Unpin Posts**
+On the post detail view, a staff member can pin and unpin posts with the click of a button. This button will change from "Pin" to "Unpin" and vice versa after pressing it.
+
+<details><summary><b>Pin and Unpin</b></summary>
+
+![Pin](readme/assets/images/features/pin.PNG)
+![Unpin](readme/assets/images/features/unpin.PNG)
+</details><br/>
+
+<details><summary><b>Pinned Posts</b></summary>
+
+An example view on how pinned posts look on the **home** page
+
+![Pinned Posts](readme/assets/images/features/pinned_posts.PNG)
+</details><br/>
+
+### **Register**
+When a logged out user enters the PROject GOLFblog, they will be redirected to the about page to gather information about the blog. If they decide to **register** or **log In**, they can either use the links in the nav-bar or the buttons in the middle of the About page. At the current stage, an email is necessary to register (Djangos "ACCOUNT_EMAIL_REQUIRED" is set to "True"), email varification is not yet implemented (more in the [Future Features](<#future-features>) section).
+
+<details><summary><b>Register</b></summary>
+
+![Register](readme/assets/images/features/register-page.PNG)
+</details><br/>
+
+### **Log In**
+On this page the user can log into their profile from PROject GOLFblog.
+
+<details><summary><b>Log In</b></summary>
+
+![Log In](readme/assets/images/features/login.PNG)
 </details><br/>
 
 ### **Footer**
-The footer area includes short information about Review | Alliance, contact information and links to relevant social media.
+The footer includes both my copyright, as well as functional the social media links (Facebook, Instagram and LinkedIn) from [PROject GOLFacademy](https://projectgolfacademy.com/).
 
 <details><summary><b>Footer</b></summary>
 
-![Footer](readme/assets/images/footer.png)
+![Footer](readme/assets/images/features/footer.PNG)
 </details><br/>
 
-### **Flash Messages and confirmation pages to the user**
-The sites incorporates flash messages and confirmation pages when an action has been performed (i.e. delete/update actions). Examples of this in the screenshots below.
+### **Confirmation Messages**
+The sites utilizes confirmation messages which pop up for most actions that can be performed on the page. 
+
+This includes, but is not limted to
+- Logging in and out
+- Writing and updating a comment
+- Writing and updating a post
+- Register a new account
+- Editing the profile page
+
+Some examples are in the screenshots below:
 
 <details><summary><b>Confirmation Messages</b></summary>
 
-![Review Created Success](readme/assets/images/review_created_success.png)
-![Review Deleted Success](readme/assets/images/review_deleted_success.png)
+![Sign In Message](readme/assets/images/features/success_msg.PNG)
+![Comment Submitted](readme/assets/images/features/success_comment.PNG)
+![Post Updated](readme/assets/images/features/success_post.PNG)
 </details><br/>
 
 ### Future Features

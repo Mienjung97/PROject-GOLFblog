@@ -9,11 +9,13 @@
                     Are you sure you want to delete your Account forever?
                 </h1>
             </div>
+            <br>
             <div>
                 <h3>
-                    {{ request.user.username }}
+                    "{{ request.user.username }}"
                 </h3>
             </div>
+            <br>
             <div>
                 <form action="{% url 'account_delete' %}" method="post">
                     {% csrf_token %}

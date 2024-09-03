@@ -16,7 +16,7 @@
                     </h1>
                     <!-- Post author goes before the | the post's created date goes after -->
                     <p class="subtitle">
-                        <a class="black
+                        <a class="pro-link
                                   {% if request.path == profile_url %}
                                       " aria-current="page
                                   {% endif %}"
@@ -205,7 +205,7 @@
                             </form>
                         {% else %}
                             <p>
-                                <a href="{% url 'account_login' %}?next={{ request.path }}" class="pro-link">Log in</a> or
+                                <a href="{% url 'account_login' %}?next={{ request.path }}" class="pro-link">Log In</a> or
                                 <a href="{% url 'account_signup' %}?next={{ request.path }}" class="pro-link">Register</a>
                                 to leave a comment or like a post.
                             </p>
