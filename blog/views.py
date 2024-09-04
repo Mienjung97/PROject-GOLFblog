@@ -348,8 +348,6 @@ def search_result(request):
     else:
         return redirect('home')
 
-    print(post_results)
-
     return render(
         request,
         'blog/search_results.html',

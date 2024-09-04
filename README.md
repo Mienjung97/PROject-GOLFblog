@@ -1,43 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Sebastian Kefer,
-
-31.07.2024:
-Problems with git commit because of user story template commit directly in github. fix Provided by tutor support (Oisin):
-
-"Sometimes there are conflicts between your github repository and your local one. This can happen because you made a change directly on github, or because you are working from two computers or IDEs. Here is how to do a git pull and fix and merge conflicts:
-- In the terminal type git config pull.rebase false # merge
-- Run the command git pull
-- Type git status to see which files have a conflict that needs fixing.
-- Then check those files and look for places marked with #### or <<<<. These are the areas that differ between your local files and the Github ones. Correct these areas until the code is how you need it to be.
-- Save all the files you changed.
-- Then in the terminal type git add .  (don't forget the . that will add all the files changed since the last time they were committed.)
-- Then git commit -m "fixed merge conflict"  You will know the merge is complete because (main | MERGING)  will return to just (main)  in the terminal
-- Finally git push origin main so all your files are synced up."
-
--> The reason the first apps were installed without corresponding git commits.
-
-Followed the "I think therfore I blog" project -> styling thats needs to be changed:
-- base.html
-- index.html
-- post_detail.html
-- templates -> login.html/logout.html/signup.html
-    -> Add log in via google?
-
-03.08.2024:
-Ran into problems with wrong migrations -> restarted the project, left issues in old repository
-
-05.08.2024:
-Blog is up to date with "I think therfore I blog" -> started custom CSS -> About page is styled for anything over 968px. Fix coming soon.
-
-Profile picture for Assessor: Photo by <a href="https://unsplash.com/@markusspiske?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Markus Spiske</a> on <a href="https://unsplash.com/photos/colorful-software-or-web-code-on-a-computer-monitor-Skf7HxARcoc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-
-My Profile (Sebastian) Picture: 
-Photo by <a href="https://unsplash.com/@alexacea?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alexandru Acea</a> on <a href="https://unsplash.com/photos/turned-on-flat-screen-tv--WBYxmW4yuw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-  
-
-Imported Readme from distinction project and will be modified:
-
 # **PROject GOLFblog**
 PROject GOLFblog is a blog project which in the future is intended to be to be an extension for the webpage of [PROject GOLFacademy](https://projectgolfacademy.com/). The goal for this blog is to serve as a central hub for everyone who associated with PROject GOLFacademy, including staff members and students, as well as anyone who is interested in golf. Staff members are can post updates and information (e.g. available spaces in courses, holidays and more) that can be pinned to the top, while site users can ask questions related to the sport or the company, write about their personal experiences, give feedback to the staff or just ask for play partners. 
 
@@ -56,6 +16,7 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
     * [Site Owners Goal](<#site-owners-goal>)
     * [Project Management](<#project-management>)
     * [Repository Issues](<#repository-issues>)
+    * [Database Schema](<#database-schema>)
 
 * [**User Experience (UX)**](<#user-experience-ux>)
     * [Wireframes](<#wireframes>)
@@ -69,16 +30,19 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
     * [Home](<#home>)
     * [Post Detail View](<#post-detail-view>)
     * [Update / Delete Comment](<#update-and-delete-comment>)
-    * [Member Post](<#member-post>)
     * [Add Post](<#add-post>)
     * [Update Post](<#update-post>)
+    * [Profile](<#profile>)
     * [Profile Page](<#profile-page>)
-    * [Admin Panel](<#admin-panel>)
-    * [Sign Up](<#sign-up>)
-    * [Sign In](<#sign-in>)
-    * [Sign Out](<#sign-out>)
+    * [Show Posts](<#show-posts>)
+    * [Logout](<#logout>)
+    * [Admin](<#Admin>)
+    * [Admin Panel](<#admin-panel>)Pin and Unpin Posts
+    * [Pin and Unpin Posts](<#pin-and-unpin-posts>)
+    * [Register](<#register>)
+    * [Log In](<#log-in>)
     * [Footer](<#footer>)
-    * [Flash Messages](<#flash-messages-and-confirmation-pages-to-the-user>)
+    * [Confirmation Messages](<#confirmation-messages>)
 
 * [**Future Features**](<#future-features>)
 
@@ -130,10 +94,11 @@ Since I had already created most user stories before, I assigned the user storie
 
 </details><br/>
 
-
 [Back to top](<#table-of-content>)
 
 ### Database Schema
+
+The database schema was created with [BugBytes](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=478s) YouTube video and the corresponding tool [dreampuf](https://dreampuf.github.io/GraphvizOnline/). Due to health issues I could not completely follow my time plan, therefore I was unable to create a database schema myself, which was planned to be done with [Lucid](https://lucid.app/documents#/home?folder_id=recent).
 
 * **Post** - Handles all the posts
 * **Comment** - Handles all the comments
@@ -148,11 +113,41 @@ Since I had already created most user stories before, I assigned the user storie
 # **User Experience (UX)**
 
 ## Wireframes
-The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created for desktop, tablet and mobile devices. The text content wasn't finalized during the wireframe process. It's worth mentioning that there are visual differences compared to the wireframes, the reason being design choices that was made during the creation process.
+The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created for desktop, tablet and mobile devices. The text content wasn't finalized during the wireframe process.
 
-<details><summary><b>Wireframes</b></summary>
+<details><summary><b>Wireframes: Home</b></summary>
 
-![Wireframes]()
+![Wireframes Home Desktop](readme/assets/images/wireframes/home_d.PNG)
+![Wireframes Home Tablet](readme/assets/images/wireframes/home_t.PNG)
+![Wireframes Home Mobile](readme/assets/images/wireframes/home_m.PNG)
+</details><br/>
+
+<details><summary><b>Wireframes: About</b></summary>
+
+![Wireframes About Desktop](readme/assets/images/wireframes/about_d.PNG)
+![Wireframes About Tablet](readme/assets/images/wireframes/about_t.PNG)
+![Wireframes About Mobile](readme/assets/images/wireframes/about_m.PNG)
+</details><br/>
+
+<details><summary><b>Wireframes: Add Post</b></summary>
+
+![Wireframes Add Post Desktop](readme/assets/images/wireframes/add_post_d.PNG)
+![Wireframes Add Post Tablet](readme/assets/images/wireframes/add_post_t.PNG)
+![Wireframes Add Post Mobile](readme/assets/images/wireframes/add_post_m.PNG)
+</details><br/>
+
+<details><summary><b>Wireframes: Detail View</b></summary>
+
+![Wireframes Detail View Desktop](readme/assets/images/wireframes/Detail_d.PNG)
+![Wireframes Detail View Tablet](readme/assets/images/wireframes/detail_t.PNG)
+![Wireframes Detail View Mobile](readme/assets/images/wireframes/detail_m.PNG)
+</details><br/>
+
+<details><summary><b>Wireframes: Profile</b></summary>
+
+![Wireframes Profile](readme/assets/images/wireframes/profile_d.PNG)
+![Wireframes Profile](readme/assets/images/wireframes/profile_t.PNG)
+![Wireframes Profile](readme/assets/images/wireframes/profile_m.PNG)
 </details><br/>
 
 ## User Stories
@@ -212,21 +207,18 @@ Read more about all functionalities in the [Features](<#features>) section.
 ## Design Choices
 
 * ### Color Scheme
+The color scheme was taken from the [PROject GOILFacademy](https://projectgolfacademy.com/) webpage, as well as the styling ideas.
 
-[Coolors](https://coolors.co/)
+[Coolors](https://coolors.co/) was used to create the color palette:
 
-![Color Palette image]()
+![Color Palette image](readme/assets/images/colors.png)
 
 * ### Typography
-The fonts used for the site are 'Roboto' and 'Tinos'. Fallback font for both of them is sans-serif.
+The fonts used for the site are 'Poppins'. Fallback font is sans-serif.
 
-* 'Roboto' is used on all headlines including the brand logo. It's a very clean font that works really well for headlines and logos. It's easy to read and matches the minimalistic style that I wanted the site to 'breath'.
+* 'Poppins' is used on the whole webpage. Choosing this font family was purely because it is the same as the webpage from PROject GOLFacademy
 
-* 'Tinos' was chosen for the review excerpt and the review full text. It has a nice serif design and works really well for longer paragraphs of text.
-
-![Google Fonts Impact](readme/assets/images/google_fonts_roboto.png)
-
-![Google Fonts Tinos](readme/assets/images/google_fonts_tinos.png)
+![Google Fonts Poppins](readme/assets/images/fonts.PNG)
 
 [Back to top](<#table-of-content>)
 
@@ -278,8 +270,8 @@ All of the links that are visible to a not logged in user plus the ones below.
 
 *Link that is visible if user is staff*
 
-All of the links above plus the one below.
-* Admin Panel - Directs the superuser to the django admin panel where they have full access to all users, posts, comments and more (see more in the features section).
+All of the links above plus the one below
+* Admin Panel - Directs the superuser to the django admin panel where they have full access to all users, posts, comments and more (see more in the features section)
 
 <details><summary><b>Navigation Large - Admin Logged In</b></summary>
 
@@ -288,16 +280,23 @@ All of the links above plus the one below.
 
 <details><summary><b>Navigation Small - Admin Logged In</b></summary>
 
-* For all logged in users (staff and non staff), the "Profile" button is a dropdown menu in both sizes of the navbar.
+* For all logged in users (staff and non staff), the "Profile" button is a dropdown menu in both sizes of the navbar
 
 ![Navigation Small - Admin Logged In](readme/assets/images/features/nav-admin-sm.PNG)
 </details><br/>
 
-<details><summary><b>Navigation Large - Active Page Indicator</b></summary>
+<details><summary><b>Navigation - Search Function</b></summary>
+
+* All users can use the search bar, which will return *Profiles*, (published) *Posts* and *Comments* related to the search
+
+![Navigation - Search Function](readme/assets/images/features/search.PNG)
+</details><br/>
+
+<details><summary><b>Navigation Large - Page Indicator</b></summary>
 
 * When hovering over any of the links in the Nav-bar, they will transform like in the screnshot below:
 
-![Navigation Large - Active Page Indicator](readme/assets/images/features/Active_page_indicator.PNG)
+![Navigation Large - Page Indicator](readme/assets/images/features/Active_page_indicator.PNG)
 
 * This also applies for all grey buttons:
 
@@ -537,7 +536,7 @@ The footer includes both my copyright, as well as functional the social media li
 </details><br/>
 
 ### **Confirmation Messages**
-The sites utilizes confirmation messages which pop up for most actions that can be performed on the page. 
+The sites utilizes confirmation messages which pop up for most actions that can be performed on the page. This applies to success and error messages, but the error messages are more rare.
 
 This includes, but is not limted to
 - Logging in and out
@@ -553,13 +552,14 @@ Some examples are in the screenshots below:
 ![Sign In Message](readme/assets/images/features/success_msg.PNG)
 ![Comment Submitted](readme/assets/images/features/success_comment.PNG)
 ![Post Updated](readme/assets/images/features/success_post.PNG)
+![Post Error](readme/assets/images/features/Error_msg.PNG)
 </details><br/>
 
 ### Future Features
 
 * Custom user model for setting up propper email varification and password reset
 * Add 'current page is active' in navbar
-* Add categories for different topics (updates, free courses, requests for play partner, equipment discussions)
+* Add categories for different topics (updates, free spaces in courses, requests for play partner, equipment discussions)
 * Subscribing to the PROject GOLFacademy Newsletter
 * Add / remove categorys in admin section
 * View other peoples posts through their profile page
@@ -632,7 +632,6 @@ The libraries used in this project are located in the requirements.txt file and 
 * [tqdm](https://pypi.org/project/tqdm/) - Instantly make your loops show a smart progress meter when coding in the console
 * [urllib3](https://pypi.org/project/urllib3/1.26.19/) - urllib3 is a powerful, user-friendly HTTP client for Python
 * [whitenoise](https://pypi.org/project/whitenoise/) - Radically simplified static file serving for Python web apps. WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on nginx, Amazon S3 or any other external service
-
 
 # Testing
 
@@ -719,7 +718,7 @@ The libraries used in this project are located in the requirements.txt file and 
 The code on the 'PROject GOLFblog' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service, JSHint and the CodeInstutute pep8 validator. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). 
 
 ### Markup Validation
-While validating the HTML code, I encountered a few errors, which were easily fixed (more in the "Bugs" section). The **About** page displays 2 errors concerning the "font element" - this is produced through the Summernote extension. Since the Markup validator is not an authenticated user, I could only validate the **Home** and **About** page via url input - so with use of the chrome developer tools I validated every page via direct input. No errors came up, proof for all validations are in the folder with path "readme/assets/images/validation/html"
+While validating the HTML code, I encountered a few errors. The **About** page displays 2 errors concerning the "font element" - this is produced through the Summernote extension. Since the Markup validator is not an authenticated user, I could only validate the **Home** and **About** page via url input - so with use of the chrome developer tools I validated every page via direct input. No errors came up, proof for all validations are in the folder with path "readme/assets/images/validation/html"
 
 <details><summary><b>HTML Validation Result</b></summary>
 
@@ -800,56 +799,27 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | In the detail view the logged in user can like/unlike posts
 | &check; | In the detail view the logged in user can update/delete the post written by themselves
 | &check; | Clicking the edit button in the detail view loads the edit post page
+| &check; | Clicking the like button will like the post and the button will change to unlike
 | &check; | Clicking the delete button in the detail view loads the delete post page
 | &check; | Clicking the Show Posts button in the logged in user menu lists the logged in users posts
 | &check; | Clicking the Show Drafts button in Show posts lists the logged in users drafts
 | &check; | In the logged in user menu the Admin Area is not visible
 | &check; | Clicking the Profile Page button in the logged in user menu loads the Profile page
+| &check; | Clicking the PROject GOLFacademy link anywhere opens the page in a new window 
 | &check; | Clicking the Instagram link in the footer area opens Instagram in a new window
 | &check; | Clicking the Facebook link in the footer area opens Facebook in a new window 
-| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window 
 | &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window 
 
 | Status | **Main Website - Admin Logged In**
 |:-------:|:--------|
 | &check; | Clicking the Admin Panel button in the Nav-bar loads the Admin Panel Page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-| &check; | Total Users shows correct number of total users
-| &check; | Total Reviews shows the correct number of total reviews
-| &check; | Total Comments shows the correct number of total comments
-| &check; | Reviews that need approval shows the correct numer of reviews that need approval
-| &check; | Comments that need approval shows the correct numer of comments that need approval
+| &check; | Pinning a post works on frontend
+| &check; | Deleting a Profile works on the Admin Panel
+| &check; | Deleting a Post works on the Admin Panel
+| &check; | Deleting a Comment works on the Admin Panel
+| &check; | Changing an email of any user works in the admin bar
+| &check; | Changing a password of any user works in the admin bar
+| &check; | Deleting a Profile will delete their posts, comments and email
 
  Status | **Create A Post - User Logged In**
 |:-------:|:--------|
@@ -861,137 +831,104 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | Content field does not accept empty field
 | &check; | Excerpt is not required
 | &check; | Status field defaults to Draft
-| &check; | Posting as shows name of logged in user
-| &check; | Review Success Page is displayed when the user submits the review and the form validation is ok.
+| &check; | Posting as shows name of author
+| &check; | **Home** page with a success message is displayed when the user submits the post
 
 Status | **Create A New User - User Logged Out**
 |:-------:|:--------|
 | &check; | Username field is required
 | &check; | Username field does not accept empty field
 | &check; | Email field does not accept just spaces
-| &check; | Email field is optional
+| &check; | Email field is required
 | &check; | Password field does not accept empty field
-| &check; | Success flash message is displayed when the user submits the create a new user form
-| &check; | Default biography is visible in about page (with i.e default featured image)
+| &check; | Success message is displayed when the user creates a new user
+| &check; | Error message with corresponding info when wrong input is submitted
+| &check; | Default biography is visible in about page
 
 Status | **Create A Profile Page - User Logged In**
 |:-------:|:--------|
-| &check; | Default featured image is visible the first time a user opens the 'my profile' page
-| &check; | First Name field is required
-| &check; | First Name field does not accept empty field
-| &check; | First Name field does not accept just spaces
-| &check; | Last Name field is required
-| &check; | Last Name field does not accept empty field
-| &check; | Last Name field does not accept just spaces
-| &check; | Update profile success Page is displayed when the user submits the profile form
+| &check; | The default profile info is seen on the profile page (Field not provided)
+| &check; | The profile success message is displayed when the user submits the profile form
+| &check; | A new user has all rights and can post, like and comment after registering
+| &check; | Accessing the Show Posts and Schow drafts section works
 
 ### Automated Testing
-Some automated testing has been done during this project. Due to prioritization of other tasks I only could provide 34% coverage. See screenshot below. Automated tests can be run by typing the command - *python3 manage.py test*
-
-<details><summary><b>Automated Testing</b></summary>
-
-![Automated Testing](readme/assets/images/test_coverage_report.png)
-</details><br/>
+Besides the "test_forms.py" file from the walkthough project, there has been no automated testing included in this project.
 
 ### Responsiveness Test
-The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).
+The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Multi Device Mockup Generator](https://techsini.com/multi-mockup/).
 
-| Desktop    | Display <1280px       | Display >1280px    |
+| Desktop    | Display <1200px       | Display >1200px    |
 |------------|-----------------------|--------------------|
 | Render     | pass                  | pass               |
 | Images     | pass                  | pass               |
 | Links      | pass                  | pass               |
 
-| Tablet     | Samsung Galaxy Tab 10 | Amazon Kindle Fire | iPad Mini | iPad Pro |
+| Tablet     | iPad Air              | Asus Zenbook Fold  | iPad Mini | iPad Pro |
 |------------|-----------------------|--------------------|-----------|----------|
 | Render     | pass                  | pass               | pass      | pass     |
 | Images     | pass                  | pass               | pass      | pass     |
 | Links      | pass                  | pass               | pass      | pass     |
 
-| Phone      | Galaxy S5/S6/S7       | iPhone 6/7/8       | iPhone 12pro         |
-|------------|-----------------------|--------------------|----------------------|
-| Render     | pass                  | pass               | pass      | pass     |
-| Images     | pass                  | pass               | pass      | pass     |
-| Links      | pass                  | pass               | pass      | pass     |
+| Phone      | Galaxy S8+/S20 Ultra  | iPhone XR/12Pro/14 Pro Max | Pixel 7 / 7 Pro      |
+|------------|-----------------------|----------------------------|----------------------|
+| Render     | pass                  | pass                       | pass      | pass     |
+| Images     | pass                  | pass                       | pass      | pass     |
+| Links      | pass                  | pass                       | pass      | pass     |
 
 [Back to top](<#table-of-content>)
 
 ### Browser Compatibility
-* Google Chrome Version (106.0.5249.119)
-* Mozilla Firefox (version 105.0.3)
-* Apple Safari (version 16.0)
-* Microsoft Edge (version 106.0.1370.47)
+* Google Chrome Version (version 128.0.6613.119)
+* Mozilla Firefox (version 127.0 )
+* Microsoft Edge (version 128.0.2739.54)
 
 [Back to top](<#table-of-content>)
 
 ### Lighthouse
-Google Lighthouse in Chrome Developer Tools was used to test the application within the areas of *Performance*, *Accessibility*, *Best Practices* and *SEO*. I tested the *index page*, *review details page*, *the admin area* and *the about page*. The testing showed the following:
+Google Lighthouse in Chrome Developer Tools was used to test the application within the areas of *Performance*, *Accessibility*, *Best Practices* and *SEO*. I tested the *Home page*, *post details page*, *Add Post* and *the about page* both on Destop and mobile view as well as logged in and logged (if possible). The testing showed the following:
 
-* Index Page - Performance: 75, Accessibility: 100, Best Practises: 100, SEO: 92
-* Review Details Page - Performance: 81, Accessibility: 98, Best Practises: 100, SEO: 92
-* Admin Area - Performance: 85, Accessibility: 97, Best Practises: 100, SEO: 100
-* About page - Performance: 73, Accessibility: 98, Best Practises: 100, SEO: 100
+<details><summary><b>Lighthouse Home Result</b></summary>
 
-In general this is OK results. The performance is affected in a negative way by external scripts (connected to i.e. Bootstrap) and the lower result on SEO on the Index page and Admin Area Page is i.e. connected to the 'read more' links that is not a 100% optimal description from a SEO point of view. The lower accessibility result on the review details page is connected to the heading elements not being in sequentially-descending order, but this is an active design choice and not a big issue (but I thought it would be proper to highlight it here so that it's clear I'm aware of it).
-
-<details><summary><b>Lighthouse Index Result</b></summary>
-
-![Lighthouse Index Result](readme/assets/images/lighthouse_index.png)
+![Lighthouse Home Result Desktop Log In](readme/assets/images/validation/lighthouse/d_home1_lh.PNG)
+![Lighthouse Home Result Desktop Log out](readme/assets/images/validation/lighthouse/d_home2_lh.PNG)
+![Lighthouse Home Result Mobile Log In](readme/assets/images/validation/lighthouse/m_home1_lh.PNG)
+![Lighthouse Home Result Mobile Log out](readme/assets/images/validation/lighthouse/m_home2_lh.PNG)
 </details><br/>
 
-<details><summary><b>Lighthouse Review Details Page Result</b></summary>
+<details><summary><b>Lighthouse Profile Result</b></summary>
 
-![Lighthouse Review Details Page](readme/assets/images/lighthouse_review_details_page.png)
+![Lighthouse Profile Result Desktop](readme/assets/images/validation/lighthouse/d_profile_lh.PNG)
+![Lighthouse Profile Result Mobile](readme/assets/images/validation/lighthouse/m_profile_lh.PNG)
 </details><br/>
 
-<details><summary><b>Lighthouse Admin Area Result</b></summary>
+<details><summary><b>Lighthouse Edit Profile Result</b></summary>
 
-
-![Lighthouse Admin Area Result]()
+![Lighthouse Edit Profile Result Desktop](readme/assets/images/validation/lighthouse/d_edit_profile_lh.PNG)
+![Lighthouse Edit Profile Result Mobile](readme/assets/images/validation/lighthouse/m_edit_profile.PNG)
 </details><br/>
 
-<details><summary><b>Lighthouse About Page Result</b></summary>
+<details><summary><b>Lighthouse Add Post Result</b></summary>
 
-![Lighthouse About Page Result]()
+![Lighthouse Add Post Result Desktop](readme/assets/images/validation/lighthouse/d_create_lh.PNG)
+![Lighthouse Add Post Result Mobile](readme/assets/images/validation/lighthouse/m_create_lh.PNG)
 </details><br/>
 
+<details><summary><b>Lighthouse About Result</b></summary>
+
+![Lighthouse About Result Desktop Log In](readme/assets/images/validation/lighthouse/d_about1_lh.PNG)
+![Lighthouse About Result Desktop Log out](readme/assets/images/validation/lighthouse/d_about2_lh.PNG)
+![Lighthouse About Result Mobile Log In](readme/assets/images/validation/lighthouse/m_about1_lh.PNG)
+![Lighthouse About Result Mobile Log out](readme/assets/images/validation/lighthouse/m_about2_lh.PNG)
+</details><br/>
 
 ### Peer Review
-Additional testing of the application was conducted by people outside of the software development field. Some smaller spelling and grammar errors were found and corrected. No issues connected to design or handling of the site.
+Additional testing of the application was conducted by people outside of the software development field by friends and family. No errors (excluding the CSRF error) and no issues with design or handling of the site were found. Also my webpage has been tested by fellow Code Insititute students Marcellio and Linus with the same result.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[Back to top](<#table-of-content>)
 
 ## Known bugs
-* Search bar titles of posts are not shown
-* Profile dropdown menu does not work when on someone elses profile
+* A staff member cannot pin a post in the admin panel without haveing at least one like 
 * Sometimes when using the chrome auto fill function to log in, a CSRF error appears - when pressing the "back" button in the browser, the user will be redirected to the **Home** page and will be logged in:
 
 <details><summary><b>CSRF Error</b></summary>
@@ -1019,12 +956,17 @@ Additional testing of the application was conducted by people outside of the sof
 **2024-09-02**
 * Bug: Due to problems in the requirements.txt file, I was unable to deploy on heroku. Rerunning the "pip3 freeze > requirements.txt" command fixed the problem.
 
+**2024-09-03**
+* Bug: Search: titles of posts were not shown, it just returned the same string over and over (functioning as a link for the correct post). Fixed this issue with my mentor by removing a string from the "Post" model.
+
+**2024-09-03**
+* Bug: Profile dropdown menu does not work when on someone elses profile, also if visiting an admins profile, the user would see the "Admin Panel" link. Fixed this issue with my mentor by changing the code in the base.html template from *{% if user.is_authenticated and request.user == user %}* to just *{% if user.is_authenticated %}* (Profile dropdown menu fix) and by changing *{% if user.is_staff %}* to *{% if request.user.is_staff %}* only admins are now able to see the "Admin Panel"
 
 ### Unfixed Bugs
 
-**2022-10-14**
-* Search bar titles of posts are not shown
-* Profile dropdown menu does not work when on someone elses profile
+**2024-09-03**
+* CSRF error, more info in the *Known Bugs* section.
+* A staff member cannot pin a post in the admin panel without haveing at least one like 
 
 # Deployment
 
@@ -1036,21 +978,21 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 1</b></summary>
 
-![Heroku Deployment Step 1]()
+![Heroku Deployment Step 1](readme/assets/images/deployment/template.PNG)
 </details><br />
 
 2. Complete the necessary details as shown in the provided image, then click 'Create Repository From Template'.
 
 <details><summary><b>Heroku Deployment - Step 2</b></summary>
 
-![Heroku Deployment Step 2]()
+![Heroku Deployment Step 2](readme/assets/images/deployment/create new.PNG)
 </details><br />
 
 3. After the repository is created, click on 'Gitpod' as indicated in the picture.
 
 <details><summary><b>Heroku Deployment - Step 3</b></summary>
 
-![Heroku Deployment Step 3]()
+![Heroku Deployment Step 3](readme/assets/images/deployment/open.PNG)
 </details><br />
 
 4. Install Django by entering this command:
@@ -1059,7 +1001,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 4</b></summary>
 
-![Heroku Deployment Step 4]()
+![Heroku Deployment Step 4](readme/assets/images/deployment/install_django.PNG)
 </details><br />
 
 5. Generate a requirements file using the following command:
@@ -1068,7 +1010,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 5</b></summary>
 
-![Heroku Deployment Step 5](readme/assets/images/heroku_05.png)
+![Heroku Deployment Step 5](readme/assets/images/deployment/requirements.PNG)
 </details><br />
 
 6. Create your project:
@@ -1077,7 +1019,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 6</b></summary>
 
-![Heroku Deployment Step 6](readme/assets/images/heroku_06.png)
+![Heroku Deployment Step 6](readme/assets/images/deployment/create_project.PNG)
 </details><br />
 
 7. Create your application using:
@@ -1086,7 +1028,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 7</b></summary>
 
-![Heroku Deployment Step 7](readme/assets/images/heroku_07.png)
+![Heroku Deployment Step 7](readme/assets/images/deployment/create_app.PNG)
 </details><br />
 
 8. Add your local server to "ALLOWED_HOSTS" in the settings.py file. For this you need to run the command
@@ -1096,7 +1038,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 8</b></summary>
 
-![Heroku Deployment Step 8](readme/assets/images/heroku_08.png)
+![Heroku Deployment Step 8](readme/assets/images/deployment/allowed_hosts.PNG)
 </details><br />
 
 9. To get the code ready for deployment, gunicorn needs to be installed and added to the requirements with the following commands:
@@ -1106,7 +1048,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 9</b></summary>
 
-![Heroku Deployment Step 9]()
+![Heroku Deployment Step 9](readme/assets/images/deployment/gunicorn.PNG)
 </details><br />
 
 10. Create a file in the root directory named "Procfile" and add the nessesary lines to the settings.py file:
@@ -1119,12 +1061,12 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 10 - Procfile</b></summary>
 
-![Heroku Deployment Step 10 - Procfile]()
+![Heroku Deployment Step 10 - Procfile](readme/assets/images/deployment/procfile.PNG)
 </details><br />
 
 <details><summary><b>Heroku Deployment - Step 10 - settings.py</b></summary>
 
-![Heroku Deployment Step 10 - settings.py]()
+![Heroku Deployment Step 10 - settings.py](readme/assets/images/deployment/installed_apps.PNG)
 </details><br />
 
 11. Now it is time to create the application on Heroku:
@@ -1135,14 +1077,14 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Step 11</b></summary>
 
-![Heroku Step 11]()
+![Heroku Step 11](readme/assets/images/deployment/heroku1.PNG)
 </details><br />
 
 12. On Heroku, enter a unique application name, choose your region, and click 'Create app':
 
 <details><summary><b>Heroku Step 12</b></summary>
 
-![Heroku Step 12]()
+![Heroku Step 12](readme/assets/images/deployment/heroku2.PNG)
 </details><br />
 
 13. Add a Postgres database, which is created with the Code Institute link for [PostgresSQL](https://dbs.ci-dbs.net/) from the LMS and add it to your app via the Settings tab on Heroku:
@@ -1152,7 +1094,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Step 13</b></summary>
 
-![Heroku Step 13]()
+![Heroku Step 13](readme/assets/images/deployment/config.PNG)
 </details><br />
 
 14. In GitPod, create an env.py file in the top-level directory with the following content:
@@ -1164,15 +1106,10 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Step 14</b></summary>
 
-![Heroku Step 14]()
+![Heroku Step 14](readme/assets/images/deployment/env1.PNG)
 </details><br />
 
-15. Add your secret key to Heroku's Config Vars:
-
-<details><summary><b>Heroku Step 15</b></summary>
-
-![Heroku Step 15]()
-</details><br />
+15. Add your secret key to Heroku's Config Vars: Look at step 13
 
 16. In settings.py, add the following code:
 
@@ -1186,7 +1123,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Step 16</b></summary>
 
-![Heroku Step 15]()
+![Heroku Step 15](readme/assets/images/deployment/import_env.PNG)
 </details><br />
 
 17. Replace the insecure secret key in settings.py with:
@@ -1194,7 +1131,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Step 17</b></summary>
 
-![Heroku Step 17]()
+![Heroku Step 17](readme/assets/images/deployment/secret_key_settings.PNG)
 </details><br />
 
 18. Comment out the old database settings and add the link to DATABASE_URL since the project does not use the standart sqlite3 database. 
@@ -1207,7 +1144,7 @@ DATABASES = {
 
 <details><summary><b>Heroku Step 18</b></summary>
 
-![Heroku Step 18]()
+![Heroku Step 18](readme/assets/images/deployment/databese_settings.PNG)
 </details><br />
 
 
@@ -1225,35 +1162,35 @@ DATABASES = {
 
 <details><summary><b>Heroku Step 21</b></summary>
 
-![Heroku Step 21]()
+![Heroku Step 21](readme/assets/images/deployment/config2.PNG)
 </details><br />
 
 22. In the settings.py file, the Cloudinary Libraries have to be added to the installed apps. The correct order is very important.
 
 <details><summary><b>Heroku Step 22</b></summary>
 
-![Heroku Step 22]()
+![Heroku Step 22](readme/assets/images/deployment/installed_apps.PNG)
 </details><br />
 
 23. In the bottom of settings.py, add additional settings for static file management:
 
 <details><summary><b>Heroku Step 23</b></summary>
 
-![Heroku Step 23]()
+![Heroku Step 23](readme/assets/images/deployment/static.PNG)
 </details><br />
 
 24. The next step is to link the file to the Heroku templates directory:
 
 <details><summary><b>Heroku Step 24</b></summary>
 
-![Heroku Step 24]()
+![Heroku Step 24](readme/assets/images/deployment/templates.PNG)
 </details><br />
 
 25. Now edit the templates directory to "TEMPLATES_DIR" in the teamplates array.
 
 <details><summary><b>Heroku Step 25</b></summary>
 
-![Heroku Step 25]()
+![Heroku Step 25](readme/assets/images/deployment/templates2.PNG)
 </details><br />
 
 26. Some more files are needed before deploying:
@@ -1272,27 +1209,9 @@ DATABASES = {
 
 31. Scroll down to the manual deployment section and click 'Deploy Branch'.
 
-<details><summary><b>Heroku Step 31</b></summary>
-
-![Heroku Step 31]()
-</details><br />
-
 The live link to the 'PROject GOLFblog' site on Heroku an be found [here](https://project-golfblog-96e6107b0f52.herokuapp.com/). And the Github repository can be found [here](https://github.com/Mienjung97/PROject-GOLFblog).
 
 [Back to top](<#table-of-content>)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## How To Fork The Repository On GitHub
 
@@ -1302,7 +1221,7 @@ It is possible to do a independent copy of a GitHub Repository by forking the Gi
 
 <details><summary><b>Github Fork</b></summary>
 
-![Fork](readme/assets/images/github_fork.png)
+![Fork](readme/assets/images/fork.PNG)
 </details><br />
 
 [Back to top](<#table-of-content>)
@@ -1318,7 +1237,8 @@ To clone and set up this project you need to follow the steps below.
 
 <details><summary><b>Github Create Local Clone</b></summary>
 
-![Clone](readme/assets/images/github_clone_01.png)
+![Clone](readme/assets/images/clone1.PNG)
+![Clone](readme/assets/images/clone2.PNG)
 </details><br />
 
 5. To be able to get the project to work you need to install the requirements. This can be done by using the command below:
@@ -1330,40 +1250,48 @@ To clone and set up this project you need to follow the steps below.
 * ```python3 manage.py migrate``` - This will do the necessary migrations.
 * ```python3 manage.py runserver``` - If everything i setup correctly the project is now live locally.
 
-<details><summary><b>Setup env.py</b></summary>
-
-![Clone](readme/assets/images/github_clone_02.png)
-</details><br />
-
 [Back to top](<#table-of-content>)
 
 # Credits
 
 ## Content
 
-* All text content written by Marcus Eriksson.
+* This Readme file has been taken from [Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) and modified by me to fit my project. Some sections have been changed only slighly since the original was already fitting my needs and was very close to my projectn (the "Forc" and "Clone" sections were taken intirely since the process has not changed).
+    * *Marcus Erikssons*: "Template for read.me provided by Code Institute (*with some additional changes that my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/))* suggested."
 
-* Test concert images on review cards taken from [Shutterstock](https://www.shutterstock.com/sv)
+* My project **PROject GOLFblog** has started almost as a copy of the example project *I think therefore I blog* and has been edited in most areas ever since, but especially the **Post**, **Comment** and **About** models, as well as the JS code for the comment section has been almost unaltered.
 
-* Test album images on review cards taken from [Kollektiv Fem](https://www.kollektivfem.se) which is owned by Marcus Eriksson.
+* The [Codemy.com](https://www.youtube.com/@Codemycom) YouTube channel, especially their Django blog example helped me implement features like the like function and displaying the likes
 
-* Featured default review image taken from [FAVPNG](https://favpng.com/png_view/download-clip-art-png/hHNmGh4R)
+* I used some help from various more YouTube tutorials and w3schools tutorials.
 
-* Template for read.me provided by Code Institute (*with some additional changes that my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/))* suggested.
+* [Linuses PP4](https://github.com/j0hanz/tech-corner-website) (with linus himself) helped me with implementing code that he suggested for better UX like starting on a different page depending on the users log in status
+
+* Pictures and checking if the process of forking and clong were correct with [Github tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+
+* All pictrures on the webpage were used from the [PROject GOLFacademy](https://projectgolfacademy.com/) website, besides:
+    * Profile picture for Assessor: Photo by <a href="https://unsplash.com/@markusspiske?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Markus Spiske</a> on <a href="https://unsplash.com/photos/colorful-software-or-web-code-on-a-computer-monitor-Skf7HxARcoc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+    * my Profile (Sebastian) Picture: Photo by <a href="https://unsplash.com/@alexacea?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alexandru Acea</a> on <a href="https://unsplash.com/photos/turned-on-flat-screen-tv--WBYxmW4yuw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 ## Technical
 
-* Inspiration regarding UpdateView taken from [Learn Django Class Based Views](https://www.youtube.com/watch?v=EUUjJdw3EBM)
+* Many different posts on [Stackoverflow](https://stackoverflow.com/) have helped me understand Django and its functionality better, as well as it helped me fix bugs while coding
 
-* Formatting date format [Formatting Date, Time, and Numbers in Django Templating](https://collinshillary1.medium.com/formatting-date-time-and-numbers-in-django-templating-f53fea027a06)
+* The [Bootstrap](https://getbootstrap.com/) documentation helped me a lot with the styling of my page
 
-* Inspiration regarding CSS code to add circle around text [How to Add a Circle Around a Number in CSS](https://www.w3docs.com/snippets/css/how-to-add-a-circle-around-a-number-in-css.html)
+* The AI tool [perplexity](https://www.perplexity.ai/) was used a lot for debugging and helping to understand my mistakes. No code was written by AI, the tool was just used in case of bugs and missing understanding on how a feature works
 
-* Inspiration regarding adding extra forms in Django Allauth form [How to add more custom fields on signup form?](https://stackoverflow.com/questions/68591755/django-allauth-how-to-add-more-custom-fields-on-signup-form)
+* The *I think therefore I blog* code along project from Code Institute has been a valuable source for both starting the project as well as for setting up new apps, models, urls and views
 
 # Acknowledgements
-This fictional site was created for Portfolio Project #4 (Full-Stack Tolkin) - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://www.codeinstitute.net). I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for relevant feedback during the project.
+* I have to thank my dear partner for being so patient since there is not a lot of free time and yet she fully supports me on a daily basis
 
-*Marcus Eriksson, 2022-10-18*
+* This website was created for Portfolio Project #4 - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://www.codeinstitute.net). I would like to thank my mentor [Alshat Garg](https://in.linkedin.com/in/akshatnitd) for relevant feedback and bug hunting during the project.
+
+* I am also thankful for my co-student [Marceillo](https://github.com/Marceillo) and [Linus](https://github.com/j0hanz), who I worked closely together, and who helped me with questions, gave their input and in times of question.
+
+* A big thank you goes out to the Tutors who have helped me along my fourth protfolio project
+
+*Sebastian Kefer, 04.09.2024*
 
 [Back to top](<#table-of-content>)
