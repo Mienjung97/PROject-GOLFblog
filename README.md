@@ -36,8 +36,8 @@ This site was created for Portfolio Project #4 (Full-Stack Toolkit) - Diploma in
     * [Profile Page](<#profile-page>)
     * [Show Posts](<#show-posts>)
     * [Logout](<#logout>)
-    * [Admin](<#Admin>)
-    * [Admin Panel](<#admin-panel>)Pin and Unpin Posts
+    * [Admin](<#admin>)
+    * [Admin Panel](<#admin-panel>)
     * [Pin and Unpin Posts](<#pin-and-unpin-posts>)
     * [Register](<#register>)
     * [Log In](<#log-in>)
@@ -890,35 +890,59 @@ Google Lighthouse in Chrome Developer Tools was used to test the application wit
 
 <details><summary><b>Lighthouse Home Result</b></summary>
 
+* Desktop view: Logged in
 ![Lighthouse Home Result Desktop Log In](readme/assets/images/validation/lighthouse/d_home1_lh.PNG)
+
+* Desktop view: Logged out
 ![Lighthouse Home Result Desktop Log out](readme/assets/images/validation/lighthouse/d_home2_lh.PNG)
+
+* Mobile view: Logged in
 ![Lighthouse Home Result Mobile Log In](readme/assets/images/validation/lighthouse/m_home1_lh.PNG)
+
+* Mobile view: Logged out
 ![Lighthouse Home Result Mobile Log out](readme/assets/images/validation/lighthouse/m_home2_lh.PNG)
 </details><br/>
 
 <details><summary><b>Lighthouse Profile Result</b></summary>
 
+* Desktop view
 ![Lighthouse Profile Result Desktop](readme/assets/images/validation/lighthouse/d_profile_lh.PNG)
+
+* Mobile view
 ![Lighthouse Profile Result Mobile](readme/assets/images/validation/lighthouse/m_profile_lh.PNG)
 </details><br/>
 
 <details><summary><b>Lighthouse Edit Profile Result</b></summary>
 
+* Desktop view
 ![Lighthouse Edit Profile Result Desktop](readme/assets/images/validation/lighthouse/d_edit_profile_lh.PNG)
+
+* Mobile view
 ![Lighthouse Edit Profile Result Mobile](readme/assets/images/validation/lighthouse/m_edit_profile.PNG)
 </details><br/>
 
 <details><summary><b>Lighthouse Add Post Result</b></summary>
 
+* Desktop view
 ![Lighthouse Add Post Result Desktop](readme/assets/images/validation/lighthouse/d_create_lh.PNG)
+
+* Mobile view
 ![Lighthouse Add Post Result Mobile](readme/assets/images/validation/lighthouse/m_create_lh.PNG)
 </details><br/>
 
 <details><summary><b>Lighthouse About Result</b></summary>
 
+* Desktop view: Logged in
 ![Lighthouse About Result Desktop Log In](readme/assets/images/validation/lighthouse/d_about1_lh.PNG)
+
+* Desktop view: Logged out
 ![Lighthouse About Result Desktop Log out](readme/assets/images/validation/lighthouse/d_about2_lh.PNG)
+
+* Mobile view: Logged in
+
 ![Lighthouse About Result Mobile Log In](readme/assets/images/validation/lighthouse/m_about1_lh.PNG)
+
+* Mobile view: Logged out
 ![Lighthouse About Result Mobile Log out](readme/assets/images/validation/lighthouse/m_about2_lh.PNG)
 </details><br/>
 
@@ -985,7 +1009,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy a projec
 
 <details><summary><b>Heroku Deployment - Step 2</b></summary>
 
-![Heroku Deployment Step 2](readme/assets/images/deployment/create new.PNG)
+![Heroku Deployment Step 2](readme/assets/images/deployment/create_new.PNG)
 </details><br />
 
 3. After the repository is created, click on 'Gitpod' as indicated in the picture.
